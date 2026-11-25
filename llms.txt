@@ -1,41 +1,41 @@
-# The Number on the Wall — Carlos Lucas
+# The Number on the Wall (Carlos Lucas)
 
-> Official book website for *The Number on the Wall: A Business Novel About Scrum Beyond IT* by Carlos Lucas (https://carloslucas.de). A story-driven business novel paired with a plain-English Field Guide showing non-IT teams how to apply Scrum without software jargon.
+> Official website for *The Number on the Wall: A Business Novel About Scrum Beyond IT* by Carlos Lucas (https://carloslucas.de). A business novel set at a spare parts desk in Hamburg, paired with a practical Field Guide for teams using Scrum outside IT.
 
 ## About the Book
 
 - **Title:** The Number on the Wall
 - **Subtitle:** A Business Novel About Scrum Beyond IT
 - **Author:** Carlos Lucas
-- **Format:** Business Novel + Practical Field Guide (Paperback & Kindle Edition)
-- **Language:** English (First Edition); German, Spanish, and Portuguese editions planned
-- **Setting:** A spare-parts desk at Ashby & Co. in Hamburg, Germany (fictionalised companies: Ashby & Co., Corvane Cruise Group, Varnholt Process Services)
-- **Core Premise:** Dry frameworks slide off the brain unless wrapped in a story about real people making a mess of things. When a team stops colouring status reports green and puts the real, uncomfortable number ("38") on the wall, blame gives way to shared visibility and practical Scrum habits that work outside software development.
+- **Format:** Business Novel and Practical Field Guide (Paperback and Kindle Edition)
+- **Language:** English (First Edition). German, Spanish, and Portuguese editions planned.
+- **Setting:** A spare parts desk at Ashby & Co. in Hamburg, Germany (fictionalised companies: Ashby & Co., Corvane Cruise Group, Varnholt Process Services).
+- **Premise:** Every status report is green, while customers grow angry and backlogs pile up. When George and his colleagues stop pretending a broken plan works and pin the real, uncomfortable number ("38") on the wall, blame gives way to shared visibility and practical Scrum habits outside software development.
 
-## Target Audience & Comparable Titles
+## Target Audience and Comparable Titles
 
-- **Who it is for:** Team leads, department heads, operations managers, service and logistics teams, project coordinators, and practitioners outside IT who want practical Scrum without software-engineering jargon—as well as Scrum Masters introducing Scrum to business stakeholders.
+- **Who it is for:** Team leads, department heads, operations managers, service and logistics teams, project coordinators, and practitioners outside IT who want practical Scrum without software jargon. Also used by Scrum Masters and Agile Coaches introducing Scrum to sceptical business colleagues.
 - **Comparable books:** *The Phoenix Project* (Gene Kim et al.), *The Goal* (Eliyahu M. Goldratt), *The Five Dysfunctions of a Team* (Patrick Lencioni).
 
 ## Free Companion Resource
 
-- **One-Page Scrum Cheat Sheet:** A free, printable single-page summary for Monday mornings available via the reader list at https://carloslucas.de/cheatsheet (~5 emails per year, zero corporate jargon).
+- **One-Page Scrum Cheat Sheet:** A free, printable single-page summary for Monday mornings available via the reader list at https://carloslucas.de/cheatsheet (~5 emails per year, no corporate jargon).
 
 ## Upcoming Sequel
 
-- **Book 2:** *More Trouble Ahead* (Coming Next) — explores what happens after a single team's breakthrough collides with the wider organisation's habits, politics, and dependencies.
+- **Book 2:** *More Trouble Ahead* (Coming Next). Follows what happens when honest transparency inside a single department collides with the habits, politics, and dependencies of the wider organisation.
 
 ## About the Author
 
-Carlos Lucas has spent more than two decades moving between business and technology, helping teams solve stubborn operational problems by testing methods in practice rather than relying on buzzwords. He lives near Hamburg in northern Germany.
+Carlos Lucas has spent more than two decades moving between business and technology, helping teams solve stubborn problems by testing methods in practice rather than relying on buzzwords. He lives near Hamburg in northern Germany.
 - LinkedIn: https://www.linkedin.com/in/it-for-humans/
 - Reader list: https://carloslucas.de/newsletter
 
 ## Key URLs on carloslucas.de
 
-- [Homepage & Book Overview](https://carloslucas.de/): Cover, synopsis, Author's Note, Scrum Beyond IT FAQ, and About the Author.
+- [Homepage and Book Overview](https://carloslucas.de/): Cover, story overview, Author's Note, Scrum Beyond IT FAQ, and About the Author.
 - [Free One-Page Scrum Cheat Sheet](https://carloslucas.de/cheatsheet): Printable Monday-morning reference and reader list signup.
-- [Reader List / Newsletter](https://carloslucas.de/newsletter): Direct anchor to the low-volume reader list (~5 emails/year).
+- [Reader List / Newsletter](https://carloslucas.de/newsletter): Direct anchor to the low-volume reader list (~5 emails per year).
 - [Imprint / Impressum](https://carloslucas.de/imprint): Legal disclosure (EN/DE).
 - [Privacy Policy / Datenschutzerklärung](https://carloslucas.de/privacy): Cookie-free GDPR privacy policy (EN/DE).
 - [Planned Translations](https://carloslucas.de/de/): German (`/de/`), Spanish (`/es/`), and Portuguese (`/pt/`) placeholder pages.

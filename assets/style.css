@@ -1,6 +1,7 @@
 /* ==========================================================================
-   The Number on the Wall — carloslucas.de
-   Editorial Paper & Index-Card Design System (Zero external fonts/trackers)
+   The Number on the Wall (carloslucas.de)
+   Editorial Book & Paper Design System
+   Zero external fonts, zero trackers, zero cookies.
    ========================================================================== */
 
 :root {
@@ -13,22 +14,20 @@
   --text-muted: #5A5A5A;
   --border-subtle: #E5DDD0;
 
-  /* Supporting derived tones */
-  --bg-tint: #F3EDE2;
-  --index-rule-blue: rgba(27, 42, 74, 0.08);
-  --shadow-card: 0 1px 3px rgba(27, 42, 74, 0.05), 0 10px 26px rgba(27, 42, 74, 0.04);
-  --shadow-book: 0 16px 34px rgba(27, 42, 74, 0.18), 0 4px 12px rgba(27, 42, 74, 0.08);
+  /* Quiet supporting shades derived from the cover palette */
+  --bg-paper-deep: #F3ECE0;
+  --bg-ivory: #FDFBF7;
+  --ink-faint: rgba(27, 42, 74, 0.14);
 
-  /* Privacy-first system typography (zero external font CDNs) */
+  /* Editorial print-inspired system font stacks (zero external CDNs) */
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Liberation Serif", serif;
   --font-sans: "Avenir Next", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
 
-  --max-width: 960px;
-  --max-width-narrow: 740px;
-  --radius: 4px;
+  --max-width: 1020px;
+  --max-width-reading: 720px;
 }
 
-/* Reset & Base */
+/* Base Reset */
 *,
 *::before,
 *::after {
@@ -43,15 +42,15 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   background-color: var(--bg-paper);
   color: var(--text-main);
-  font-size: 1rem;
-  line-height: 1.7;
-  border-top: 4px solid var(--accent-red);
+  font-size: 1.08rem;
+  line-height: 1.75;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  text-rendering: optimizeLegibility;
 }
 
 img {
@@ -62,20 +61,23 @@ img {
 
 a {
   color: var(--accent-red);
+  text-decoration: underline;
+  text-decoration-color: rgba(155, 27, 32, 0.35);
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  transition: color 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+  text-underline-offset: 0.22em;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
 }
 
 a:hover {
   color: var(--accent-red-hover);
+  text-decoration-color: var(--accent-red-hover);
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--accent-red);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* Skip link */
@@ -83,10 +85,11 @@ input:focus-visible {
   position: absolute;
   left: -9999px;
   top: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   background: var(--brand-navy);
   color: #FFFFFF;
   padding: 0.65rem 1.1rem;
-  font-weight: 600;
   text-decoration: none;
   z-index: 100;
 }
@@ -94,7 +97,6 @@ input:focus-visible {
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
-  border-radius: var(--radius);
 }
 
 /* Layout Containers */
@@ -102,36 +104,36 @@ input:focus-visible {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
 .page-narrow .container {
-  max-width: var(--max-width-narrow);
+  max-width: var(--max-width-reading);
 }
 
-/* Header */
+/* ==========================================================================
+   Header: Quiet Literary Masthead
+   ========================================================================== */
 .site-header {
+  border-top: 3px solid var(--accent-red);
   border-bottom: 1px solid var(--border-subtle);
-  background-color: var(--bg-paper);
 }
 
 .site-header .container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  padding-top: 1.4rem;
-  padding-bottom: 1.4rem;
+  gap: 0.75rem 2rem;
+  padding-top: 1.55rem;
+  padding-bottom: 1.35rem;
 }
 
 .brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--brand-navy);
@@ -141,79 +143,66 @@ input:focus-visible {
   color: var(--accent-red);
 }
 
-.brand-mark {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  background-color: var(--accent-red);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
 .site-nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.35rem 1.4rem;
+  gap: 0.5rem 1.75rem;
+  font-family: var(--font-sans);
 }
 
 .site-nav a {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 500;
-  padding: 0.2rem 0;
-  border-bottom: 1.5px solid transparent;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
 }
 
 .site-nav a:hover {
   color: var(--brand-navy);
-  border-bottom-color: var(--accent-red);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-red);
 }
 
 /* Main */
 main {
   flex: 1;
-  padding: 3.25rem 0 4.5rem;
-}
-
-.page-narrow main {
-  padding: 2.75rem 0 4rem;
 }
 
 /* Typography */
 h1, h2, h3 {
+  font-family: var(--font-serif);
   color: var(--brand-navy);
   font-weight: 700;
-  letter-spacing: -0.015em;
 }
 
 h1 {
-  font-size: clamp(2rem, 4.2vw, 3rem);
-  line-height: 1.12;
-  margin-bottom: 0.75rem;
+  font-size: clamp(2.35rem, 4.6vw, 3.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 .page-narrow h1 {
-  font-size: clamp(1.7rem, 3.2vw, 2.25rem);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-size: clamp(1.85rem, 3.4vw, 2.45rem);
+  line-height: 1.18;
+  margin-bottom: 1.25rem;
 }
 
 h2 {
-  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
-  line-height: 1.25;
-  margin-bottom: 1rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.05rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.15rem;
 }
 
 h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.35;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 p {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.2rem;
 }
 
 p:last-child {
@@ -221,34 +210,29 @@ p:last-child {
 }
 
 ul {
-  padding-left: 1.3rem;
-  margin-bottom: 1.1rem;
+  padding-left: 1.35rem;
+  margin-bottom: 1.2rem;
 }
 
 li {
   margin-bottom: 0.45rem;
 }
 
-.kicker {
-  display: inline-block;
+.eyebrow {
+  font-family: var(--font-sans);
   font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 0.14em;
-  color: var(--accent-red);
-  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  display: block;
 }
 
-.section-divider {
+.section-rule {
   border: 0;
   border-top: 1px solid var(--border-subtle);
-  margin: 2.5rem 0;
-}
-
-/* Sections Spacing & Anchor Offsets */
-.page-section {
-  margin-top: 4.5rem;
-  scroll-margin-top: 2rem;
+  margin: 0;
 }
 
 .anchor-target {
@@ -260,129 +244,118 @@ li {
 }
 
 /* ==========================================================================
-   Hero Section (Launch Layout)
+   Hero: Editorial Book Presentation
    ========================================================================== */
-.hero {
+.hero-band {
+  padding: 4.25rem 0 4.5rem;
+}
+
+.hero-grid {
   display: grid;
-  grid-template-columns: minmax(220px, 290px) 1fr;
-  gap: 3rem 3.5rem;
+  grid-template-columns: minmax(250px, 325px) minmax(0, 1fr);
+  gap: 3rem 4.25rem;
   align-items: center;
 }
 
-.hero-cover {
-  position: relative;
+.hero-cover-col {
   justify-self: center;
   width: 100%;
-  max-width: 290px;
+  max-width: 325px;
 }
 
-.book-frame {
+.book-object {
   position: relative;
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow: var(--shadow-book);
-  border: 1px solid rgba(27, 42, 74, 0.1);
   background: var(--bg-card);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(27, 42, 74, 0.12);
+  box-shadow:
+    -6px 0 0 rgba(27, 42, 74, 0.04),
+    0 20px 44px rgba(27, 42, 74, 0.16),
+    0 5px 14px rgba(27, 42, 74, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.book-frame:hover {
+.book-object:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 42px rgba(27, 42, 74, 0.2), 0 6px 14px rgba(27, 42, 74, 0.1);
+  box-shadow:
+    -6px 0 0 rgba(27, 42, 74, 0.05),
+    0 26px 52px rgba(27, 42, 74, 0.2),
+    0 7px 18px rgba(27, 42, 74, 0.1);
 }
 
-.book-frame img {
+.book-object img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
-.hero-title-accent {
+.hero-title-red {
   color: var(--accent-red);
 }
 
 .hero-subtitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 2vw, 1.38rem);
-  color: var(--brand-navy);
   font-style: italic;
-  line-height: 1.4;
-  margin-bottom: 1.35rem;
-}
-
-.hero-pitch {
-  font-size: 1.04rem;
-  color: var(--text-main);
-  max-width: 58ch;
-  margin-bottom: 1rem;
-}
-
-.hero-meta-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 1.25rem;
-  font-size: 0.88rem;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
   color: var(--text-muted);
-  margin: 1.25rem 0 1.75rem;
-  padding: 0.8rem 0;
+  margin-top: 0.65rem;
+  margin-bottom: 1.8rem;
+}
+
+.hero-lead {
+  font-size: 1.24rem;
+  line-height: 1.58;
+  color: var(--brand-navy);
+  margin-bottom: 1.15rem;
+  max-width: 48ch;
+}
+
+.hero-body {
+  font-size: 1.04rem;
+  line-height: 1.72;
+  color: var(--text-main);
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+
+/* Publisher Action Area */
+.buy-block {
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.hero-meta-strip span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.hero-meta-strip span::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent-red);
-  flex-shrink: 0;
-}
-
-/* Action Buttons */
-.hero-actions {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-}
-
-.cta-primary-row {
-  display: flex;
-  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-.cta-retail-row {
+.action-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
+}
+
+.action-row-editions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 470px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
   font-family: var(--font-sans);
-  font-size: 0.96rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  line-height: 1.2;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
   text-decoration: none;
-  padding: 0.85rem 1.45rem;
-  border-radius: var(--radius);
+  padding: 0.85rem 1.4rem;
   border: 1.5px solid transparent;
+  border-radius: 2px;
   cursor: pointer;
-  transition: background-color 0.16s ease, color 0.16s ease, border-color 0.16s ease, transform 0.12s ease;
-}
-
-.btn:active {
-  transform: translateY(1px);
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 
 .btn-primary {
@@ -397,209 +370,288 @@ li {
   color: #FFFFFF;
 }
 
-.btn-secondary {
-  background-color: var(--bg-card);
+.btn-outline {
+  background-color: transparent;
   border-color: var(--brand-navy);
   color: var(--brand-navy);
 }
 
-.btn-secondary:hover {
+.btn-outline:hover {
+  background-color: var(--brand-navy);
+  color: #FFFFFF;
+}
+
+/* Amazon Pre-Launch / Live Edition Buttons */
+.btn-edition {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.18rem;
+  background-color: var(--bg-card);
+  border-color: #CFC5B4;
+  color: var(--brand-navy);
+  padding: 0.72rem 1.05rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.btn-edition:hover {
+  border-color: var(--brand-navy);
+  color: var(--brand-navy);
+}
+
+.btn-edition[data-status="live"] {
   background-color: var(--brand-navy);
   border-color: var(--brand-navy);
   color: #FFFFFF;
 }
 
-/* Pre-launch Amazon placeholder buttons (swap data-status="prelaunch" -> "live" on launch day) */
-.btn-retail {
-  background-color: var(--bg-card);
-  border-color: var(--border-subtle);
-  color: var(--brand-navy);
-  padding: 0.62rem 0.85rem;
-  font-size: 0.86rem;
-  gap: 0.45rem;
+.btn-edition[data-status="live"]:hover {
+  background-color: #13203A;
+  border-color: #13203A;
+  color: #FFFFFF;
 }
 
-.btn-retail:hover {
-  border-color: var(--brand-navy);
-  color: var(--brand-navy);
-  background-color: var(--bg-card);
-}
-
-.btn-retail[data-status="prelaunch"] {
-  border-style: dashed;
-  border-color: #C9BDA8;
+.edition-note {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
   color: var(--text-muted);
+  margin-top: 0.85rem;
+  line-height: 1.55;
 }
 
-.btn-retail[data-status="prelaunch"]:hover {
-  border-color: var(--accent-red);
+.edition-note a {
   color: var(--brand-navy);
+  font-weight: 600;
+  text-decoration-color: rgba(27, 42, 74, 0.35);
 }
 
-.btn-retail[data-status="live"] {
-  border-style: solid;
-  border-color: var(--brand-navy);
-  color: var(--brand-navy);
-}
-
-.btn-retail[data-status="live"]:hover {
-  background-color: var(--brand-navy);
-  color: #FFFFFF;
-}
-
-.status-tag {
-  font-size: 0.66rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.16rem 0.4rem;
-  border-radius: 3px;
-  background-color: var(--bg-tint);
+.edition-note a:hover {
   color: var(--accent-red);
+  text-decoration-color: var(--accent-red);
 }
 
-.btn-retail[data-status="live"] .status-tag {
+.edition-status-text {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.btn-edition[data-status="live"] .edition-status-text {
   display: none;
 }
 
-.prelaunch-note {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  margin-top: -0.2rem;
-}
-
 /* ==========================================================================
-   Framed Editorial Card — "A Note from the Author"
+   Inside the Book: Asymmetric Editorial Two-Column Feature (No Boxes)
    ========================================================================== */
-.author-note-frame {
-  background-color: var(--bg-card);
-  border: 1.5px solid var(--accent-red);
-  border-radius: 3px;
-  padding: 0.45rem;
-  box-shadow: var(--shadow-card);
+.story-band {
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.author-note-inner {
-  border: 1px solid var(--border-subtle);
-  padding: 2.5rem 2.75rem;
-  background-color: var(--bg-card);
-}
-
-.author-note-body {
-  font-family: var(--font-serif);
-  font-size: 1.08rem;
-  line-height: 1.82;
-  color: var(--text-main);
-  max-width: 66ch;
-}
-
-.author-note-body p {
-  margin-bottom: 1.25rem;
-}
-
-.author-note-body p:last-child {
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
-   Index Card Component — Newsletter / Cheat Sheet & Subpage Cards
-   ========================================================================== */
-.card,
-.index-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
-  padding: 2.25rem 2.5rem;
-}
-
-.index-card {
-  position: relative;
-  border-top: 3px solid var(--accent-red);
-  background-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 38px,
-    rgba(155, 27, 32, 0.18) 38px,
-    rgba(155, 27, 32, 0.18) 39px,
-    transparent 39px
-  );
-}
-
-.index-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: -1.65rem;
-  margin-bottom: 1.65rem;
-  padding-bottom: 0.55rem;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--accent-red);
-}
-
-.index-card-ref {
-  color: var(--text-muted);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
-.cheatsheet-layout {
+.story-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 2.25rem 2.75rem;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 2.5rem 4.5rem;
   align-items: start;
 }
 
-.cheatsheet-copy h2 {
+.story-aside {
+  padding-top: 0.25rem;
+}
+
+.pull-number {
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--accent-red);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.aside-caption {
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.book-ledger {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-main);
+}
+
+.book-ledger dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.95rem;
+}
+
+.book-ledger dt:first-child {
   margin-top: 0;
 }
 
-.cheatsheet-points {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1.25rem;
-  margin-bottom: 0;
-  font-size: 0.93rem;
-  color: var(--text-muted);
+.book-ledger dd {
+  margin-top: 0.15rem;
+  color: var(--brand-navy);
+  font-weight: 500;
 }
 
-.cheatsheet-points li {
+.story-prose {
+  max-width: 60ch;
+}
+
+.story-prose h2 {
+  margin-bottom: 1.35rem;
+}
+
+.story-subhead {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-top: 2rem;
+  margin-bottom: 0.55rem;
+}
+
+/* ==========================================================================
+   A Note from the Author: Cover-Inspired Red-Framed Book Leaf
+   ========================================================================== */
+.note-band {
+  padding: 4.5rem 0;
+  background-color: var(--bg-paper-deep);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  scroll-margin-top: 1.5rem;
+}
+
+.book-leaf {
   position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 0.5rem;
+  max-width: 780px;
+  margin: 0 auto;
+  background-color: var(--bg-ivory);
+  border: 2px solid var(--accent-red);
+  padding: 3.5rem 4rem 3.75rem;
+  box-shadow: 0 10px 32px rgba(27, 42, 74, 0.06);
 }
 
-.cheatsheet-points li::before {
-  content: "";
+.book-leaf h2 {
+  text-align: center;
+  margin-bottom: 2.1rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+}
+
+.book-leaf-body {
+  font-size: 1.09rem;
+  line-height: 1.85;
+  color: var(--text-main);
+}
+
+.book-leaf-body p {
+  margin-bottom: 1.35rem;
+}
+
+.book-leaf-body p:last-child {
+  margin-bottom: 0;
+}
+
+.book-leaf-signature {
   position: absolute;
-  left: 0;
-  top: 0.62rem;
-  width: 6px;
-  height: 2px;
-  background-color: var(--accent-red);
+  bottom: -0.72rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, var(--bg-ivory) 50%, var(--bg-paper-deep) 50%);
+  padding: 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
 }
 
-/* Brevo Form Styling (endpoints & field names untouched) */
-.newsletter-form {
-  background-color: var(--bg-paper);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  padding: 1.6rem 1.65rem;
+/* ==========================================================================
+   Cheat Sheet & Reader List: Authentic Index Card
+   ========================================================================== */
+.cheatsheet-band {
+  padding: 5rem 0;
+  scroll-margin-top: 1.5rem;
+}
+
+.index-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid #DDD3C3;
+  box-shadow:
+    0 2px 6px rgba(27, 42, 74, 0.05),
+    0 16px 36px rgba(27, 42, 74, 0.07);
+  padding: 3.25rem 3.5rem;
+  background-image:
+    linear-gradient(to bottom, transparent 0, transparent 2.85rem, rgba(155, 27, 32, 0.42) 2.85rem, rgba(155, 27, 32, 0.42) calc(2.85rem + 1.5px), transparent calc(2.85rem + 1.5px));
+}
+
+.index-card-pin {
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #C9353B, var(--accent-red) 70%, #630E12);
+  box-shadow: 0 2px 4px rgba(27, 42, 74, 0.25);
+}
+
+.cheatsheet-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 2.5rem 4rem;
+  align-items: start;
+  padding-top: 1rem;
+}
+
+.cheatsheet-copy h2 {
+  margin-bottom: 1.15rem;
+}
+
+.cheatsheet-copy p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.cheatsheet-cadence {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Native Brevo Form (endpoints & field names 100% untouched) */
+.brevo-form {
+  font-family: var(--font-sans);
 }
 
 .form-group {
-  margin-bottom: 1.05rem;
+  margin-bottom: 1.15rem;
 }
 
 .form-group label {
   display: block;
+  font-size: 0.84rem;
   font-weight: 600;
-  font-size: 0.9rem;
   color: var(--brand-navy);
   margin-bottom: 0.35rem;
 }
@@ -607,41 +659,41 @@ li {
 .form-group input[type="text"],
 .form-group input[type="email"] {
   width: 100%;
-  padding: 0.72rem 0.9rem;
+  padding: 0.78rem 0.9rem;
   font-family: var(--font-sans);
-  font-size: 0.98rem;
-  border: 1px solid #D5CBB9;
-  border-radius: var(--radius);
-  background-color: var(--bg-card);
+  font-size: 0.96rem;
   color: var(--text-main);
-  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+  background-color: var(--bg-ivory);
+  border: 1px solid #CFC5B4;
+  border-radius: 2px;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
 }
 
 .form-group input[type="text"]::placeholder,
 .form-group input[type="email"]::placeholder {
-  color: #8E877D;
+  color: #8D857B;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus {
   outline: none;
+  background-color: var(--bg-card);
   border-color: var(--brand-navy);
-  box-shadow: 0 0 0 3px rgba(27, 42, 74, 0.1);
 }
 
 .checkbox-label {
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 400 !important;
   color: var(--text-muted) !important;
-  line-height: 1.5;
+  line-height: 1.55;
   cursor: pointer;
 }
 
 .checkbox-label input[type="checkbox"] {
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
   width: 1rem;
   height: 1rem;
   accent-color: var(--accent-red);
@@ -649,186 +701,202 @@ li {
   cursor: pointer;
 }
 
-.newsletter-form .btn {
+.brevo-form .btn {
   width: 100%;
   margin-top: 0.35rem;
 }
 
-/* Note Box (reused across subpages) */
-.note-box {
-  background-color: var(--bg-tint);
-  border-left: 3px solid var(--accent-red);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 1.1rem 1.35rem;
-  margin: 1.5rem 0;
-  font-size: 0.95rem;
+/* ==========================================================================
+   FAQ: Clean Editorial Ledger (No SaaS Cards, No Number Badges)
+   ========================================================================== */
+.faq-band {
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+  scroll-margin-top: 1.5rem;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 2.5rem 4.5rem;
+  align-items: start;
+}
+
+.faq-intro p {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.faq-entries {
+  border-top: 1px solid var(--brand-navy);
+}
+
+.faq-entry {
+  padding: 1.65rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.faq-entry h3 {
+  font-size: 1.18rem;
+  color: var(--brand-navy);
+  margin-bottom: 0.6rem;
+}
+
+.faq-entry p {
+  font-size: 1rem;
+  line-height: 1.72;
   color: var(--text-main);
+  max-width: 60ch;
+}
+
+/* ==========================================================================
+   Sequel Teaser & About the Author
+   ========================================================================== */
+.sequel-band {
+  padding: 3.5rem 0;
+  background-color: var(--bg-paper-deep);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sequel-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 1.25rem 4.5rem;
+  align-items: baseline;
+}
+
+.sequel-label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+}
+
+.sequel-body h2 {
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.sequel-body p {
+  max-width: 58ch;
+  font-size: 1.03rem;
+}
+
+.sequel-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.about-band {
+  padding: 4.5rem 0 5rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 1.5rem 4.5rem;
+  align-items: baseline;
+}
+
+.about-prose {
+  max-width: 60ch;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Subpages (check-inbox, welcome, imprint, privacy, /de/, /es/, /pt/)
+   ========================================================================== */
+.page-narrow main {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.doc-sheet {
+  background-color: var(--bg-card);
+  border: 1px solid #DDD3C3;
+  border-top: 3px solid var(--accent-red);
+  padding: 3rem 3.25rem;
+  box-shadow: 0 8px 28px rgba(27, 42, 74, 0.05);
+}
+
+.doc-sheet h2 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.doc-sheet h3 {
+  font-size: 1.05rem;
+  margin-top: 1.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.doc-divider {
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2.25rem 0;
+}
+
+.note-box {
+  background-color: var(--bg-paper);
+  border-left: 3px solid var(--accent-red);
+  padding: 1.15rem 1.4rem;
+  margin: 1.65rem 0;
+  font-size: 0.98rem;
+  line-height: 1.68;
 }
 
 .note-box strong {
   color: var(--brand-navy);
 }
 
-/* ==========================================================================
-   FAQ Section (Quotable SEO & LLM-GEO Structure)
-   ========================================================================== */
-.section-header {
-  max-width: 64ch;
-  margin-bottom: 2rem;
-}
-
-.section-intro {
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-.faq-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.faq-item {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.75rem;
-  box-shadow: 0 1px 2px rgba(27, 42, 74, 0.03);
-}
-
-.faq-item h3 {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: baseline;
-  gap: 0.75rem;
-  font-size: 1.08rem;
-  color: var(--brand-navy);
-  margin-bottom: 0.6rem;
-}
-
-.faq-num {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent-red);
-  flex-shrink: 0;
-}
-
-.faq-item p {
-  color: var(--text-main);
-  font-size: 0.97rem;
-  line-height: 1.7;
-  padding-left: 1.9rem;
-}
-
-/* ==========================================================================
-   Sequel Teaser — "More Trouble Ahead"
-   ========================================================================== */
-.sequel-card {
-  background-color: var(--bg-tint);
-  border: 1px solid var(--border-subtle);
-  border-left: 4px solid var(--accent-red);
-  border-radius: var(--radius);
-  padding: 2rem 2.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem 2.5rem;
-  flex-wrap: wrap;
-}
-
-.sequel-copy {
-  flex: 1 1 420px;
-}
-
-.sequel-copy h2 {
-  font-family: var(--font-serif);
-  font-style: italic;
-  margin-bottom: 0.5rem;
-}
-
-.sequel-copy p {
-  color: var(--text-main);
-  font-size: 0.97rem;
-  max-width: 60ch;
-}
-
-.sequel-action {
-  flex-shrink: 0;
-}
-
-/* ==========================================================================
-   About the Author
-   ========================================================================== */
-.about-section {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 3rem;
-}
-
-.about-content {
-  max-width: 68ch;
-  font-size: 1.02rem;
-  line-height: 1.78;
-}
-
-/* ==========================================================================
-   Legal & Narrow Document Pages (Imprint, Privacy, Language Placeholders)
-   ========================================================================== */
-.legal-card h2 {
-  margin-top: 1.75rem;
-  font-size: 1.3rem;
-}
-
-.legal-card h2:first-of-type {
-  margin-top: 0.75rem;
-}
-
-.legal-card h3 {
-  margin-top: 1.25rem;
-  font-size: 1.02rem;
-}
-
 .back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 0.94rem;
-  text-decoration: none;
   color: var(--brand-navy);
-  margin-top: 0.5rem;
+  text-decoration: none;
 }
 
 .back-link:hover {
   color: var(--accent-red);
+  text-decoration: underline;
 }
 
 /* ==========================================================================
-   Footer
+   Footer: Clean Publisher Colophon
    ========================================================================== */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
-  background-color: var(--bg-paper);
-  padding: 2rem 0 2.75rem;
-  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   color: var(--text-muted);
+  padding: 2.25rem 0 2.75rem;
 }
 
-.footer-top {
+.footer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.85rem 1.5rem;
-  padding-bottom: 1.15rem;
-  border-bottom: 1px solid var(--border-subtle);
+  gap: 0.85rem 2rem;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem 1.15rem;
+  gap: 0.45rem 1.4rem;
 }
 
 .footer-links a {
@@ -841,111 +909,113 @@ li {
   text-decoration: underline;
 }
 
-.footer-langs {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
+.footer-editions {
+  margin-top: 1.15rem;
   padding-top: 1rem;
-  font-size: 0.83rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.8rem;
 }
 
-.lang-list {
+.edition-links {
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.65rem;
+  gap: 0.6rem;
 }
 
-.lang-active {
+.edition-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.edition-links a:hover {
+  color: var(--accent-red);
+  text-decoration: underline;
+}
+
+.edition-current {
   font-weight: 700;
   color: var(--brand-navy);
   text-decoration: none;
 }
 
-.lang-link {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-.lang-link:hover {
-  color: var(--accent-red);
-  text-decoration: underline;
-}
-
-.lang-note {
-  color: var(--text-muted);
-  font-style: italic;
-}
-
 /* ==========================================================================
-   Responsive Adjustments
+   Responsive Layout
    ========================================================================== */
-@media (max-width: 820px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: left;
+@media (max-width: 860px) {
+  .hero-band {
+    padding: 3rem 0 3.5rem;
   }
 
-  .hero-cover {
-    max-width: 240px;
+  .hero-grid,
+  .story-grid,
+  .cheatsheet-grid,
+  .faq-grid,
+  .sequel-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-cover-col {
+    max-width: 260px;
     justify-self: start;
   }
 
-  .cheatsheet-layout {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
+  .book-leaf {
+    padding: 2.5rem 2rem 2.85rem;
   }
 
-  .author-note-inner {
-    padding: 1.75rem 1.5rem;
-  }
-
-  .card,
   .index-card {
-    padding: 1.75rem 1.4rem;
+    padding: 2.5rem 1.75rem;
   }
 
-  .index-card-header {
-    margin-top: -1.15rem;
-    margin-bottom: 1.4rem;
+  .doc-sheet {
+    padding: 2.25rem 1.75rem;
   }
 }
 
 @media (max-width: 560px) {
   .container {
-    padding: 0 1.15rem;
+    padding: 0 1.25rem;
   }
 
-  main {
-    padding: 2.25rem 0 3.5rem;
-  }
-
-  .page-section {
-    margin-top: 3.25rem;
-  }
-
-  .hero-cover {
+  .hero-cover-col {
+    max-width: 230px;
     justify-self: center;
-    max-width: 225px;
   }
 
-  .cta-primary-row .btn,
-  .cta-retail-row .btn {
+  .action-row .btn,
+  .action-row-editions {
     width: 100%;
+    max-width: none;
   }
 
-  .faq-item {
-    padding: 1.25rem 1.2rem;
+  .action-row-editions {
+    grid-template-columns: 1fr;
   }
 
-  .faq-item p {
-    padding-left: 0;
+  .story-band,
+  .note-band,
+  .cheatsheet-band,
+  .faq-band,
+  .about-band {
+    padding: 3.25rem 0;
   }
 
-  .sequel-card {
-    padding: 1.5rem 1.35rem;
+  .book-leaf {
+    padding: 2rem 1.35rem 2.5rem;
+  }
+
+  .index-card {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .doc-sheet {
+    padding: 1.75rem 1.25rem;
   }
 }
