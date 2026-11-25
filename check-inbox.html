@@ -7,33 +7,66 @@
   <title>Almost there – Check your inbox | The Number on the Wall</title>
   <link rel="stylesheet" href="/assets/style.css">
 </head>
-<body>
-  <header>
-    <a href="/" class="brand">The Number on the Wall</a>
-    <nav>
-      <a href="/">Back to Book</a>
-    </nav>
+<body class="page-narrow">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Carlos Lucas</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Back to Book</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <div class="card">
-      <h1>Almost there — please check your inbox</h1>
-      <p>I just sent a confirmation email from <strong>scrum@carloslucas.de</strong> to the address you entered.</p>
-      <p>Click the confirmation button inside that email to verify your address and unlock your free, printable <strong>One-Page Scrum Cheat Sheet</strong> right away.</p>
-      
-      <div class="note-box">
-        <strong>Can't find the email?</strong><br>
-        Please check your Spam, Promotions, or Junk folder. If you move the email to your primary inbox, future reader notes (~5 per year) will land reliably where you want them.
-      </div>
+  <main id="main-content">
+    <div class="container">
+      <div class="index-card">
+        <div class="index-card-header">
+          <span>Reader List · Confirmation</span>
+          <span class="index-card-ref">Step 2 of 2</span>
+        </div>
 
-      <p><a href="/">← Return to the homepage</a></p>
+        <h1>Almost there — please check your inbox</h1>
+        <p>I just sent a confirmation email from <strong>scrum@carloslucas.de</strong> to the address you entered.</p>
+        <p>Click the confirmation button inside that email to verify your address and unlock your free, printable <strong>One-Page Scrum Cheat Sheet</strong> right away.</p>
+
+        <div class="note-box">
+          <strong>Can't find the email?</strong><br>
+          Please check your Spam, Promotions, or Junk folder. If you move the email to your primary inbox, future reader notes (~5 per year) will land reliably where you want them.
+        </div>
+
+        <p><a href="/" class="back-link">← Return to the homepage</a></p>
+      </div>
     </div>
   </main>
 
-  <footer>
-    <span>© 2026 Carlos Lucas</span>
-    <div>
-      <a href="/imprint">Imprint / Impressum</a> · <a href="/privacy">Privacy Policy / Datenschutz</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <span>© 2026 Carlos Lucas</span>
+        <div class="footer-links">
+          <a href="/imprint">Imprint / Impressum</a>
+          <a href="/privacy">Privacy Policy / Datenschutz</a>
+          <a href="https://www.linkedin.com/in/it-for-humans/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-langs">
+        <div class="lang-list" aria-label="Language editions">
+          <span>Editions:</span>
+          <a href="/" class="lang-active">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="/de/" class="lang-link" lang="de">DE</a>
+          <span aria-hidden="true">·</span>
+          <a href="/es/" class="lang-link" lang="es">ES</a>
+          <span aria-hidden="true">·</span>
+          <a href="/pt/" class="lang-link" lang="pt">PT</a>
+        </div>
+        <span class="lang-note">EN active · DE / ES / PT Coming Soon</span>
+      </div>
     </div>
   </footer>
 </body>
