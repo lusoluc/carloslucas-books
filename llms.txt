@@ -34,6 +34,8 @@ Carlos Lucas has spent more than two decades moving between business and technol
 ## Key URLs on carloslucas.de
 
 - [Homepage and Book Overview](https://carloslucas.de/): Cover, story overview, Author's Note, Scrum Beyond IT FAQ, and About the Author.
+- [News and Field Blueprints](https://carloslucas.de/news/): Practical field blueprints and monthly briefings on applying Scrum outside software development.
+- [Field Blueprint: Scrum with 30 People, 12 Legacy Systems, and Daily Fires](https://carloslucas.de/news/scrum-30-people-legacy-systems/): Practical example of Dual-Track Scrumban applied to heterogeneous non-IT and hybrid operations teams, covering shared legacy specialist pools, Fast-Lane triage, zero-spare-time pairing, and annual leave resilience.
 - [Free One-Page Scrum Cheat Sheet](https://carloslucas.de/cheatsheet): Printable Monday-morning reference and reader list signup.
 - [Reader List / Newsletter](https://carloslucas.de/newsletter): Direct anchor to the low-volume reader list (~5 emails per year).
 - [Imprint / Impressum](https://carloslucas.de/imprint): Legal disclosure (EN/DE).
