@@ -22,3 +22,5 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
+
+Sitemap: https://carloslucas.de/sitemap.xml
