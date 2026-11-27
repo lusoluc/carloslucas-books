@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrum Exam Traps Quiz (50 Scenarios) | Carlos Lucas</title>
+  <meta name="description" content="50 real-world Scrum exam trap scenarios for PSM I, CSPO, and non-IT teams. Shuffled decks, instant plain-language explanations, and zero cookies.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/tools/exam-traps/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:url" content="https://carloslucas.de/tools/exam-traps/">
+  <meta property="og:title" content="Scrum Exam Traps Quiz (50 Scenarios) | Carlos Lucas">
+  <meta property="og:description" content="Test your Scrum instincts on 50 scenario questions without software jargon. Free, multilingual, zero cookies.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Scrum Exam Traps Quiz",
+    "url": "https://carloslucas.de/tools/exam-traps/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "isAccessibleForFree": true,
+    "inLanguage": ["en-GB", "de", "es-ES", "pt-PT"],
+    "author": {
+      "@type": "Person",
+      "name": "Carlos Lucas",
+      "url": "https://carloslucas.de/"
+    }
+  }
+  </script>
+
+  <style>
+    .tool-lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 1.1rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lang-switcher { display: inline-flex; gap: 0.35rem; flex-wrap: wrap; }
+    .lang-pill, .deck-btn, .quiz-btn {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.42rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .lang-pill:hover, .deck-btn:hover { border-color: var(--brand-navy); }
+    .lang-pill[aria-pressed="true"], .deck-btn[aria-pressed="true"] {
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      border-color: var(--brand-navy);
+    }
+    .deck-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.4rem;
+    }
+    .quiz-stage {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      border-radius: 2px;
+      margin: 1.25rem 0 2rem;
+    }
+    .quiz-progress-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    .quiz-bar-track {
+      width: 100%;
+      height: 6px;
+      background: var(--border-subtle);
+      margin-bottom: 1.3rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .quiz-bar-fill {
+      height: 100%;
+      background: var(--brand-navy);
+      width: 0%;
+      transition: width 0.25s ease;
+    }
+    .quiz-question {
+      font-size: 1.22rem;
+      line-height: 1.45;
+      color: var(--brand-navy);
+      margin-bottom: 1.15rem;
+    }
+    .quiz-options {
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 1.15rem;
+    }
+    .opt-btn {
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      line-height: 1.5;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--brand-navy);
+      background: var(--bg-ivory);
+    }
+    .opt-btn:disabled { cursor: default; }
+    .opt-btn.is-correct {
+      border-color: var(--brand-navy);
+      border-left: 5px solid var(--brand-navy);
+      background: var(--bg-card);
+      font-weight: 600;
+    }
+    .opt-btn.is-wrong {
+      border-color: var(--accent-red);
+      border-left: 5px solid var(--accent-red);
+      background: var(--bg-card);
+    }
+    .quiz-feedback {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--brand-navy);
+      padding: 1.05rem 1.2rem;
+      margin-top: 1rem;
+    }
+    .quiz-feedback.is-wrong-box {
+      border-left-color: var(--accent-red);
+    }
+    .fb-verdict {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+      color: var(--brand-navy);
+    }
+    .quiz-feedback.is-wrong-box .fb-verdict {
+      color: var(--accent-red);
+    }
+    .fb-why {
+      margin-top: 0.7rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.94rem;
+      color: var(--text-main);
+    }
+    .fb-why strong {
+      color: var(--accent-red);
+    }
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.15rem;
+    }
+    .quiz-btn.is-primary {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: var(--bg-card);
+    }
+    .quiz-btn.is-primary:hover {
+      background: var(--accent-red-hover);
+      border-color: var(--accent-red-hover);
+    }
+    .quiz-btn.is-navy {
+      background: var(--brand-navy);
+      border-color: var(--brand-navy);
+      color: var(--bg-card);
+    }
+    .score-big {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin-bottom: 0.4rem;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/" id="nav-book">The Book</a>
+        <a href="/news/" id="nav-news">News</a>
+        <a href="/tools/" id="nav-tools" aria-current="page">Tools</a>
+        <a href="/cheatsheet" id="nav-sheet">Cheat Sheet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="doc-band">
+    <div class="container">
+      <article class="doc-sheet">
+        <div class="tool-lang-bar">
+          <span class="eyebrow" id="ui-eyebrow">Tool 1 · 50-Question Scenario Pool</span>
+          <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <button type="button" class="lang-pill" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-pill" data-lang="de" aria-pressed="false">DE</button>
+            <button type="button" class="lang-pill" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" class="lang-pill" data-lang="pt" aria-pressed="false">PT</button>
+          </div>
+        </div>
+
+        <h1 id="ui-title">Scrum Exam Traps Quiz</h1>
+        <p class="doc-lead" id="ui-lead">
+          50 real-world scenarios drawn from common PSM I and CSPO traps. Every run shuffles new questions and answers, and explains why non-IT teams stumble over each rule.
+        </p>
+
+        <div class="deck-grid" role="group" aria-label="Question decks" id="deck-selector">
+          <button type="button" class="deck-btn" data-deck="mix" aria-pressed="true" id="deck-mix">Random 10</button>
+          <button type="button" class="deck-btn" data-deck="roles" aria-pressed="false" id="deck-roles">Roles &amp; Power</button>
+          <button type="button" class="deck-btn" data-deck="events" aria-pressed="false" id="deck-events">Events &amp; Timeboxes</button>
+          <button type="button" class="deck-btn" data-deck="value" aria-pressed="false" id="deck-value">Done &amp; Value</button>
+          <button type="button" class="deck-btn" data-deck="daily" aria-pressed="false" id="deck-daily">Daily &amp; Flow</button>
+          <button type="button" class="deck-btn" data-deck="all" aria-pressed="false" id="deck-all">All 50 Questions</button>
+        </div>
+
+        <section class="quiz-stage" id="quiz-box" aria-live="polite">
+          <div id="quiz-play-view">
+            <div class="quiz-progress-row">
+              <span id="ui-progress">Question 1 of 10</span>
+              <span id="ui-score-live">Score: 0</span>
+            </div>
+            <div class="quiz-bar-track"><div class="quiz-bar-fill" id="ui-bar"></div></div>
+
+            <h2 class="quiz-question" id="ui-question">Loading...</h2>
+            <div class="quiz-options" id="ui-options"></div>
+
+            <div class="quiz-feedback hidden" id="ui-feedback">
+              <div class="fb-verdict" id="ui-verdict"></div>
+              <p id="ui-exp"></p>
+              <p class="fb-why"><strong id="ui-why-label">Why non-IT teams stumble here:</strong> <span id="ui-why"></span></p>
+              <div class="quiz-actions">
+                <button type="button" class="quiz-btn is-primary" id="ui-next-btn">Next Question</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="quiz-summary-view" class="hidden">
+            <div class="score-big" id="ui-final-score">8 / 10</div>
+            <p id="ui-final-msg"></p>
+            <div class="quiz-actions">
+              <button type="button" class="quiz-btn is-primary hidden" id="ui-retry-wrong">Replay Missed Questions</button>
+              <button type="button" class="quiz-btn is-navy" id="ui-restart">New Shuffled Run</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="index-card" aria-labelledby="bridge-title">
+          <div class="index-card-pin" aria-hidden="true"></div>
+          <h3 id="bridge-title">Want the 1-page reminder for your desk?</h3>
+          <p id="bridge-body">
+            Side 2 of our free printable Scrum Cheat Sheet summarises these exact traps for Monday mornings without IT jargon.
+          </p>
+          <p><a href="/#cheatsheet" id="bridge-link">Get the free one-page Scrum Cheat Sheet</a> &middot; <a href="/tools/" id="back-tools">All free tools</a></p>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <p class="footer-copy">&copy; 2026 Carlos Lucas &middot; <a href="/imprint">Imprint</a> &middot; <a href="/privacy">Privacy</a></p>
+        <p class="footer-links">
+          <a href="/">Home</a> &middot; <a href="/news/">News</a> &middot; <a href="/tools/">Tools</a> &middot; <a href="https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm" target="_blank" rel="noopener noreferrer">Music: CINZA</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/tools/exam-traps/questions.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var uiDict = {
+        en: {
+          htmlLang: 'en',
+          eyebrow: 'Tool 1 · 50-Question Scenario Pool',
+          title: 'Scrum Exam Traps Quiz',
+          lead: '50 real-world scenarios drawn from common PSM I and CSPO traps. Every run shuffles new questions and answers, and explains why non-IT teams stumble over each rule.',
+          navBook: 'The Book', navNews: 'News', navTools: 'Tools', navSheet: 'Cheat Sheet',
+          bookHref: '/', newsHref: '/news/', sheetHref: '/#cheatsheet',
+          decks: {
+            mix: 'Random 10',
+            roles: 'Roles & Power',
+            events: 'Events & Timeboxes',
+            value: 'Done & Value',
+            daily: 'Daily & Flow',
+            all: 'All 50 Questions'
+          },
+          qOf: function (i, n) { return 'Question ' + i + ' of ' + n; },
+          scoreLive: function (s) { return 'Score: ' + s; },
+          correct: 'Spot on',
+          wrong: 'Classic trap',
+          whyLabel: 'Why non-IT teams stumble here:',
+          next: 'Next Question',
+          finish: 'See Results',
+          retryWrong: function (n) { return 'Replay Missed Questions (' + n + ')'; },
+          restart: 'New Shuffled Run',
+          summaryHigh: 'Sharp instincts. You see through polite office habits and protect empiricism.',
+          summaryMid: 'Solid foundation. Replay your missed cards once and those traps will stick.',
+          summaryLow: 'Good catch practising now. Most teams outside IT fall into these exact habits on week one.',
+          bridgeTitle: 'Want the 1-page reminder for your desk?',
+          bridgeBody: 'Side 2 of our free printable Scrum Cheat Sheet summarises these exact traps for Monday mornings without IT jargon.',
+          bridgeLink: 'Get the free one-page Scrum Cheat Sheet',
+          backTools: 'All free tools'
+        },
+        de: {
+          htmlLang: 'de',
+          eyebrow: 'Tool 1 · 50 Szenario-Fragen im Pool',
+          title: 'Scrum-Prüfungsfallen-Quiz',
+          lead: '50 praxisnahe Szenarien rund um typische PSM-I- und CSPO-Fallen. Jeder Durchlauf mischt Fragen und Antworten neu und zeigt, warum Nicht-IT-Teams im Alltag darüber stolpern.',
+          navBook: 'Das Buch', navNews: 'News', navTools: 'Tools', navSheet: 'Cheat Sheet',
+          bookHref: '/de/', newsHref: '/de/news/', sheetHref: '/de/#cheatsheet',
+          decks: {
+            mix: 'Zufalls-Mix (10)',
+            roles: 'Rollen & Macht',
+            events: 'Events & Timeboxes',
+            value: 'Done & Wert',
+            daily: 'Daily & Fluss',
+            all: 'Alle 50 Fragen'
+          },
+          qOf: function (i, n) { return 'Frage ' + i + ' von ' + n; },
+          scoreLive: function (s) { return 'Punkte: ' + s; },
+          correct: 'Volltreffer',
+          wrong: 'Typische Falle',
+          whyLabel: 'Warum man außerhalb der IT darüber stolpert:',
+          next: 'Nächste Frage',
+          finish: 'Auswertung zeigen',
+          retryWrong: function (n) { return 'Nur falsche Fragen wiederholen (' + n + ')'; },
+          restart: 'Neuer gemischter Durchlauf',
+          summaryHigh: 'Starkes Gespür. Du durchschaust höfliche Büro-Gewohnheiten und schützt echte Transparenz.',
+          summaryMid: 'Solide Basis. Wiederhole jetzt gezielt deine offenen Karten, dann sitzt jede Regel.',
+          summaryLow: 'Gut, dass du es hier testest. Fast alle Teams außerhalb der IT tappen in Woche 1 genau in diese Fallen.',
+          bridgeTitle: 'Die 1-Seiten-Erinnerung für deinen Schreibtisch',
+          bridgeBody: 'Seite 2 unseres kostenlosen Scrum Cheat Sheets fasst genau diese Denkfehler für Montagmorgen ohne IT-Jargon zusammen.',
+          bridgeLink: 'Kostenloses 1-Seiten-Cheat-Sheet holen',
+          backTools: 'Alle kostenlosen Tools'
+        },
+        es: {
+          htmlLang: 'es',
+          eyebrow: 'Herramienta 1 · Banco de 50 escenarios',
+          title: 'Test de trampas de examen Scrum',
+          lead: '50 escenarios reales basados en trampas habituales del PSM I y CSPO. Cada partida mezcla preguntas y respuestas nuevas y explica por qué los equipos no técnicos tropiezan aquí.',
+          navBook: 'El libro', navNews: 'Noticias', navTools: 'Herramientas', navSheet: 'Hoja resumen',
+          bookHref: '/es/', newsHref: '/es/news/', sheetHref: '/es/#cheatsheet',
+          decks: {
+            mix: '10 al azar',
+            roles: 'Roles y poder',
+            events: 'Eventos y tiempos',
+            value: 'Done y valor',
+            daily: 'Daily y flujo',
+            all: 'Las 50 preguntas'
+          },
+          qOf: function (i, n) { return 'Pregunta ' + i + ' de ' + n; },
+          scoreLive: function (s) { return 'Aciertos: ' + s; },
+          correct: 'Correcto',
+          wrong: 'Trampa clásica',
+          whyLabel: 'Por qué se tropieza fuera de TI:',
+          next: 'Siguiente pregunta',
+          finish: 'Ver resultado',
+          retryWrong: function (n) { return 'Repetir solo las falladas (' + n + ')'; },
+          restart: 'Nueva partida mezclada',
+          summaryHigh: 'Buen criterio. Detectas las inercias de oficina y proteges la transparencia real.',
+          summaryMid: 'Buena base. Repite ahora solo las tarjetas falladas y fijarás cada regla.',
+          summaryLow: 'Mejor descubrirlo aquí. Casi todos los equipos fuera de TI caen en estas trampas la primera semana.',
+          bridgeTitle: '¿Quieres la ficha de una página para tu mesa?',
+          bridgeBody: 'La cara 2 de nuestra hoja resumen gratuita condensa estas trampas sin tecnicismos para el lunes por la mañana.',
+          bridgeLink: 'Descargar hoja resumen gratuita',
+          backTools: 'Todas las herramientas'
+        },
+        pt: {
+          htmlLang: 'pt',
+          eyebrow: 'Ferramenta 1 · Banco de 50 cenários',
+          title: 'Teste de armadilhas de exame Scrum',
+          lead: '50 cenários práticos baseados nas armadilhas clássicas do PSM I e CSPO. Cada sessão baralha perguntas e respostas e explica onde as equipas fora de TI tropeçam.',
+          navBook: 'O livro', navNews: 'Notícias', navTools: 'Ferramentas', navSheet: 'Folha resumo',
+          bookHref: '/pt/', newsHref: '/pt/news/', sheetHref: '/pt/#cheatsheet',
+          decks: {
+            mix: '10 aleatórias',
+            roles: 'Papéis e poder',
+            events: 'Eventos e prazos',
+            value: 'Done e valor',
+            daily: 'Daily e fluxo',
+            all: 'Todas as 50'
+          },
+          qOf: function (i, n) { return 'Pergunta ' + i + ' de ' + n; },
+          scoreLive: function (s) { return 'Pontuação: ' + s; },
+          correct: 'Certo',
+          wrong: 'Armadilha clássica',
+          whyLabel: 'Porque se tropeça fora de TI:',
+          next: 'Pergunta seguinte',
+          finish: 'Ver resultado',
+          retryWrong: function (n) { return 'Repetir apenas as erradas (' + n + ')'; },
+          restart: 'Nova ronda baralhada',
+          summaryHigh: 'Excelente instinto. Identificas hábitos de escritório que escondem a realidade.',
+          summaryMid: 'Boa base. Repete agora apenas os cartões em que falhaste para consolidar.',
+          summaryLow: 'Ainda bem que praticaste agora. Quase todas as equipas fora de TI caem nestas armadilhas na primeira semana.',
+          bridgeTitle: 'Queres o resumo de uma página para a secretária?',
+          bridgeBody: 'O verso da nossa folha resumo gratuita sintetiza estas armadilhas para segunda-feira de manhã sem jargão técnico.',
+          bridgeLink: 'Obter folha resumo gratuita',
+          backTools: 'Todas as ferramentas'
+        }
+      };
+
+      var state = {
+        lang: 'en',
+        deck: 'mix',
+        queue: [],
+        idx: 0,
+        score: 0,
+        missed: [],
+        answered: false
+      };
+
+      function shuffle(arr) {
+        var copy = arr.slice();
+        for (var i = copy.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = copy[i];
+          copy[i] = copy[j];
+          copy[j] = tmp;
+        }
+        return copy;
+      }
+
+      function buildQueue(deckKey, customList) {
+        var pool = customList || window.EXAM_TRAPS_POOL || [];
+        if (!customList) {
+          if (deckKey === 'mix') {
+            pool = shuffle(pool).slice(0, 10);
+          } else if (deckKey === 'all') {
+            pool = shuffle(pool);
+          } else {
+            pool = shuffle(pool.filter(function (item) { return item.deck === deckKey; }));
+          }
+        }
+        state.queue = pool;
+        state.idx = 0;
+        state.score = 0;
+        state.missed = [];
+        state.answered = false;
+        document.getElementById('quiz-play-view').classList.remove('hidden');
+        document.getElementById('quiz-summary-view').classList.add('hidden');
+        renderQuestion();
+      }
+
+      function renderQuestion() {
+        var t = uiDict[state.lang];
+        var item = state.queue[state.idx];
+        var localized = item[state.lang] || item.en;
+
+        document.getElementById('ui-progress').textContent = t.qOf(state.idx + 1, state.queue.length);
+        document.getElementById('ui-score-live').textContent = t.scoreLive(state.score);
+        document.getElementById('ui-bar').style.width = Math.round(((state.idx) / state.queue.length) * 100) + '%';
+        document.getElementById('ui-question').textContent = localized.q;
+
+        var fb = document.getElementById('ui-feedback');
+        fb.classList.add('hidden');
+        fb.classList.remove('is-wrong-box');
+        state.answered = false;
+
+        var optWrap = document.getElementById('ui-options');
+        optWrap.innerHTML = '';
+
+        var indexedOpts = localized.opts.map(function (txt, originalIdx) {
+          return { txt: txt, isCorrect: originalIdx === localized.a };
+        });
+        var shuffledOpts = shuffle(indexedOpts);
+
+        shuffledOpts.forEach(function (opt) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'opt-btn';
+          btn.textContent = opt.txt;
+          btn.addEventListener('click', function () {
+            if (state.answered) return;
+            state.answered = true;
+            var allBtns = optWrap.querySelectorAll('.opt-btn');
+            allBtns.forEach(function (b, bIdx) {
+              b.disabled = true;
+              if (shuffledOpts[bIdx].isCorrect) {
+                b.classList.add('is-correct');
+              }
+            });
+            if (opt.isCorrect) {
+              state.score += 1;
+              document.getElementById('ui-verdict').textContent = t.correct;
+              fb.classList.remove('is-wrong-box');
+            } else {
+              btn.classList.add('is-wrong');
+              state.missed.push(item);
+              document.getElementById('ui-verdict').textContent = t.wrong;
+              fb.classList.add('is-wrong-box');
+            }
+            document.getElementById('ui-score-live').textContent = t.scoreLive(state.score);
+            document.getElementById('ui-exp').textContent = localized.exp;
+            document.getElementById('ui-why-label').textContent = t.whyLabel;
+            document.getElementById('ui-why').textContent = localized.why;
+            document.getElementById('ui-next-btn').textContent =
+              state.idx + 1 < state.queue.length ? t.next : t.finish;
+            fb.classList.remove('hidden');
+          });
+          optWrap.appendChild(btn);
+        });
+      }
+
+      function showSummary() {
+        var t = uiDict[state.lang];
+        document.getElementById('quiz-play-view').classList.add('hidden');
+        document.getElementById('quiz-summary-view').classList.remove('hidden');
+        var total = state.queue.length;
+        document.getElementById('ui-final-score').textContent = state.score + ' / ' + total;
+        var ratio = total ? state.score / total : 0;
+        var msg = ratio >= 0.8 ? t.summaryHigh : (ratio >= 0.5 ? t.summaryMid : t.summaryLow);
+        document.getElementById('ui-final-msg').textContent = msg;
+
+        var retryBtn = document.getElementById('ui-retry-wrong');
+        if (state.missed.length > 0) {
+          retryBtn.textContent = t.retryWrong(state.missed.length);
+          retryBtn.classList.remove('hidden');
+        } else {
+          retryBtn.classList.add('hidden');
+        }
+        document.getElementById('ui-restart').textContent = t.restart;
+      }
+
+      function applyLang(lang) {
+        state.lang = uiDict[lang] ? lang : 'en';
+        var t = uiDict[state.lang];
+        document.documentElement.lang = t.htmlLang;
+
+        document.querySelectorAll('.lang-pill').forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-lang') === state.lang ? 'true' : 'false');
+        });
+        document.getElementById('ui-eyebrow').textContent = t.eyebrow;
+        document.getElementById('ui-title').textContent = t.title;
+        document.getElementById('ui-lead').textContent = t.lead;
+        document.getElementById('nav-book').textContent = t.navBook;
+        document.getElementById('nav-book').setAttribute('href', t.bookHref);
+        document.getElementById('nav-news').textContent = t.navNews;
+        document.getElementById('nav-news').setAttribute('href', t.newsHref);
+        document.getElementById('nav-tools').textContent = t.navTools;
+        document.getElementById('nav-tools').setAttribute('href', '/tools/?lang=' + state.lang);
+        document.getElementById('nav-sheet').textContent = t.navSheet;
+        document.getElementById('nav-sheet').setAttribute('href', t.sheetHref);
+
+        Object.keys(t.decks).forEach(function (k) {
+          var el = document.getElementById('deck-' + k);
+          if (el) el.textContent = t.decks[k];
+        });
+
+        document.getElementById('bridge-title').textContent = t.bridgeTitle;
+        document.getElementById('bridge-body').textContent = t.bridgeBody;
+        document.getElementById('bridge-link').textContent = t.bridgeLink;
+        document.getElementById('bridge-link').setAttribute('href', t.sheetHref);
+        document.getElementById('back-tools').textContent = t.backTools;
+        document.getElementById('back-tools').setAttribute('href', '/tools/?lang=' + state.lang);
+
+        if (state.queue.length > 0) {
+          if (!document.getElementById('quiz-summary-view').classList.contains('hidden')) {
+            showSummary();
+          } else {
+            renderQuestion();
+          }
+        }
+      }
+
+      document.getElementById('ui-next-btn').addEventListener('click', function () {
+        if (state.idx + 1 < state.queue.length) {
+          state.idx += 1;
+          renderQuestion();
+        } else {
+          showSummary();
+        }
+      });
+
+      document.getElementById('ui-retry-wrong').addEventListener('click', function () {
+        var missedCopy = shuffle(state.missed);
+        buildQueue(state.deck, missedCopy);
+      });
+
+      document.getElementById('ui-restart').addEventListener('click', function () {
+        buildQueue(state.deck);
+      });
+
+      document.querySelectorAll('.deck-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          state.deck = btn.getAttribute('data-deck');
+          document.querySelectorAll('.deck-btn').forEach(function (b) {
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          buildQueue(state.deck);
+        });
+      });
+
+      document.querySelectorAll('.lang-pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var lang = btn.getAttribute('data-lang');
+          var url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.replaceState({}, '', url.toString());
+          applyLang(lang);
+        });
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var initLang = params.get('lang');
+      applyLang(uiDict[initLang] ? initLang : 'en');
+      buildQueue('mix');
+    })();
+  </script>
+</body>
+</html>

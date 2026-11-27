@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond-IT Retrospective Card Deck | Carlos Lucas</title>
+  <meta name="description" content="Practical Sprint Retrospective card deck for non-IT teams. Pick a focus, run a timed non-jargon retro format, and copy 1 or 2 concrete actions.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/tools/retro-cards/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:url" content="https://carloslucas.de/tools/retro-cards/">
+  <meta property="og:title" content="Beyond-IT Retrospective Card Deck | Carlos Lucas">
+  <meta property="og:description" content="Stop repeating the same boring retro questions. Draw a practical Beyond-IT retro card with timer and one-click action summary.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Beyond-IT Retrospective Card Deck",
+    "url": "https://carloslucas.de/tools/retro-cards/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "isAccessibleForFree": true,
+    "inLanguage": ["en-GB", "de", "es-ES", "pt-PT"],
+    "author": {
+      "@type": "Person",
+      "name": "Carlos Lucas",
+      "url": "https://carloslucas.de/"
+    }
+  }
+  </script>
+
+  <style>
+    .tool-lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 1.1rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lang-switcher { display: inline-flex; gap: 0.35rem; flex-wrap: wrap; }
+    .lang-pill, .focus-btn, .retro-btn {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.42rem 0.8rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .lang-pill:hover, .focus-btn:hover { border-color: var(--brand-navy); }
+    .lang-pill[aria-pressed="true"], .focus-btn[aria-pressed="true"] {
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      border-color: var(--brand-navy);
+    }
+    .focus-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.4rem;
+    }
+    .retro-card {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-left: 5px solid var(--accent-red);
+      padding: 1.5rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .retro-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+    .retro-tag {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-red);
+    }
+    .retro-card h2 {
+      font-size: 1.42rem;
+      color: var(--brand-navy);
+      margin-bottom: 0.6rem;
+    }
+    .retro-prompts {
+      margin: 1rem 0;
+      padding-left: 1.25rem;
+    }
+    .retro-prompts li {
+      margin-bottom: 0.45rem;
+      font-size: 0.98rem;
+    }
+    .timer-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.85rem 1rem;
+      margin-top: 1rem;
+    }
+    .timer-clock {
+      font-family: var(--font-sans);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      min-width: 4.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .retro-btn.is-primary {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: var(--bg-card);
+    }
+    .retro-btn.is-primary:hover {
+      background: var(--accent-red-hover);
+    }
+    .retro-btn.is-navy {
+      background: var(--brand-navy);
+      border-color: var(--brand-navy);
+      color: var(--bg-card);
+    }
+    .actions-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .actions-box h3 {
+      color: var(--brand-navy);
+      margin-bottom: 0.5rem;
+    }
+    .field-grid {
+      display: grid;
+      gap: 0.85rem;
+      margin: 0.85rem 0 1rem;
+    }
+    .field-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.28rem;
+    }
+    .field-input {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border-radius: 3px;
+    }
+    .copy-note {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      color: var(--brand-navy);
+      font-weight: 700;
+    }
+    @media print {
+      .site-header, .site-footer, .tool-lang-bar, .focus-row, .timer-strip, .print-hide, .index-card {
+        display: none !important;
+      }
+      .doc-sheet { box-shadow: none; border: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/" id="nav-book">The Book</a>
+        <a href="/news/" id="nav-news">News</a>
+        <a href="/tools/" id="nav-tools" aria-current="page">Tools</a>
+        <a href="/cheatsheet" id="nav-sheet">Cheat Sheet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="doc-band">
+    <div class="container">
+      <article class="doc-sheet">
+        <div class="tool-lang-bar">
+          <span class="eyebrow" id="ui-eyebrow">Tool 2 · Sprint Retrospective Facilitator</span>
+          <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <button type="button" class="lang-pill" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-pill" data-lang="de" aria-pressed="false">DE</button>
+            <button type="button" class="lang-pill" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" class="lang-pill" data-lang="pt" aria-pressed="false">PT</button>
+          </div>
+        </div>
+
+        <h1 id="ui-title">Beyond-IT Retrospective Card Deck</h1>
+        <p class="doc-lead" id="ui-lead">
+          Keep Retrospectives practical and fresh without software jargon. Choose what needs attention, draw a structured card, run the phase timer, and leave with 1 or 2 concrete actions.
+        </p>
+
+        <div class="focus-row" role="group" aria-label="Retro focus">
+          <button type="button" class="focus-btn" data-focus="bottleneck" aria-pressed="true" id="f-bottleneck">Find Bottlenecks</button>
+          <button type="button" class="focus-btn" data-focus="meetings" aria-pressed="false" id="f-meetings">Trim Meetings</button>
+          <button type="button" class="focus-btn" data-focus="handoffs" aria-pressed="false" id="f-handoffs">Fix Handoffs</button>
+          <button type="button" class="focus-btn" data-focus="energy" aria-pressed="false" id="f-energy">Energy &amp; Focus</button>
+        </div>
+
+        <section class="retro-card" aria-live="polite">
+          <div class="retro-card-head">
+            <span class="retro-tag" id="card-tag">Focus · Find Bottlenecks</span>
+            <button type="button" class="retro-btn print-hide" id="btn-draw">Draw Another Card</button>
+          </div>
+          <h2 id="card-title">Loading...</h2>
+          <p id="card-intro"></p>
+          <ol class="retro-prompts" id="card-prompts"></ol>
+
+          <div class="timer-strip">
+            <span class="timer-clock" id="retro-clock">05:00</span>
+            <button type="button" class="retro-btn is-navy" id="btn-t-start">Start 5:00</button>
+            <button type="button" class="retro-btn" id="btn-t-10">10:00</button>
+            <button type="button" class="retro-btn" id="btn-t-reset">Reset</button>
+          </div>
+        </section>
+
+        <section class="actions-box">
+          <h3 id="act-title">Sprint Improvement Note (1 or 2 Real Actions)</h3>
+          <p id="act-sub" style="font-size: 0.92rem; color: var(--text-muted);">
+            Nothing is saved on a server. Write your decisions here, then copy the summary for your team chat or print it for the wall.
+          </p>
+          <div class="field-grid">
+            <div>
+              <label class="field-label" for="inp-a1" id="lbl-a1">Action 1 (Next Sprint)</label>
+              <input type="text" class="field-input" id="inp-a1" placeholder="e.g. Freeze Daily time at 09:15 and park deep topics for 09:30">
+            </div>
+            <div>
+              <label class="field-label" for="inp-a2" id="lbl-a2">Action 2 (Optional) &amp; Owner</label>
+              <input type="text" class="field-input" id="inp-a2" placeholder="e.g. Check Legal queue every Tuesday (Anna)">
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center;" class="print-hide">
+            <button type="button" class="retro-btn is-primary" id="btn-copy">Copy Summary for Team Chat</button>
+            <button type="button" class="retro-btn" id="btn-print">Print / Save PDF</button>
+            <span class="copy-note" id="copy-status"></span>
+          </div>
+        </section>
+
+        <aside class="index-card" aria-labelledby="bridge-title">
+          <div class="index-card-pin" aria-hidden="true"></div>
+          <h3 id="bridge-title">Practical Scrum Habits Beyond IT</h3>
+          <p id="bridge-body">
+            Every Retrospective in <em>The Number on the Wall</em> ends with one small, honest change instead of a 15-point wish list.
+          </p>
+          <p><a href="/#cheatsheet" id="bridge-link">Get the free one-page Scrum Cheat Sheet</a> &middot; <a href="/tools/" id="back-tools">All free tools</a></p>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <p class="footer-copy">&copy; 2026 Carlos Lucas &middot; <a href="/imprint">Imprint</a> &middot; <a href="/privacy">Privacy</a></p>
+        <p class="footer-links">
+          <a href="/">Home</a> &middot; <a href="/news/">News</a> &middot; <a href="/tools/">Tools</a> &middot; <a href="https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm" target="_blank" rel="noopener noreferrer">Music: CINZA</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var cards = {
+        bottleneck: [
+          {
+            en: {
+              title: 'The Red 38 on the Wall',
+              intro: 'Expose the one queue or approval delay everyone quietly worked around this Sprint.',
+              prompts: [
+                'Which single task sat waiting the longest without moving?',
+                'Where did we colour a status green when everyone knew it was stuck?',
+                'What one small rule change would cut that wait in half next Sprint?'
+              ]
+            },
+            de: {
+              title: 'Die rote 38 an der Wand',
+              intro: 'Macht genau die eine Warteschlange oder Freigabebremse sichtbar, um die alle still herumgearbeitet haben.',
+              prompts: [
+                'Welche einzelne Aufgabe lag in diesem Sprint am längsten unberührt?',
+                'Wo haben wir intern „läuft schon“ gesagt, obwohl es eigentlich hing?',
+                'Welche eine kleine Regeländerung halbiert diese Wartezeit im nächsten Sprint?'
+              ]
+            },
+            es: {
+              title: 'El 38 rojo en la pared',
+              intro: 'Sacad a la luz la espera o bloqueo que todo el equipo esquivó en silencio este Sprint.',
+              prompts: [
+                '¿Qué única tarea estuvo parada más tiempo sin avanzar?',
+                '¿Dónde pintamos un estado en verde sabiendo que estaba atascado?',
+                '¿Qué pequeño cambio de regla reduciría esa espera a la mitad?'
+              ]
+            },
+            pt: {
+              title: 'O 38 vermelho na parede',
+              intro: 'Exponham a fila de espera ou bloqueio que toda a equipa contornou em silêncio neste Sprint.',
+              prompts: [
+                'Qual foi a tarefa que ficou parada mais tempo sem avançar?',
+                'Onde dissemos que estava tudo bem sabendo que estava preso?',
+                'Que pequena mudança de regra reduz essa espera para metade no próximo Sprint?'
+              ]
+            }
+          },
+          {
+            en: {
+              title: 'Right-to-Left Flow Audit',
+              intro: 'Inspect why started work piled up before reaching Done.',
+              prompts: [
+                'How many items started on Monday stayed unfinished on Friday?',
+                'What forced us to start new work before closing old cards?',
+                'What WIP limit should we test for two weeks?'
+              ]
+            },
+            de: {
+              title: 'Fluss-Check von rechts nach links',
+              intro: 'Prüft, warum angefangene Aufgaben liegen blieben, statt sauber auf Done zu landen.',
+              prompts: [
+                'Wie viele Aufgaben vom Montag waren am Freitag immer noch offen?',
+                'Was hat uns gezwungen, Neues anzufangen, bevor Altes fertig war?',
+                'Welches WIP-Limit testen wir in den nächsten zwei Wochen?'
+              ]
+            },
+            es: {
+              title: 'Auditoría de flujo de derecha a izquierda',
+              intro: 'Revisad por qué se acumuló trabajo empezado sin llegar a Done.',
+              prompts: [
+                '¿Cuántos asuntos abiertos el lunes siguieron sin cerrar el viernes?',
+                '¿Qué nos empujó a abrir tareas nuevas sin cerrar las anteriores?',
+                '¿Qué límite WIP probamos las próximas dos semanas?'
+              ]
+            },
+            pt: {
+              title: 'Auditoria de fluxo da direita para a esquerda',
+              intro: 'Analisem porque o trabalho iniciado se acumulou antes de chegar a Done.',
+              prompts: [
+                'Quantos itens abertos na segunda continuavam por fechar na sexta?',
+                'O que nos levou a abrir novas frentes antes de fechar as antigas?',
+                'Que limite de WIP vamos testar nas próximas duas semanas?'
+              ]
+            }
+          }
+        ],
+        meetings: [
+          {
+            en: {
+              title: 'Calendar Diet (Stop / Shrink / Bundle)',
+              intro: 'Reclaim quiet focus hours by cutting scattered status calls.',
+              prompts: [
+                'Which recurring meeting added zero clarity this Sprint and can be dropped?',
+                'Which ad-hoc calls could be bundled into Sprint Planning or Review?',
+                'Are we starting every Daily on time without waiting?'
+              ]
+            },
+            de: {
+              title: 'Kalender-Diät (Streichen / Kürzen / Bündeln)',
+              intro: 'Holt euch ruhige Arbeitszeit zurück, indem ihr zerstückelte Status-Calls abbaut.',
+              prompts: [
+                'Welcher Serientermin hat in diesem Sprint null Klarheit gebracht und kann weg?',
+                'Welche Einzel-Calls lassen sich sauber in Planning oder Review bündeln?',
+                'Starten wir jedes Daily pünktlich ohne Wartezeit?'
+              ]
+            },
+            es: {
+              title: 'Dieta de calendario (Quitar / Reducir / Agrupar)',
+              intro: 'Recuperad horas de trabajo tranquilo recortando llamadas sueltas de estado.',
+              prompts: [
+                '¿Qué reunión recurrente no aportó claridad y puede eliminarse?',
+                '¿Qué llamadas sueltas pueden agruparse en la Planning o la Review?',
+                '¿Empezamos cada Daily puntual sin esperar a nadie?'
+              ]
+            },
+            pt: {
+              title: 'Dieta de calendário (Cortar / Encurtar / Juntar)',
+              intro: 'Recuperem horas de concentração eliminando chamadas dispersas de ponto de situação.',
+              prompts: [
+                'Que reunião recorrente não trouxe clareza nenhuma e pode sair da agenda?',
+                'Que chamadas avulsas podem ser agrupadas no Planning ou na Review?',
+                'Começamos cada Daily a horas sem esperar por ninguém?'
+              ]
+            }
+          },
+          {
+            en: {
+              title: 'Timebox Truth Check',
+              intro: 'Spot where preparation gaps stretch short meetings into marathons.',
+              prompts: [
+                'Did Planning drag because incoming requests were still vague?',
+                'Did our Daily stay under 15 minutes or turn into problem-solving for two people?',
+                'What 15-minute prep habit makes next Sprint smoother?'
+              ]
+            },
+            de: {
+              title: 'Timebox-Realitätscheck',
+              intro: 'Findet heraus, wo fehlende Vorbereitung kurze Termine unnötig in die Länge zieht.',
+              prompts: [
+                'Hat sich das Planning gezogen, weil Anfragen noch zu schwammig waren?',
+                'Blieb unser Daily unter 15 Minuten oder haben zwei Leute ein Detail diskutiert?',
+                'Welche 15-Minuten-Vorbereitung macht das nächste Treffen spürbar leichter?'
+              ]
+            },
+            es: {
+              title: 'Prueba de realidad de tiempos',
+              intro: 'Detectad dónde la falta de preparación alarga reuniones que deberían ser breves.',
+              prompts: [
+                '¿Se alargó la Planning porque las peticiones venían poco claras?',
+                '¿Duró la Daily 15 minutos o dos personas monopolizaron el debate?',
+                '¿Qué preparación de 15 minutos agilizará el próximo Sprint?'
+              ]
+            },
+            pt: {
+              title: 'Teste de realidade dos prazos',
+              intro: 'Identifiquem onde a falta de preparação alonga reuniões que deviam ser curtas.',
+              prompts: [
+                'O Planning arrastou-se porque os pedidos ainda estavam vagos?',
+                'A Daily ficou nos 15 minutos ou duas pessoas entraram num debate longo?',
+                'Que preparação de 15 minutos torna o próximo Sprint mais leve?'
+              ]
+            }
+          }
+        ],
+        handoffs: [
+          {
+            en: {
+              title: 'Handoff Ping-Pong Map',
+              intro: 'Fix the cross-department throws where cards wait silently in another inbox.',
+              prompts: [
+                'Which external team or approver bounced work back to us most often?',
+                'What information was missing on our side when we handed it over?',
+                'Who from that partner team can join our Sprint Review for 15 minutes?'
+              ]
+            },
+            de: {
+              title: 'Übergabe-Ping-Pong-Check',
+              intro: 'Beendet das Hin-und-her-Werfen zwischen Abteilungen, bei dem Vorgänge still versacken.',
+              prompts: [
+                'Welche Schnittstelle hat Vorgänge am häufigsten mit Rückfragen zurückgeschickt?',
+                'Welche Angabe hat bei unserer Übergabe von Anfang an gefehlt?',
+                'Wen aus dem Nachbarteam laden wir für 15 Minuten ins nächste Sprint Review ein?'
+              ]
+            },
+            es: {
+              title: 'Mapa de rebotes entre áreas',
+              intro: 'Acabad con el ping-pong donde las tareas quedan dormidas en el buzón de otro departamento.',
+              prompts: [
+                '¿Qué área nos devolvió más veces un expediente por falta de datos?',
+                '¿Qué información faltaba ya desde nuestra entrega inicial?',
+                '¿A quién de esa área invitamos 15 minutos a la próxima Sprint Review?'
+              ]
+            },
+            pt: {
+              title: 'Mapa do pingue-pongue entre áreas',
+              intro: 'Travem as devoluções entre departamentos onde os pedidos ficam parados sem dono.',
+              prompts: [
+                'Que equipa parceira devolveu mais vezes processos com pedidos de esclarecimento?',
+                'Que informação faltava logo na nossa entrega inicial?',
+                'Quem dessa área convidamos por 15 minutos para a próxima Sprint Review?'
+              ]
+            }
+          }
+        ],
+        energy: [
+          {
+            en: {
+              title: 'Tailwind vs. Headwind',
+              intro: 'Check what gave the team calm momentum and what drained energy unnecessarily.',
+              prompts: [
+                'What gave us real tailwind and pride this Sprint?',
+                'What recurring friction drained everyone by Wednesday?',
+                'What single headwind can we remove before next Monday?'
+              ]
+            },
+            de: {
+              title: 'Rückenwind vs. Gegenwind',
+              intro: 'Prüft, was dem Team ruhigen Schwung gegeben und was unnötig Kraft gekostet hat.',
+              prompts: [
+                'Was hat uns in diesem Sprint echten Rückenwind und Stolz gegeben?',
+                'Welche wiederkehrende Reibung hat bis Mittwoch allen Energie gezogen?',
+                'Welchen einzelnen Gegenwind räumen wir bis Montag aus dem Weg?'
+              ]
+            },
+            es: {
+              title: 'Viento a favor vs. viento en contra',
+              intro: 'Revisad qué dio impulso sereno al equipo y qué agotó energías sin necesidad.',
+              prompts: [
+                '¿Qué nos dio verdadero impulso y orgullo este Sprint?',
+                '¿Qué roce repetido agotó al equipo antes del miércoles?',
+                '¿Qué único freno podemos quitar antes del lunes?'
+              ]
+            },
+            pt: {
+              title: 'Vento a favor vs. vento contra',
+              intro: 'Avaliem o que deu ritmo sereno à equipa e o que consumiu energia sem necessidade.',
+              prompts: [
+                'O que nos deu verdadeiro entusiasmo e orgulho neste Sprint?',
+                'Que atrito repetido cansou toda a equipa já a meio da semana?',
+                'Que único travão podemos remover antes da próxima segunda-feira?'
+              ]
+            }
+          }
+        ]
+      };
+
+      var uiDict = {
+        en: {
+          htmlLang: 'en', eyebrow: 'Tool 2 · Sprint Retrospective Facilitator',
+          title: 'Beyond-IT Retrospective Card Deck',
+          lead: 'Keep Retrospectives practical and fresh without software jargon. Choose what needs attention, draw a structured card, run the phase timer, and leave with 1 or 2 concrete actions.',
+          navBook: 'The Book', navNews: 'News', navTools: 'Tools', navSheet: 'Cheat Sheet',
+          bookHref: '/', newsHref: '/news/', sheetHref: '/#cheatsheet',
+          focusLabels: { bottleneck: 'Find Bottlenecks', meetings: 'Trim Meetings', handoffs: 'Fix Handoffs', energy: 'Energy & Focus' },
+          tagPrefix: 'Focus · ', draw: 'Draw Another Card',
+          start: 'Start 5:00', pause: 'Pause', resume: 'Resume', reset: 'Reset',
+          actTitle: 'Sprint Improvement Note (1 or 2 Real Actions)',
+          actSub: 'Nothing is saved on a server. Write your decisions here, then copy the summary for your team chat or print it for the wall.',
+          lbl1: 'Action 1 (Next Sprint)', ph1: 'e.g. Freeze Daily time at 09:15 and park deep topics for 09:30',
+          lbl2: 'Action 2 (Optional) & Owner', ph2: 'e.g. Check Legal queue every Tuesday (Anna)',
+          copyBtn: 'Copy Summary for Team Chat', printBtn: 'Print / Save PDF', copied: 'Copied to clipboard!',
+          bridgeTitle: 'Practical Scrum Habits Beyond IT',
+          bridgeBody: 'Every Retrospective in <em>The Number on the Wall</em> ends with one small, honest change instead of a 15-point wish list.',
+          bridgeLink: 'Get the free one-page Scrum Cheat Sheet', backTools: 'All free tools'
+        },
+        de: {
+          htmlLang: 'de', eyebrow: 'Tool 2 · Retrospektiven-Moderator',
+          title: 'Beyond-IT Retrospektiven-Deck',
+          lead: 'Halte Retrospektiven lebendig und konkret ohne Software-Jargon. Wähle den Fokus, ziehe eine passende Karte, nutze den Phasen-Timer und nimm 1 bis 2 echte Maßnahmen mit.',
+          navBook: 'Das Buch', navNews: 'News', navTools: 'Tools', navSheet: 'Cheat Sheet',
+          bookHref: '/de/', newsHref: '/de/news/', sheetHref: '/de/#cheatsheet',
+          focusLabels: { bottleneck: 'Engpässe finden', meetings: 'Meetings entschlacken', handoffs: 'Übergaben klären', energy: 'Energie & Fokus' },
+          tagPrefix: 'Fokus · ', draw: 'Nächste Karte ziehen',
+          start: 'Start 5:00', pause: 'Pause', resume: 'Weiter', reset: 'Reset',
+          actTitle: 'Maßnahmen-Notiz (1 bis 2 konkrete Schritte)',
+          actSub: 'Nichts wird auf einem Server gespeichert. Halte eure Entscheidungen hier fest, kopiere das Kurzprotokoll für den Team-Chat oder drucke es aus.',
+          lbl1: 'Maßnahme 1 (nächster Sprint)', ph1: 'z. B. Daily fest auf 09:15 Uhr legen, Detailfragen auf 09:30 Uhr parken',
+          lbl2: 'Maßnahme 2 (optional) & Verantwortung', ph2: 'z. B. Rechts-Freigaben jeden Dienstag prüfen (Anna)',
+          copyBtn: 'Kurzprotokoll für Chat kopieren', printBtn: 'Drucken / Als PDF', copied: 'In Zwischenablage kopiert!',
+          bridgeTitle: 'Praxisnahe Scrum-Gewohnheiten außerhalb der IT',
+          bridgeBody: 'Jede Retrospektive in <em>The Number on the Wall</em> endet mit einer kleinen, ehrlichen Veränderung statt mit einer 15-Punkte-Wunschliste.',
+          bridgeLink: 'Kostenloses 1-Seiten-Cheat-Sheet holen', backTools: 'Alle kostenlosen Tools'
+        },
+        es: {
+          htmlLang: 'es', eyebrow: 'Herramienta 2 · Facilitador de retrospectiva',
+          title: 'Baraja de retrospectivas fuera de TI',
+          lead: 'Haz retrospectivas útiles sin tecnicismos. Elige el enfoque, saca una tarjeta, usa el temporizador de fase y sal con 1 o 2 acciones reales.',
+          navBook: 'El libro', navNews: 'Noticias', navTools: 'Herramientas', navSheet: 'Hoja resumen',
+          bookHref: '/es/', newsHref: '/es/news/', sheetHref: '/es/#cheatsheet',
+          focusLabels: { bottleneck: 'Detectar atascos', meetings: 'Recortar reuniones', handoffs: 'Mejorar entregas', energy: 'Energía y foco' },
+          tagPrefix: 'Enfoque · ', draw: 'Sacar otra tarjeta',
+          start: 'Iniciar 5:00', pause: 'Pausa', resume: 'Seguir', reset: 'Reiniciar',
+          actTitle: 'Nota de mejora del Sprint (1 o 2 acciones reales)',
+          actSub: 'No se guarda nada en ningún servidor. Anota aquí vuestros acuerdos, copia el resumen para el chat o imprímelo.',
+          lbl1: 'Acción 1 (próximo Sprint)', ph1: 'ej. Fijar la Daily a las 09:15 y aparcar debates largos para las 09:30',
+          lbl2: 'Acción 2 (opcional) y responsable', ph2: 'ej. Revisar cola de Legal cada martes (Ana)',
+          copyBtn: 'Copiar resumen para el chat', printBtn: 'Imprimir / Guardar PDF', copied: '¡Copiado al portapapeles!',
+          bridgeTitle: 'Hábitos Scrum sin jerga fuera de TI',
+          bridgeBody: 'Cada retrospectiva en <em>The Number on the Wall</em> termina con un cambio pequeño y honesto en lugar de una lista de 15 deseos.',
+          bridgeLink: 'Descargar hoja resumen gratuita', backTools: 'Todas las herramientas'
+        },
+        pt: {
+          htmlLang: 'pt', eyebrow: 'Ferramenta 2 · Facilitador de retrospetiva',
+          title: 'Baralho de retrospetivas fora de TI',
+          lead: 'Mantém as retrospetivas práticas sem jargão informático. Escolhe o foco, retira uma carta, usa o temporizador e sai com 1 ou 2 ações concretas.',
+          navBook: 'O livro', navNews: 'Notícias', navTools: 'Ferramentas', navSheet: 'Folha resumo',
+          bookHref: '/pt/', newsHref: '/pt/news/', sheetHref: '/pt/#cheatsheet',
+          focusLabels: { bottleneck: 'Encontrar gargalos', meetings: 'Reduzir reuniões', handoffs: 'Melhorar passagens', energy: 'Energia e foco' },
+          tagPrefix: 'Foco · ', draw: 'Tirar outra carta',
+          start: 'Iniciar 5:00', pause: 'Pausa', resume: 'Retomar', reset: 'Repor',
+          actTitle: 'Nota de melhoria do Sprint (1 ou 2 ações reais)',
+          actSub: 'Nada fica guardado num servidor. Escreve aqui as decisões, copia o resumo para o chat da equipa ou imprime para a parede.',
+          lbl1: 'Ação 1 (próximo Sprint)', ph1: 'ex. Fixar a Daily às 09:15 e estacionar debates longos para as 09:30',
+          lbl2: 'Ação 2 (opcional) e responsável', ph2: 'ex. Rever fila do Jurídico às terças (Ana)',
+          copyBtn: 'Copiar resumo para o chat', printBtn: 'Imprimir / Guardar PDF', copied: 'Copiado!',
+          bridgeTitle: 'Hábitos Scrum práticos fora de TI',
+          bridgeBody: 'Cada retrospetiva em <em>The Number on the Wall</em> termina com uma mudança pequena e honesta em vez de uma lista de 15 desejos.',
+          bridgeLink: 'Obter folha resumo gratuita', backTools: 'Todas as ferramentas'
+        }
+      };
+
+      var state = { lang: 'en', focus: 'bottleneck', cardIdx: 0, seconds: 300, running: false, timerId: null };
+
+      function formatClock(sec) {
+        var m = Math.floor(sec / 60);
+        var s = sec % 60;
+        return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      function renderCard() {
+        var t = uiDict[state.lang];
+        var list = cards[state.focus];
+        var card = list[state.cardIdx % list.length][state.lang];
+        document.getElementById('card-tag').textContent = t.tagPrefix + t.focusLabels[state.focus];
+        document.getElementById('card-title').textContent = card.title;
+        document.getElementById('card-intro').textContent = card.intro;
+        document.getElementById('card-prompts').innerHTML = card.prompts.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+      }
+
+      function applyLang(lang) {
+        state.lang = uiDict[lang] ? lang : 'en';
+        var t = uiDict[state.lang];
+        document.documentElement.lang = t.htmlLang;
+        document.querySelectorAll('.lang-pill').forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-lang') === state.lang ? 'true' : 'false');
+        });
+        document.getElementById('ui-eyebrow').textContent = t.eyebrow;
+        document.getElementById('ui-title').textContent = t.title;
+        document.getElementById('ui-lead').textContent = t.lead;
+        document.getElementById('nav-book').textContent = t.navBook;
+        document.getElementById('nav-book').setAttribute('href', t.bookHref);
+        document.getElementById('nav-news').textContent = t.navNews;
+        document.getElementById('nav-news').setAttribute('href', t.newsHref);
+        document.getElementById('nav-tools').textContent = t.navTools;
+        document.getElementById('nav-tools').setAttribute('href', '/tools/?lang=' + state.lang);
+        document.getElementById('nav-sheet').textContent = t.navSheet;
+        document.getElementById('nav-sheet').setAttribute('href', t.sheetHref);
+
+        Object.keys(t.focusLabels).forEach(function (k) {
+          document.getElementById('f-' + k).textContent = t.focusLabels[k];
+        });
+        document.getElementById('btn-draw').textContent = t.draw;
+        document.getElementById('btn-t-start').textContent = state.running ? t.pause : t.start;
+        document.getElementById('btn-t-reset').textContent = t.reset;
+        document.getElementById('act-title').textContent = t.actTitle;
+        document.getElementById('act-sub').textContent = t.actSub;
+        document.getElementById('lbl-a1').textContent = t.lbl1;
+        document.getElementById('inp-a1').placeholder = t.ph1;
+        document.getElementById('lbl-a2').textContent = t.lbl2;
+        document.getElementById('inp-a2').placeholder = t.ph2;
+        document.getElementById('btn-copy').textContent = t.copyBtn;
+        document.getElementById('btn-print').textContent = t.printBtn;
+        document.getElementById('bridge-title').textContent = t.bridgeTitle;
+        document.getElementById('bridge-body').innerHTML = t.bridgeBody;
+        document.getElementById('bridge-link').textContent = t.bridgeLink;
+        document.getElementById('bridge-link').setAttribute('href', t.sheetHref);
+        document.getElementById('back-tools').textContent = t.backTools;
+        document.getElementById('back-tools').setAttribute('href', '/tools/?lang=' + state.lang);
+
+        renderCard();
+      }
+
+      document.querySelectorAll('.focus-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          state.focus = btn.getAttribute('data-focus');
+          state.cardIdx = 0;
+          document.querySelectorAll('.focus-btn').forEach(function (b) {
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          renderCard();
+        });
+      });
+
+      document.getElementById('btn-draw').addEventListener('click', function () {
+        state.cardIdx = (state.cardIdx + 1) % cards[state.focus].length;
+        renderCard();
+      });
+
+      function tick() {
+        if (state.seconds > 0) {
+          state.seconds -= 1;
+          document.getElementById('retro-clock').textContent = formatClock(state.seconds);
+        } else {
+          clearInterval(state.timerId);
+          state.running = false;
+          document.getElementById('btn-t-start').textContent = uiDict[state.lang].start;
+        }
+      }
+
+      document.getElementById('btn-t-start').addEventListener('click', function () {
+        var t = uiDict[state.lang];
+        if (state.running) {
+          clearInterval(state.timerId);
+          state.running = false;
+          this.textContent = t.resume;
+        } else {
+          if (state.seconds === 0) state.seconds = 300;
+          state.running = true;
+          this.textContent = t.pause;
+          state.timerId = setInterval(tick, 1000);
+        }
+      });
+
+      document.getElementById('btn-t-10').addEventListener('click', function () {
+        clearInterval(state.timerId);
+        state.running = false;
+        state.seconds = 600;
+        document.getElementById('retro-clock').textContent = formatClock(state.seconds);
+        document.getElementById('btn-t-start').textContent = uiDict[state.lang].start;
+      });
+
+      document.getElementById('btn-t-reset').addEventListener('click', function () {
+        clearInterval(state.timerId);
+        state.running = false;
+        state.seconds = 300;
+        document.getElementById('retro-clock').textContent = formatClock(state.seconds);
+        document.getElementById('btn-t-start').textContent = uiDict[state.lang].start;
+      });
+
+      document.getElementById('btn-copy').addEventListener('click', function () {
+        var card = cards[state.focus][state.cardIdx % cards[state.focus].length][state.lang];
+        var a1 = document.getElementById('inp-a1').value.trim() || '-';
+        var a2 = document.getElementById('inp-a2').value.trim();
+        var summary = 'Retro: ' + card.title + '\n1. ' + a1 + (a2 ? '\n2. ' + a2 : '');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(summary);
+        }
+        var status = document.getElementById('copy-status');
+        status.textContent = uiDict[state.lang].copied;
+        setTimeout(function () { status.textContent = ''; }, 2500);
+      });
+
+      document.getElementById('btn-print').addEventListener('click', function () {
+        window.print();
+      });
+
+      document.querySelectorAll('.lang-pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var lang = btn.getAttribute('data-lang');
+          var url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.replaceState({}, '', url.toString());
+          applyLang(lang);
+        });
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var initLang = params.get('lang');
+      applyLang(uiDict[initLang] ? initLang : 'en');
+    })();
+  </script>
+</body>
+</html>

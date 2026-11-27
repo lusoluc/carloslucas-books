@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Scrum Tools for Teams Beyond IT | Carlos Lucas</title>
+  <meta name="description" content="Three free, zero-cookie, multilingual Scrum tools for teams outside IT: 50-question Exam Traps Quiz, Beyond-IT Retro Cards, and 15-Minute Daily Timer At the Wall.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/tools/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:url" content="https://carloslucas.de/tools/">
+  <meta property="og:title" content="Free Scrum Tools for Teams Beyond IT | Carlos Lucas">
+  <meta property="og:description" content="Three free, zero-cookie, multilingual Scrum tools for non-IT teams: 50-question Exam Traps Quiz, Beyond-IT Retro Cards, and 15-Minute Daily Timer.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Scrum Tools for Teams Beyond IT">
+  <meta name="twitter:description" content="50-question Scrum Exam Traps Quiz, Beyond-IT Retro Cards, and 15-Minute Daily Timer At the Wall. Free, no login, no cookies.">
+  <meta name="twitter:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Free Scrum Tools for Teams Beyond IT",
+    "url": "https://carloslucas.de/tools/",
+    "inLanguage": ["en-GB", "de", "es-ES", "pt-PT"],
+    "author": {
+      "@type": "Person",
+      "name": "Carlos Lucas",
+      "url": "https://carloslucas.de/"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://carloslucas.de/tools/exam-traps/",
+          "name": "Scrum Exam Traps Quiz (50 Questions)"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://carloslucas.de/tools/retro-cards/",
+          "name": "Beyond-IT Retrospective Card Deck"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://carloslucas.de/tools/daily-timer/",
+          "name": "15-Minute Daily Timer At the Wall"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    .tool-lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 1.15rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lang-switcher {
+      display: inline-flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .lang-pill {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .lang-pill:hover {
+      border-color: var(--brand-navy);
+    }
+    .lang-pill[aria-pressed="true"] {
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      border-color: var(--brand-navy);
+    }
+    .tool-deck {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .tool-card-item {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--brand-navy);
+      padding: 1.4rem 1.5rem;
+      border-radius: 2px;
+    }
+    .tool-card-item.is-featured {
+      border-left-color: var(--accent-red);
+      background: var(--bg-card);
+    }
+    .tool-meta-row {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-red);
+      margin-bottom: 0.4rem;
+    }
+    .tool-card-item h2 {
+      font-size: 1.38rem;
+      margin-bottom: 0.55rem;
+      color: var(--brand-navy);
+    }
+    .tool-card-item p {
+      margin-bottom: 0.9rem;
+      font-size: 0.98rem;
+    }
+    .tool-bullets {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      margin-bottom: 1.15rem;
+    }
+    .tool-bullets li {
+      margin-bottom: 0.3rem;
+    }
+    .tool-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .tool-cta {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.55rem 1.05rem;
+      border-radius: 3px;
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      transition: background-color 0.15s ease;
+    }
+    .tool-cta:hover {
+      background: var(--accent-red);
+      color: var(--bg-card);
+    }
+    .tool-cta.is-red {
+      background: var(--accent-red);
+    }
+    .tool-cta.is-red:hover {
+      background: var(--accent-red-hover);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/" id="nav-book">The Book</a>
+        <a href="/news/" id="nav-news">News</a>
+        <a href="/tools/" id="nav-tools" aria-current="page">Tools</a>
+        <a href="/cheatsheet" id="nav-sheet">Cheat Sheet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="doc-band">
+    <div class="container">
+      <article class="doc-sheet">
+        <div class="tool-lang-bar">
+          <span class="eyebrow" id="hub-eyebrow">Scrum Beyond IT · Free Practical Tools</span>
+          <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <button type="button" class="lang-pill" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-pill" data-lang="de" aria-pressed="false">DE</button>
+            <button type="button" class="lang-pill" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" class="lang-pill" data-lang="pt" aria-pressed="false">PT</button>
+          </div>
+        </div>
+
+        <h1 id="hub-title">Three Free Tools for Monday Morning</h1>
+        <p class="doc-lead" id="hub-lead">
+          Built for teams outside software development. Zero cookies, zero logins, zero trackers. Everything runs locally in your browser in English, German, Spanish, and Portuguese.
+        </p>
+
+        <div class="tool-deck">
+          <section class="tool-card-item is-featured" aria-labelledby="t1-title">
+            <div class="tool-meta-row" id="t1-meta">Tool 1 · 50-Question Scenario Pool</div>
+            <h2 id="t1-title">Scrum Exam Traps Quiz</h2>
+            <p id="t1-desc">
+              Test your instincts on the classic PSM I and CSPO traps without software jargon. Every run draws fresh scenarios and explains why non-IT teams stumble over each rule in practice.
+            </p>
+            <ul class="tool-bullets" id="t1-list">
+              <li>50 scenario questions across 4 focused decks or full exam simulation</li>
+              <li>Instant plain-language breakdown after every answer</li>
+              <li>One-click replay of only the questions you missed</li>
+            </ul>
+            <div class="tool-actions">
+              <a href="/tools/exam-traps/" class="tool-cta is-red" id="t1-btn">Start Exam Traps Quiz</a>
+            </div>
+          </section>
+
+          <section class="tool-card-item" aria-labelledby="t2-title">
+            <div class="tool-meta-row" id="t2-meta">Tool 2 · Sprint Retrospective Facilitator</div>
+            <h2 id="t2-title">Beyond-IT Retrospective Card Deck</h2>
+            <p id="t2-desc">
+              Stop repeating "what went well, what went badly" until nobody speaks. Pick what your team actually needs to fix, draw a structured retro format, and capture 1 or 2 real actions.
+            </p>
+            <ul class="tool-bullets" id="t2-list">
+              <li>Four practical focus modes: bottlenecks, meetings, handoffs, and energy</li>
+              <li>Built-in phase timer and concrete non-IT guiding questions</li>
+              <li>One-click plain-text summary or printable card for the team wall</li>
+            </ul>
+            <div class="tool-actions">
+              <a href="/tools/retro-cards/" class="tool-cta" id="t2-btn">Open Retro Card Deck</a>
+            </div>
+          </section>
+
+          <section class="tool-card-item" aria-labelledby="t3-title">
+            <div class="tool-meta-row" id="t3-meta">Tool 3 · Physical &amp; Remote Daily</div>
+            <h2 id="t3-title">15-Minute Daily Timer "At the Wall"</h2>
+            <p id="t3-desc">
+              Keep your Daily at 15 minutes whether your team stands in front of a whiteboard or shares a screen in a video call. Green and red buffer signals keep uneven speaking times fair.
+            </p>
+            <ul class="tool-bullets" id="t3-list">
+              <li>Switch between Whiteboard Fullscreen and compact Remote Screen-Share Bar</li>
+              <li>Green/Red pacing buffer with "Next Person" tap and After-Daily parking lot</li>
+              <li>Optional soft 2-stage chime and shareable ?wall= link for team chat</li>
+            </ul>
+            <div class="tool-actions">
+              <a href="/tools/daily-timer/" class="tool-cta" id="t3-btn">Launch Daily Timer</a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="index-card" aria-labelledby="book-bridge-title">
+          <div class="index-card-pin" aria-hidden="true"></div>
+          <h3 id="book-bridge-title">Companion to The Number on the Wall</h3>
+          <p id="book-bridge-body">
+            These tools are based on the Field Guide in <em>The Number on the Wall: A Business Novel About Scrum Beyond IT</em>. The English First Edition launches shortly, with German, Spanish, and Portuguese editions planned.
+          </p>
+          <p>
+            <a href="/#cheatsheet" id="book-bridge-link">Get the free one-page Scrum Cheat Sheet</a>
+          </p>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <p class="footer-copy">&copy; 2026 Carlos Lucas &middot; <a href="/imprint">Imprint</a> &middot; <a href="/privacy">Privacy</a></p>
+        <p class="footer-links">
+          <a href="/">Home</a> &middot; <a href="/news/">News</a> &middot; <a href="/tools/">Tools</a> &middot; <a href="https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm" target="_blank" rel="noopener noreferrer">Music: CINZA</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var dict = {
+        en: {
+          htmlLang: 'en',
+          eyebrow: 'Scrum Beyond IT · Free Practical Tools',
+          title: 'Three Free Tools for Monday Morning',
+          lead: 'Built for teams outside software development. Zero cookies, zero logins, zero trackers. Everything runs locally in your browser in English, German, Spanish, and Portuguese.',
+          navBook: 'The Book',
+          navNews: 'News',
+          navTools: 'Tools',
+          navSheet: 'Cheat Sheet',
+          t1Meta: 'Tool 1 · 50-Question Scenario Pool',
+          t1Title: 'Scrum Exam Traps Quiz',
+          t1Desc: 'Test your instincts on the classic PSM I and CSPO traps without software jargon. Every run draws fresh scenarios and explains why non-IT teams stumble over each rule in practice.',
+          t1List: [
+            '50 scenario questions across 4 focused decks or full exam simulation',
+            'Instant plain-language breakdown after every answer',
+            'One-click replay of only the questions you missed'
+          ],
+          t1Btn: 'Start Exam Traps Quiz',
+          t2Meta: 'Tool 2 · Sprint Retrospective Facilitator',
+          t2Title: 'Beyond-IT Retrospective Card Deck',
+          t2Desc: 'Stop repeating "what went well, what went badly" until nobody speaks. Pick what your team actually needs to fix, draw a structured retro format, and capture 1 or 2 real actions.',
+          t2List: [
+            'Four practical focus modes: bottlenecks, meetings, handoffs, and energy',
+            'Built-in phase timer and concrete non-IT guiding questions',
+            'One-click plain-text summary or printable card for the team wall'
+          ],
+          t2Btn: 'Open Retro Card Deck',
+          t3Meta: 'Tool 3 · Physical & Remote Daily',
+          t3Title: '15-Minute Daily Timer "At the Wall"',
+          t3Desc: 'Keep your Daily at 15 minutes whether your team stands in front of a whiteboard or shares a screen in a video call. Green and red buffer signals keep uneven speaking times fair.',
+          t3List: [
+            'Switch between Whiteboard Fullscreen and compact Remote Screen-Share Bar',
+            'Green/Red pacing buffer with "Next Person" tap and After-Daily parking lot',
+            'Optional soft 2-stage chime and shareable ?wall= link for team chat'
+          ],
+          t3Btn: 'Launch Daily Timer',
+          bridgeTitle: 'Companion to The Number on the Wall',
+          bridgeBody: 'These tools are based on the Field Guide in <em>The Number on the Wall: A Business Novel About Scrum Beyond IT</em>. The English First Edition launches shortly, with German, Spanish, and Portuguese editions planned.',
+          bridgeLink: 'Get the free one-page Scrum Cheat Sheet',
+          bridgeHref: '/#cheatsheet',
+          bookHref: '/',
+          newsHref: '/news/'
+        },
+        de: {
+          htmlLang: 'de',
+          eyebrow: 'Scrum außerhalb der IT · Kostenlose Praxis-Tools',
+          title: 'Drei kostenlose Werkzeuge für Montagmorgen',
+          lead: 'Entwickelt für Teams außerhalb der Softwareentwicklung. Ohne Cookies, ohne Login, ohne Tracking. Alles läuft direkt in deinem Browser auf Deutsch, Englisch, Spanisch und Portugiesisch.',
+          navBook: 'Das Buch',
+          navNews: 'News',
+          navTools: 'Tools',
+          navSheet: 'Cheat Sheet',
+          t1Meta: 'Tool 1 · 50 Szenario-Fragen im Pool',
+          t1Title: 'Scrum-Prüfungsfallen-Quiz',
+          t1Desc: 'Teste dein Gespür für typische PSM-I- und CSPO-Fallen ganz ohne IT-Jargon. Jeder Durchlauf zieht neue Szenarien und erklärt, warum Nicht-IT-Teams im Alltag darüber stolpern.',
+          t1List: [
+            '50 praxisnahe Fragen in 4 Themen-Decks oder als komplette 50er-Simulation',
+            'Sofortige Auflösung in klarer Alltagssprache nach jeder Antwort',
+            '1-Klick-Wiederholung gezielt nur für falsch beantwortete Fragen'
+          ],
+          t1Btn: 'Prüfungsfallen-Quiz starten',
+          t2Meta: 'Tool 2 · Retrospektiven-Moderator',
+          t2Title: 'Beyond-IT Retrospektiven-Deck',
+          t2Desc: 'Schluss mit endlosem „Was lief gut, was lief schlecht?“. Wähle den Fokus für dein Team, ziehe ein passendes Retro-Format und halte 1 bis 2 echte Maßnahmen fest.',
+          t2List: [
+            'Vier Fokus-Modi: Engpässe finden, Meetings entschlacken, Übergaben, Energie',
+            'Eingebauter Phasen-Timer und konkrete Nicht-IT-Leitfragen',
+            '1-Klick-Kurzprotokoll für den Team-Chat oder Druckansicht für die Wand'
+          ],
+          t2Btn: 'Retro-Karten öffnen',
+          t3Meta: 'Tool 3 · Präsenz- & Remote-Daily',
+          t3Title: '15-Minuten Daily-Timer „At the Wall“',
+          leadNote: '',
+          t3Desc: 'Halte euer Daily bei 15 Minuten, ob am physischen Whiteboard oder im Video-Call. Die Grün/Rot-Pufferlogik gleicht kurze und längere Redezeiten fair aus.',
+          t3List: [
+            'Umschaltbar zwischen Whiteboard-Vollbild und kompakter Remote-Leiste',
+            'Grün/Rot-Zeitpuffer mit „Nächste Person“-Klick und After-Daily-Parkplatz',
+            'Optionaler 2-Stufen-Gong und teilbarer ?wall=-Link für Teams oder Slack'
+          ],
+          t3Btn: 'Daily-Timer starten',
+          bridgeTitle: 'Begleiter zu „The Number on the Wall“',
+          bridgeBody: 'Diese Werkzeuge basieren auf dem Field Guide aus <em>The Number on the Wall: A Business Novel About Scrum Beyond IT</em>. Die englische Erstausgabe erscheint in Kürze; eine deutsche Ausgabe ist geplant.',
+          bridgeLink: 'Kostenloses 1-Seiten-Cheat-Sheet & Warteliste',
+          bridgeHref: '/de/#cheatsheet',
+          bookHref: '/de/',
+          newsHref: '/de/news/'
+        },
+        es: {
+          htmlLang: 'es',
+          eyebrow: 'Scrum fuera de TI · Herramientas gratuitas',
+          title: 'Tres herramientas gratuitas para el lunes',
+          lead: 'Pensadas para equipos ajenos al desarrollo de software. Sin cookies, sin registro y sin rastreadores. Todo funciona localmente en tu navegador en español, inglés, alemán y portugués.',
+          navBook: 'El libro',
+          navNews: 'Noticias',
+          navTools: 'Herramientas',
+          navSheet: 'Hoja resumen',
+          t1Meta: 'Herramienta 1 · Banco de 50 escenarios',
+          t1Title: 'Test de trampas de examen Scrum',
+          t1Desc: 'Pon a prueba tu criterio ante las trampas clásicas del PSM I y CSPO sin jerga informática. Cada partida mezcla nuevos escenarios y explica por qué los equipos no técnicos tropiezan en el día a día.',
+          t1List: [
+            '50 preguntas prácticas en 4 mazos temáticos o simulación completa',
+            'Explicación inmediata en lenguaje claro tras cada respuesta',
+            'Repetición en un clic solo de las preguntas falladas'
+          ],
+          t1Btn: 'Empezar test de trampas',
+          t2Meta: 'Herramienta 2 · Facilitador de retrospectiva',
+          t2Title: 'Baraja de retrospectivas fuera de TI',
+          t2Desc: 'Deja de repetir siempre "¿qué fue bien y qué fue mal?" hasta que nadie habla. Elige qué necesita resolver tu equipo, saca un formato claro y fija 1 o 2 acciones reales.',
+          t2List: [
+            'Cuatro enfoques: cuellos de botella, reuniones, entregas internas y energía',
+            'Temporizador por fases y preguntas guía sin jerga de software',
+            'Resumen en un clic para el chat del equipo o ficha imprimible'
+          ],
+          t2Btn: 'Abrir baraja de retrospectiva',
+          t3Meta: 'Herramienta 3 · Daily presencial o remota',
+          t3Title: 'Temporizador Daily de 15 minutos "At the Wall"',
+          t3Desc: 'Mantén la Daily en 15 minutos tanto frente a una pizarra como en videollamada. El indicador verde/rojo equilibra turnos cortos y bloqueos reales sin estrés.',
+          t3List: [
+            'Modo pizarra a pantalla completa o barra compacta para compartir pantalla',
+            'Margen verde/rojo con botón "Siguiente persona" y aparcamiento After-Daily',
+            'Aviso sonoro opcional en dos fases y enlace ?wall= para el chat'
+          ],
+          t3Btn: 'Abrir temporizador Daily',
+          bridgeTitle: 'Complemento de The Number on the Wall',
+          bridgeBody: 'Estas herramientas parten de la guía práctica de <em>The Number on the Wall: A Business Novel About Scrum Beyond IT</em>. La primera edición en inglés sale muy pronto, con edición en español prevista.',
+          bridgeLink: 'Descargar la hoja resumen gratuita de Scrum',
+          bridgeHref: '/es/#cheatsheet',
+          bookHref: '/es/',
+          newsHref: '/es/news/'
+        },
+        pt: {
+          htmlLang: 'pt',
+          eyebrow: 'Scrum fora de TI · Ferramentas gratuitas',
+          title: 'Três ferramentas gratuitas para segunda-feira',
+          lead: 'Pensadas para equipas fora da área de software. Sem cookies, sem registo e sem rastreadores. Tudo corre localmente no teu navegador em português europeu, inglês, alemão e espanhol.',
+          navBook: 'O livro',
+          navNews: 'Notícias',
+          navTools: 'Ferramentas',
+          navSheet: 'Folha resumo',
+          t1Meta: 'Ferramenta 1 · Banco de 50 cenários',
+          t1Title: 'Teste de armadilhas de exame Scrum',
+          t1Desc: 'Testa o teu instinto nas armadilhas clássicas do PSM I e CSPO sem jargão informático. Cada sessão sorteia novos cenários e explica onde as equipas fora de TI costumam tropeçar.',
+          t1List: [
+            '50 perguntas práticas em 4 baralhos temáticos ou simulação completa',
+            'Explicação imediata em linguagem direta após cada resposta',
+            'Repetição num clique apenas das perguntas em que falhaste'
+          ],
+          t1Btn: 'Iniciar teste de armadilhas',
+          t2Meta: 'Ferramenta 2 · Facilitador de retrospetiva',
+          t2Title: 'Baralho de retrospetivas fora de TI',
+          t2Desc: 'Acaba com o eterno "o que correu bem e mal" até ninguém falar. Escolhe o foco da tua equipa, retira um formato estruturado e define 1 ou 2 ações concretas.',
+          t2List: [
+            'Quatro focos práticos: gargalos, reuniões, passagens de tarefa e energia',
+            'Temporizador por fase e perguntas orientadoras sem jargão técnico',
+            'Resumo em texto num clique ou ficha imprimível para a parede'
+          ],
+          t2Btn: 'Abrir baralho de retrospetiva',
+          t3Meta: 'Ferramenta 3 · Daily presencial ou remota',
+          t3Title: 'Temporizador Daily de 15 minutos "At the Wall"',
+          t3Desc: 'Mantém a Daily nos 15 minutos, quer a equipa esteja diante de um quadro branco ou numa videochamada. O sinal verde/vermelho equilibra turnos rápidos e bloqueios reais.',
+          t3List: [
+            'Alterna entre ecrã inteiro de quadro e barra compacta para partilha de ecrã',
+            'Reserva verde/vermelha com botão "Pessoa seguinte" e lista After-Daily',
+            'Sinal sonoro opcional em duas fases e ligação ?wall= para o chat'
+          ],
+          t3Btn: 'Abrir temporizador Daily',
+          bridgeTitle: 'Complemento de The Number on the Wall',
+          bridgeBody: 'Estas ferramentas baseiam-se no guia prático de <em>The Number on the Wall: A Business Novel About Scrum Beyond IT</em>. A primeira edição em inglês sai em breve, com edição em português prevista.',
+          bridgeLink: 'Obter a folha resumo gratuita de Scrum',
+          bridgeHref: '/pt/#cheatsheet',
+          bookHref: '/pt/',
+          newsHref: '/pt/news/'
+        }
+      };
+
+      function getInitialLang() {
+        var params = new URLSearchParams(window.location.search);
+        var q = params.get('lang');
+        if (q && dict[q]) return q;
+        return 'en';
+      }
+
+      function applyLang(lang) {
+        var c = dict[lang] || dict.en;
+        document.documentElement.lang = c.htmlLang;
+
+        document.querySelectorAll('.lang-pill').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+        });
+
+        document.getElementById('hub-eyebrow').textContent = c.eyebrow;
+        document.getElementById('hub-title').textContent = c.title;
+        document.getElementById('hub-lead').textContent = c.lead;
+
+        document.getElementById('nav-book').textContent = c.navBook;
+        document.getElementById('nav-book').setAttribute('href', c.bookHref);
+        document.getElementById('nav-news').textContent = c.navNews;
+        document.getElementById('nav-news').setAttribute('href', c.newsHref);
+        document.getElementById('nav-tools').textContent = c.navTools;
+        document.getElementById('nav-sheet').textContent = c.navSheet;
+        document.getElementById('nav-sheet').setAttribute('href', c.bridgeHref);
+
+        document.getElementById('t1-meta').textContent = c.t1Meta;
+        document.getElementById('t1-title').textContent = c.t1Title;
+        document.getElementById('t1-desc').textContent = c.t1Desc;
+        document.getElementById('t1-list').innerHTML = c.t1List.map(function (li) { return '<li>' + li + '</li>'; }).join('');
+        document.getElementById('t1-btn').textContent = c.t1Btn;
+        document.getElementById('t1-btn').setAttribute('href', '/tools/exam-traps/?lang=' + lang);
+
+        document.getElementById('t2-meta').textContent = c.t2Meta;
+        document.getElementById('t2-title').textContent = c.t2Title;
+        document.getElementById('t2-desc').textContent = c.t2Desc;
+        document.getElementById('t2-list').innerHTML = c.t2List.map(function (li) { return '<li>' + li + '</li>'; }).join('');
+        document.getElementById('t2-btn').textContent = c.t2Btn;
+        document.getElementById('t2-btn').setAttribute('href', '/tools/retro-cards/?lang=' + lang);
+
+        document.getElementById('t3-meta').textContent = c.t3Meta;
+        document.getElementById('t3-title').textContent = c.t3Title;
+        document.getElementById('t3-desc').textContent = c.t3Desc;
+        document.getElementById('t3-list').innerHTML = c.t3List.map(function (li) { return '<li>' + li + '</li>'; }).join('');
+        document.getElementById('t3-btn').textContent = c.t3Btn;
+        document.getElementById('t3-btn').setAttribute('href', '/tools/daily-timer/?lang=' + lang);
+
+        document.getElementById('book-bridge-title').textContent = c.bridgeTitle;
+        document.getElementById('book-bridge-body').innerHTML = c.bridgeBody;
+        document.getElementById('book-bridge-link').textContent = c.bridgeLink;
+        document.getElementById('book-bridge-link').setAttribute('href', c.bridgeHref);
+      }
+
+      document.querySelectorAll('.lang-pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var lang = btn.getAttribute('data-lang');
+          var url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.replaceState({}, '', url.toString());
+          applyLang(lang);
+        });
+      });
+
+      applyLang(getInitialLang());
+    })();
+  </script>
+</body>
+</html>

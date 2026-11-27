@@ -41,6 +41,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://carloslucas.de/tools/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/tools/exam-traps/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/tools/retro-cards/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/tools/daily-timer/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://carloslucas.de/news/scrum-year-in-review-2026/</loc>
     <lastmod>2026-11-27</lastmod>
     <priority>0.8</priority>

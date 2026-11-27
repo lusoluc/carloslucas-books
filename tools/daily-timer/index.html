@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15-Minute Daily Timer "At the Wall" | Carlos Lucas</title>
+  <meta name="description" content="Distraction-free 15-minute Daily Scrum timer for whiteboards and remote calls. Green/Red speaking buffer, After-Daily parking lot, and zero cookies.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/tools/daily-timer/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:url" content="https://carloslucas.de/tools/daily-timer/">
+  <meta property="og:title" content="15-Minute Daily Timer At the Wall | Carlos Lucas">
+  <meta property="og:description" content="Keep your Daily at 15 minutes in the room or on a video call, with Green/Red pacing buffer and zero cookies.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "15-Minute Daily Timer At the Wall",
+    "url": "https://carloslucas.de/tools/daily-timer/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "isAccessibleForFree": true,
+    "inLanguage": ["en-GB", "de", "es-ES", "pt-PT"],
+    "author": {
+      "@type": "Person",
+      "name": "Carlos Lucas",
+      "url": "https://carloslucas.de/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --status-green: #2E6B4E;
+    }
+    .tool-lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 1.1rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .lang-switcher { display: inline-flex; gap: 0.35rem; flex-wrap: wrap; }
+    .lang-pill, .t-btn {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.44rem 0.82rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .lang-pill:hover, .t-btn:hover { border-color: var(--brand-navy); }
+    .lang-pill[aria-pressed="true"], .t-btn[aria-pressed="true"] {
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      border-color: var(--brand-navy);
+    }
+    .t-btn.is-primary {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: var(--bg-card);
+    }
+    .t-btn.is-primary:hover {
+      background: var(--accent-red-hover);
+    }
+    .t-btn.is-navy {
+      background: var(--brand-navy);
+      border-color: var(--brand-navy);
+      color: var(--bg-card);
+    }
+
+    .timer-stage {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      border-radius: 2px;
+      margin: 1.25rem 0 1.75rem;
+    }
+    .timer-stage.is-compact {
+      padding: 1rem 1.25rem;
+    }
+    .timer-stage:fullscreen {
+      background: var(--bg-paper);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .mode-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.15rem;
+    }
+    .clock-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.2rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .timer-stage.is-compact .clock-grid {
+      margin-bottom: 0.65rem;
+    }
+    .clock-display {
+      font-family: var(--font-sans);
+      font-size: clamp(3.2rem, 8vw, 5.4rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--brand-navy);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .timer-stage.is-compact .clock-display {
+      font-size: 2.8rem;
+    }
+    .wall-badge {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid var(--accent-red);
+      padding: 0.65rem 0.9rem;
+      min-width: 190px;
+    }
+    .wall-badge label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-red);
+      margin-bottom: 0.25rem;
+    }
+    .wall-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      outline: none;
+    }
+
+    .buffer-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 6px solid var(--status-green);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.1rem;
+    }
+    .buffer-box.is-red {
+      border-left-color: var(--accent-red);
+    }
+    .buffer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+    .buffer-pill {
+      display: inline-block;
+      padding: 0.18rem 0.55rem;
+      border-radius: 3px;
+      color: var(--bg-card);
+      background: var(--status-green);
+      font-size: 0.78rem;
+    }
+    .buffer-box.is-red .buffer-pill {
+      background: var(--accent-red);
+    }
+    .buffer-track {
+      width: 100%;
+      height: 8px;
+      background: var(--border-subtle);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 0.55rem;
+    }
+    .buffer-fill {
+      height: 100%;
+      width: 100%;
+      background: var(--status-green);
+      transition: width 0.3s ease, background-color 0.2s ease;
+    }
+    .buffer-box.is-red .buffer-fill {
+      background: var(--accent-red);
+    }
+    .pacing-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+    .team-select {
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 0.28rem 0.5rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--brand-navy);
+      border-radius: 3px;
+    }
+
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+      margin-bottom: 1.15rem;
+    }
+    .questions-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .q-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.85rem 0.95rem;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--brand-navy);
+      font-weight: 600;
+    }
+    .q-num {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-red);
+      margin-bottom: 0.2rem;
+    }
+    .parking-box {
+      margin-top: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 0.85rem 1rem;
+    }
+    .parking-box label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+    .parking-input {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      padding: 0.45rem 0.6rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border-radius: 3px;
+    }
+    .timer-stage.is-compact .questions-strip {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+    .timer-stage.is-compact .q-tile {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.82rem;
+    }
+    .copy-feedback {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+    }
+
+    @media (max-width: 720px) {
+      .clock-grid { grid-template-columns: 1fr; }
+      .questions-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/" id="nav-book">The Book</a>
+        <a href="/news/" id="nav-news">News</a>
+        <a href="/tools/" id="nav-tools" aria-current="page">Tools</a>
+        <a href="/cheatsheet" id="nav-sheet">Cheat Sheet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="doc-band">
+    <div class="container">
+      <article class="doc-sheet">
+        <div class="tool-lang-bar">
+          <span class="eyebrow" id="ui-eyebrow">Tool 3 · Physical &amp; Remote Daily</span>
+          <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <button type="button" class="lang-pill" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-pill" data-lang="de" aria-pressed="false">DE</button>
+            <button type="button" class="lang-pill" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" class="lang-pill" data-lang="pt" aria-pressed="false">PT</button>
+          </div>
+        </div>
+
+        <h1 id="ui-title">15-Minute Daily Timer "At the Wall"</h1>
+        <p class="doc-lead" id="ui-lead">
+          Keep your Daily at 15 minutes at a physical whiteboard or in a remote video call. Short updates donate time to real blockers, shown clearly by the Green/Red buffer.
+        </p>
+
+        <section class="timer-stage" id="timer-stage" aria-live="off">
+          <div class="mode-bar">
+            <div style="display:flex; flex-wrap:wrap; gap:0.45rem;">
+              <button type="button" class="t-btn" id="btn-mode-wall" aria-pressed="true">Whiteboard View</button>
+              <button type="button" class="t-btn" id="btn-mode-remote" aria-pressed="false">Remote Bar</button>
+              <button type="button" class="t-btn" id="btn-fullscreen">Fullscreen</button>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:0.45rem; align-items:center;">
+              <button type="button" class="t-btn" id="btn-chime" aria-pressed="true">Chime: On</button>
+              <button type="button" class="t-btn" id="btn-share-link">Copy Today's Link</button>
+              <span class="copy-feedback" id="share-status"></span>
+            </div>
+          </div>
+
+          <div class="clock-grid">
+            <div class="clock-display" id="clock-display">15:00</div>
+            <div class="wall-badge">
+              <label for="wall-input" id="lbl-wall">Number on the Wall (Optional)</label>
+              <input type="text" class="wall-input" id="wall-input" placeholder="38 overdue items">
+            </div>
+          </div>
+
+          <div class="buffer-box" id="buffer-box">
+            <div class="buffer-top">
+              <span id="buffer-text">Green buffer: ~2:30 min left per remaining person</span>
+              <span class="buffer-pill" id="buffer-pill">On Track</span>
+            </div>
+            <div class="buffer-track"><div class="buffer-fill" id="buffer-fill"></div></div>
+            <div class="pacing-controls">
+              <label for="team-size" id="lbl-team">Team size:</label>
+              <select id="team-size" class="team-select">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6" selected>6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <span id="speaker-count">Turn 1 of 6</span>
+              <button type="button" class="t-btn is-navy" id="btn-next-speaker">Next Person</button>
+            </div>
+          </div>
+
+          <div class="controls-row">
+            <button type="button" class="t-btn is-primary" id="btn-start">Start 15:00</button>
+            <button type="button" class="t-btn" id="btn-reset">Reset</button>
+          </div>
+
+          <div class="questions-strip">
+            <div class="q-tile"><span class="q-num">01</span><span id="q1">Which card is stuck?</span></div>
+            <div class="q-tile"><span class="q-num">02</span><span id="q2">Who needs help today?</span></div>
+            <div class="q-tile"><span class="q-num">03</span><span id="q3">What reaches Done today?</span></div>
+          </div>
+
+          <div class="parking-box">
+            <label for="parking-input" id="lbl-parking">After-Daily Parking Lot (resolve after 15:00 with only those needed)</label>
+            <input type="text" class="parking-input" id="parking-input" placeholder="e.g. Supplier invoice mismatch (Max &amp; Anna at 09:15)">
+          </div>
+        </section>
+
+        <aside class="index-card" aria-labelledby="bridge-title">
+          <div class="index-card-pin" aria-hidden="true"></div>
+          <h3 id="bridge-title">Why 15 minutes changes the whole room</h3>
+          <p id="bridge-body">
+            In <em>The Number on the Wall</em>, the morning stand-up stops being a polite status show the moment the team puts the real bottleneck in sight and moves deep debates to After-Daily.
+          </p>
+          <p><a href="/#cheatsheet" id="bridge-link">Get the free one-page Scrum Cheat Sheet</a> &middot; <a href="/tools/" id="back-tools">All free tools</a></p>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <p class="footer-copy">&copy; 2026 Carlos Lucas &middot; <a href="/imprint">Imprint</a> &middot; <a href="/privacy">Privacy</a></p>
+        <p class="footer-links">
+          <a href="/">Home</a> &middot; <a href="/news/">News</a> &middot; <a href="/tools/">Tools</a> &middot; <a href="https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm" target="_blank" rel="noopener noreferrer">Music: CINZA</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var uiDict = {
+        en: {
+          htmlLang: 'en', eyebrow: 'Tool 3 · Physical & Remote Daily',
+          title: '15-Minute Daily Timer "At the Wall"',
+          lead: 'Keep your Daily at 15 minutes at a physical whiteboard or in a remote video call. Short updates donate time to real blockers, shown clearly by the Green/Red buffer.',
+          navBook: 'The Book', navNews: 'News', navTools: 'Tools', navSheet: 'Cheat Sheet',
+          bookHref: '/', newsHref: '/news/', sheetHref: '/#cheatsheet',
+          modeWall: 'Whiteboard View', modeRemote: 'Remote Bar', fullscreen: 'Fullscreen',
+          chimeOn: 'Chime: On', chimeOff: 'Chime: Off',
+          shareLink: "Copy Today's Link", copied: 'Link copied!',
+          lblWall: 'Number on the Wall (Optional)', phWall: '38 overdue items',
+          lblTeam: 'Team size:', nextSpeaker: 'Next Person',
+          turnOf: function (a, b) { return 'Turn ' + a + ' of ' + b; },
+          allDone: 'All turns complete',
+          greenText: function (s) { return 'Green buffer: ~' + s + ' left per remaining person'; },
+          redText: function (s) { return 'Red alert (' + s + '/person left): stay brief, park details for After-Daily'; },
+          pillGreen: 'Buffer Healthy', pillRed: 'Wrap Up / Park',
+          start: 'Start 15:00', pause: 'Pause', resume: 'Resume', reset: 'Reset',
+          q1: 'Which card is stuck?', q2: 'Who needs help today?', q3: 'What reaches Done today?',
+          lblParking: 'After-Daily Parking Lot (resolve after 15:00 with only those needed)',
+          phParking: 'e.g. Supplier invoice mismatch (Max & Anna at 09:15)',
+          bridgeTitle: 'Why 15 minutes changes the whole room',
+          bridgeBody: 'In <em>The Number on the Wall</em>, the morning stand-up stops being a polite status show the moment the team puts the real bottleneck in sight and moves deep debates to After-Daily.',
+          bridgeLink: 'Get the free one-page Scrum Cheat Sheet', backTools: 'All free tools'
+        },
+        de: {
+          htmlLang: 'de', eyebrow: 'Tool 3 · Präsenz- & Remote-Daily',
+          title: '15-Minuten Daily-Timer „At the Wall“',
+          lead: 'Halte euer Daily bei 15 Minuten am physischen Whiteboard oder im Video-Call. Schnelle Updates schenken Zeit für echte Engpässe, klar sichtbar durch Grün und Rot.',
+          navBook: 'Das Buch', navNews: 'News', navTools: 'Tools', navSheet: 'Cheat Sheet',
+          bookHref: '/de/', newsHref: '/de/news/', sheetHref: '/de/#cheatsheet',
+          modeWall: 'Whiteboard-Ansicht', modeRemote: 'Remote-Leiste', fullscreen: 'Vollbild',
+          chimeOn: 'Gong: Ein', chimeOff: 'Gong: Aus',
+          shareLink: 'Tages-Link kopieren', copied: 'Link kopiert!',
+          lblWall: 'Number on the Wall (Optional)', phWall: '38 offene Vorgänge',
+          lblTeam: 'Teamgröße:', nextSpeaker: 'Nächste Person',
+          turnOf: function (a, b) { return 'Person ' + a + ' von ' + b; },
+          allDone: 'Alle Runden durch',
+          greenText: function (s) { return 'Grüner Puffer: noch ~' + s + ' pro ausstehender Person'; },
+          redText: function (s) { return 'Rot-Signal (' + s + '/Person übrig): kurz fassen, Details ins After-Daily'; },
+          pillGreen: 'Im grünen Bereich', pillRed: 'Zeit knapp / Parken',
+          start: 'Start 15:00', pause: 'Pause', resume: 'Weiter', reset: 'Reset',
+          q1: 'Welche Karte hängt fest?', q2: 'Wer braucht heute Hilfe?', q3: 'Was wird heute wirklich Done?',
+          lblParking: 'After-Daily-Parkplatz (nach 15:00 Uhr nur mit den Beteiligten klären)',
+          phParking: 'z. B. Lieferanten-Rechnung klären (Max & Anna um 09:15)',
+          bridgeTitle: 'Warum 15 Minuten den ganzen Raum verändern',
+          bridgeBody: 'In <em>The Number on the Wall</em> hört das Morgen-Meeting sofort auf, ein höfliches Status-Theater zu sein, sobald der echte Engpass sichtbar wird und Details ins After-Daily wandern.',
+          bridgeLink: 'Kostenloses 1-Seiten-Cheat-Sheet holen', backTools: 'Alle kostenlosen Tools'
+        },
+        es: {
+          htmlLang: 'es', eyebrow: 'Herramienta 3 · Daily presencial o remota',
+          title: 'Temporizador Daily de 15 minutos "At the Wall"',
+          lead: 'Mantén la Daily en 15 minutos frente a la pizarra o en videollamada. Los turnos cortos ceden margen a los bloqueos reales mediante la barra verde y roja.',
+          navBook: 'El libro', navNews: 'Noticias', navTools: 'Herramientas', navSheet: 'Hoja resumen',
+          bookHref: '/es/', newsHref: '/es/news/', sheetHref: '/es/#cheatsheet',
+          modeWall: 'Vista Pizarra', modeRemote: 'Barra Remota', fullscreen: 'Pantalla completa',
+          chimeOn: 'Aviso: Sí', chimeOff: 'Aviso: No',
+          shareLink: 'Copiar enlace de hoy', copied: '¡Enlace copiado!',
+          lblWall: 'Número en la pared (Opcional)', phWall: '38 casos pendientes',
+          lblTeam: 'Equipo:', nextSpeaker: 'Siguiente persona',
+          turnOf: function (a, b) { return 'Turno ' + a + ' de ' + b; },
+          allDone: 'Todos han intervenido',
+          greenText: function (s) { return 'Margen verde: quedan ~' + s + ' por persona restante'; },
+          redText: function (s) { return 'Aviso rojo (' + s + '/persona): ir al grano, aparcar detalles'; },
+          pillGreen: 'Buen ritmo', pillRed: 'Tiempo justo',
+          start: 'Iniciar 15:00', pause: 'Pausa', resume: 'Seguir', reset: 'Reiniciar',
+          q1: '¿Qué tarjeta está atascada?', q2: '¿Quién necesita ayuda hoy?', q3: '¿Qué queda Done hoy?',
+          lblParking: 'Aparcamiento After-Daily (resolver tras los 15:00 solo entre implicados)',
+          phParking: 'ej. Factura bloqueada con proveedor (Ana y Luis a las 09:15)',
+          bridgeTitle: 'Por qué 15 minutos cambian toda la sala',
+          bridgeBody: 'En <em>The Number on the Wall</em> la reunión diaria deja de ser teatro amable en cuanto el cuello de botella real está a la vista y el detalle pasa al After-Daily.',
+          bridgeLink: 'Descargar hoja resumen gratuita', backTools: 'Todas las herramientas'
+        },
+        pt: {
+          htmlLang: 'pt', eyebrow: 'Ferramenta 3 · Daily presencial ou remota',
+          title: 'Temporizador Daily de 15 minutos "At the Wall"',
+          lead: 'Mantém a Daily nos 15 minutos diante do quadro ou numa videochamada. Atualizações curtas cedem tempo aos bloqueios reais com sinal verde e vermelho.',
+          navBook: 'O livro', navNews: 'Notícias', navTools: 'Ferramentas', navSheet: 'Folha resumo',
+          bookHref: '/pt/', newsHref: '/pt/news/', sheetHref: '/pt/#cheatsheet',
+          modeWall: 'Vista Quadro', modeRemote: 'Barra Remota', fullscreen: 'Ecrã inteiro',
+          chimeOn: 'Sinal: Sim', chimeOff: 'Sinal: Não',
+          shareLink: 'Copiar ligação de hoje', copied: 'Ligação copiada!',
+          lblWall: 'Número na parede (Opcional)', phWall: '38 pedidos em atraso',
+          lblTeam: 'Equipa:', nextSpeaker: 'Pessoa seguinte',
+          turnOf: function (a, b) { return 'Turno ' + a + ' de ' + b; },
+          allDone: 'Todos falaram',
+          greenText: function (s) { return 'Margem verde: ~' + s + ' restantes por pessoa'; },
+          redText: function (s) { return 'Alerta vermelho (' + s + '/pessoa): resumir e estacionar detalhes'; },
+          pillGreen: 'Ritmo saudável', pillRed: 'Tempo curto',
+          start: 'Iniciar 15:00', pause: 'Pausa', resume: 'Retomar', reset: 'Repor',
+          q1: 'Que cartão está preso?', q2: 'Quem precisa de ajuda hoje?', q3: 'O que fica Done hoje?',
+          lblParking: 'Lista After-Daily (resolver após os 15:00 apenas com os envolvidos)',
+          phParking: 'ex. Fatura de fornecedor bloqueada (Ana e Rui às 09:15)',
+          bridgeTitle: 'Porque 15 minutos mudam toda a sala',
+          bridgeBody: 'Em <em>The Number on the Wall</em> a reunião matinal deixa de ser teatro educado assim que o bloqueio real fica visível e o detalhe segue para o After-Daily.',
+          bridgeLink: 'Obter folha resumo gratuita', backTools: 'Todas as ferramentas'
+        }
+      };
+
+      var state = {
+        lang: 'en',
+        totalSec: 900,
+        sec: 900,
+        running: false,
+        timerId: null,
+        chime: true,
+        teamSize: 6,
+        speakerIdx: 1,
+        warned3Min: false,
+        warnedEnd: false
+      };
+
+      function fmt(s) {
+        var m = Math.floor(s / 60);
+        var r = s % 60;
+        return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r;
+      }
+
+      function playTone(freq, dur) {
+        if (!state.chime) return;
+        try {
+          var Ctx = window.AudioContext || window.webkitAudioContext;
+          if (!Ctx) return;
+          var ctx = new Ctx();
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + dur);
+        } catch (e) {}
+      }
+
+      function updateBufferUI() {
+        var t = uiDict[state.lang];
+        var remainingTurns = Math.max(1, state.teamSize - state.speakerIdx + 1);
+        var secPerPerson = Math.floor(state.sec / remainingTurns);
+        var isRed = secPerPerson < 90 || state.sec <= 180;
+
+        var box = document.getElementById('buffer-box');
+        var text = document.getElementById('buffer-text');
+        var pill = document.getElementById('buffer-pill');
+        var fill = document.getElementById('buffer-fill');
+
+        if (state.speakerIdx > state.teamSize) {
+          document.getElementById('speaker-count').textContent = t.allDone;
+        } else {
+          document.getElementById('speaker-count').textContent = t.turnOf(state.speakerIdx, state.teamSize);
+        }
+
+        if (isRed) {
+          box.classList.add('is-red');
+          text.textContent = t.redText(fmt(secPerPerson));
+          pill.textContent = t.pillRed;
+        } else {
+          box.classList.remove('is-red');
+          text.textContent = t.greenText(fmt(secPerPerson));
+          pill.textContent = t.pillGreen;
+        }
+        fill.style.width = Math.max(0, Math.round((state.sec / state.totalSec) * 100)) + '%';
+      }
+
+      function tick() {
+        if (state.sec > 0) {
+          state.sec -= 1;
+          document.getElementById('clock-display').textContent = fmt(state.sec);
+          if (state.sec === 180 && !state.warned3Min) {
+            state.warned3Min = true;
+            playTone(523.25, 0.45);
+          }
+          if (state.sec === 0 && !state.warnedEnd) {
+            state.warnedEnd = true;
+            playTone(440, 0.8);
+            clearInterval(state.timerId);
+            state.running = false;
+            document.getElementById('btn-start').textContent = uiDict[state.lang].start;
+          }
+          updateBufferUI();
+        }
+      }
+
+      function applyLang(lang) {
+        state.lang = uiDict[lang] ? lang : 'en';
+        var t = uiDict[state.lang];
+        document.documentElement.lang = t.htmlLang;
+        document.querySelectorAll('.lang-pill').forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-lang') === state.lang ? 'true' : 'false');
+        });
+        document.getElementById('ui-eyebrow').textContent = t.eyebrow;
+        document.getElementById('ui-title').textContent = t.title;
+        document.getElementById('ui-lead').textContent = t.lead;
+        document.getElementById('nav-book').textContent = t.navBook;
+        document.getElementById('nav-book').setAttribute('href', t.bookHref);
+        document.getElementById('nav-news').textContent = t.navNews;
+        document.getElementById('nav-news').setAttribute('href', t.newsHref);
+        document.getElementById('nav-tools').textContent = t.navTools;
+        document.getElementById('nav-tools').setAttribute('href', '/tools/?lang=' + state.lang);
+        document.getElementById('nav-sheet').textContent = t.navSheet;
+        document.getElementById('nav-sheet').setAttribute('href', t.sheetHref);
+
+        document.getElementById('btn-mode-wall').textContent = t.modeWall;
+        document.getElementById('btn-mode-remote').textContent = t.modeRemote;
+        document.getElementById('btn-fullscreen').textContent = t.fullscreen;
+        document.getElementById('btn-chime').textContent = state.chime ? t.chimeOn : t.chimeOff;
+        document.getElementById('btn-share-link').textContent = t.shareLink;
+        document.getElementById('lbl-wall').textContent = t.lblWall;
+        document.getElementById('wall-input').placeholder = t.phWall;
+        document.getElementById('lbl-team').textContent = t.lblTeam;
+        document.getElementById('btn-next-speaker').textContent = t.nextSpeaker;
+        document.getElementById('btn-start').textContent = state.running ? t.pause : (state.sec < state.totalSec && state.sec > 0 ? t.resume : t.start);
+        document.getElementById('btn-reset').textContent = t.reset;
+        document.getElementById('q1').textContent = t.q1;
+        document.getElementById('q2').textContent = t.q2;
+        document.getElementById('q3').textContent = t.q3;
+        document.getElementById('lbl-parking').textContent = t.lblParking;
+        document.getElementById('parking-input').placeholder = t.phParking;
+        document.getElementById('bridge-title').textContent = t.bridgeTitle;
+        document.getElementById('bridge-body').innerHTML = t.bridgeBody;
+        document.getElementById('bridge-link').textContent = t.bridgeLink;
+        document.getElementById('bridge-link').setAttribute('href', t.sheetHref);
+        document.getElementById('back-tools').textContent = t.backTools;
+        document.getElementById('back-tools').setAttribute('href', '/tools/?lang=' + state.lang);
+
+        updateBufferUI();
+      }
+
+      document.getElementById('btn-start').addEventListener('click', function () {
+        var t = uiDict[state.lang];
+        if (state.running) {
+          clearInterval(state.timerId);
+          state.running = false;
+          this.textContent = t.resume;
+        } else {
+          if (state.sec === 0) {
+            state.sec = state.totalSec;
+            state.warned3Min = false;
+            state.warnedEnd = false;
+          }
+          state.running = true;
+          this.textContent = t.pause;
+          state.timerId = setInterval(tick, 1000);
+        }
+      });
+
+      document.getElementById('btn-reset').addEventListener('click', function () {
+        clearInterval(state.timerId);
+        state.running = false;
+        state.sec = state.totalSec;
+        state.speakerIdx = 1;
+        state.warned3Min = false;
+        state.warnedEnd = false;
+        document.getElementById('clock-display').textContent = fmt(state.sec);
+        document.getElementById('btn-start').textContent = uiDict[state.lang].start;
+        updateBufferUI();
+      });
+
+      document.getElementById('team-size').addEventListener('change', function () {
+        state.teamSize = parseInt(this.value, 10) || 6;
+        if (state.speakerIdx > state.teamSize) state.speakerIdx = state.teamSize;
+        updateBufferUI();
+      });
+
+      document.getElementById('btn-next-speaker').addEventListener('click', function () {
+        if (state.speakerIdx <= state.teamSize) {
+          state.speakerIdx += 1;
+        } else {
+          state.speakerIdx = 1;
+        }
+        updateBufferUI();
+      });
+
+      document.getElementById('btn-chime').addEventListener('click', function () {
+        state.chime = !state.chime;
+        this.setAttribute('aria-pressed', state.chime ? 'true' : 'false');
+        this.textContent = state.chime ? uiDict[state.lang].chimeOn : uiDict[state.lang].chimeOff;
+      });
+
+      document.getElementById('btn-mode-wall').addEventListener('click', function () {
+        document.getElementById('timer-stage').classList.remove('is-compact');
+        this.setAttribute('aria-pressed', 'true');
+        document.getElementById('btn-mode-remote').setAttribute('aria-pressed', 'false');
+      });
+
+      document.getElementById('btn-mode-remote').addEventListener('click', function () {
+        document.getElementById('timer-stage').classList.add('is-compact');
+        this.setAttribute('aria-pressed', 'true');
+        document.getElementById('btn-mode-wall').setAttribute('aria-pressed', 'false');
+      });
+
+      document.getElementById('btn-fullscreen').addEventListener('click', function () {
+        var el = document.getElementById('timer-stage');
+        if (!document.fullscreenElement && el.requestFullscreen) {
+          el.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      });
+
+      document.getElementById('btn-share-link').addEventListener('click', function () {
+        var url = new URL(window.location.href);
+        url.searchParams.set('lang', state.lang);
+        var w = document.getElementById('wall-input').value.trim();
+        if (w) url.searchParams.set('wall', w);
+        else url.searchParams.delete('wall');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url.toString());
+        }
+        var st = document.getElementById('share-status');
+        st.textContent = uiDict[state.lang].copied;
+        setTimeout(function () { st.textContent = ''; }, 2500);
+      });
+
+      document.querySelectorAll('.lang-pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var lang = btn.getAttribute('data-lang');
+          var url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.replaceState({}, '', url.toString());
+          applyLang(lang);
+        });
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var initLang = params.get('lang');
+      var initWall = params.get('wall');
+      if (initWall) document.getElementById('wall-input').value = initWall;
+      applyLang(uiDict[initLang] ? initLang : 'en');
+    })();
+  </script>
+</body>
+</html>
