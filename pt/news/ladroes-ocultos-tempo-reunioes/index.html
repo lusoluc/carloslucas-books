@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ladrões ocultos de tempo em reuniões: Antes e depois | Carlos Lucas</title>
+  <meta name="description" content="Atrasos ao iniciar, trocas constantes de contexto e alterações de horário consomem dias inteiros. Calcula o teu balanço antes e depois.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/pt/news/ladroes-ocultos-tempo-reunioes/">
+  <link rel="alternate" hreflang="en" href="https://carloslucas.de/news/hidden-meeting-time-drains/">
+  <link rel="alternate" hreflang="de" href="https://carloslucas.de/de/news/verdeckte-zeitfresser-meetings/">
+  <link rel="alternate" hreflang="es-ES" href="https://carloslucas.de/es/news/ladrones-ocultos-tiempo-reuniones/">
+  <link rel="alternate" hreflang="pt-PT" href="https://carloslucas.de/pt/news/ladroes-ocultos-tempo-reunioes/">
+  <link rel="alternate" hreflang="x-default" href="https://carloslucas.de/news/hidden-meeting-time-drains/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:url" content="https://carloslucas.de/pt/news/ladroes-ocultos-tempo-reunioes/">
+  <meta property="og:title" content="Ladrões ocultos de tempo em reuniões: Porque o caos custa mais do que o Scrum">
+  <meta property="og:description" content="Calculadora interativa: mede quanto tempo se perde com esperas, mudanças de tema e reagendamentos face a uma cadência Scrum fixa.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+  <meta property="article:author" content="Carlos Lucas">
+  <meta property="article:published_time" content="2026-11-27">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Ladrões ocultos de tempo em reuniões: Porque o caos custa mais do que o Scrum",
+    "datePublished": "2026-11-27",
+    "dateModified": "2026-11-27",
+    "inLanguage": "pt-PT",
+    "url": "https://carloslucas.de/pt/news/ladroes-ocultos-tempo-reunioes/",
+    "author": { "@type": "Person", "name": "Carlos Lucas", "url": "https://carloslucas.de/" },
+    "publisher": { "@type": "Person", "name": "Carlos Lucas", "url": "https://carloslucas.de/" }
+  }
+  </script>
+
+  <style>
+    .page-article .container { max-width: 920px; }
+    .article-sheet h1 { font-size: clamp(1.9rem, 3.5vw, 2.55rem); line-height: 1.15; margin-bottom: 1rem; }
+    .article-meta { font-family: var(--font-sans); font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .calc-card { background: var(--bg-paper); border: 1px solid var(--border-subtle); border-top: 3px solid var(--brand-navy); padding: 1.45rem; margin: 2rem 0; }
+    .calc-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem; margin-bottom: 1.15rem; }
+    .calc-label { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-red); }
+    .view-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .view-btn { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; padding: 0.38rem 0.72rem; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--text-main); border-radius: 3px; cursor: pointer; }
+    .view-btn[aria-pressed="true"] { background: var(--brand-navy); color: var(--bg-card); border-color: var(--brand-navy); }
+    .inputs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin-bottom: 1.35rem; }
+    .inp-group label { display: block; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.28rem; }
+    .inp-group input, .inp-group select { width: 100%; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; padding: 0.45rem 0.6rem; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--brand-navy); border-radius: 3px; }
+    .result-panel { background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 1.2rem; }
+    .bar-track { display: flex; height: 28px; width: 100%; background: var(--bg-paper-deep); border-radius: 3px; overflow: hidden; margin: 0.8rem 0; }
+    .seg-focus { background: var(--brand-navy); }
+    .seg-meetings { background: var(--text-muted); }
+    .seg-drains { background: var(--accent-red); }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 1rem; font-family: var(--font-sans); font-size: 0.84rem; margin-top: 0.5rem; }
+    .dot { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 0.35rem; vertical-align: middle; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .cmp-box { border: 1px solid var(--border-subtle); padding: 1rem; background: var(--bg-paper); }
+    .cmp-box.is-after { border-left: 4px solid var(--brand-navy); }
+    .cmp-box.is-before { border-left: 4px solid var(--accent-red); }
+    .cmp-num { font-family: var(--font-sans); font-size: 1.65rem; font-weight: 700; color: var(--brand-navy); margin: 0.25rem 0; }
+    .cmp-box.is-before .cmp-num { color: var(--accent-red); }
+    .net-gain { font-family: var(--font-sans); font-size: 0.96rem; font-weight: 700; color: var(--brand-navy); padding-top: 0.7rem; border-top: 1px solid var(--border-subtle); }
+    .breakdown-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; }
+    .breakdown-table th, .breakdown-table td { text-align: left; padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--border-subtle); }
+    .hidden { display: none !important; }
+    @media (max-width: 720px) { .inputs-grid, .compare-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="page-article">
+  <a href="#main-content" class="skip-link">Saltar para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/pt/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a href="/pt/">O livro</a>
+        <a href="/pt/news/" aria-current="page">Notícias</a>
+        <a href="/tools/?lang=pt">Ferramentas</a>
+        <a href="/pt/#cheatsheet">Folha resumo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="doc-band">
+    <div class="container">
+      <article class="doc-sheet">
+        <span class="eyebrow">Ensaio prático · Tempo e foco</span>
+        <h1>Ladrões ocultos de tempo em reuniões: Porque o caos custa mais do que o Scrum</h1>
+        <p class="article-meta">
+          Por Carlos Lucas &middot; 27 de novembro de 2026 &middot; Ler em
+          <a href="/news/hidden-meeting-time-drains/">English</a>,
+          <a href="/de/news/verdeckte-zeitfresser-meetings/">Deutsch</a>,
+          <a href="/es/news/ladrones-ocultos-tiempo-reuniones/">Español</a>
+        </p>
+
+        <p class="doc-lead">
+          Sempre que uma área fora de TI pondera experimentar Scrum, surge a mesma objeção: "Não temos tempo para mais quatro reuniões." Mas quando medes uma semana sem cadência fixa, o verdadeiro custo não está na agenda visível, mas no desgaste silencioso à volta dela.
+        </p>
+
+        <h2>Três ladrões ocultos que não aparecem no calendário</h2>
+        <p>
+          Uma chamada de acompanhamento de 30 minutos nunca consome apenas 30 minutos da equipa. Em compras, apoio ao cliente, finanças ou recursos humanos, três multiplicadores silenciosos consomem horas inteiras:
+        </p>
+        <ul>
+          <li><strong>Arranques atrasados ("Vamos esperar dois minutos por..."):</strong> Cinco minutos de espera em dez reuniões numa equipa de seis pessoas desperdiçam cinco horas completas.</li>
+          <li><strong>O imposto da troca de contexto:</strong> Dividir dez assuntos por dez chamadas curtas obriga cada pessoa a reler notas antes e a recuperar o ritmo depois, em vez de os agrupar num único Planning ou Review calmo.</li>
+          <li><strong>Atrito ao mudar horários:</strong> Alterar a hora de uma reunião duas vezes por semana gera trocas de mensagens no chat e parte blocos de trabalho concentrado.</li>
+        </ul>
+
+        <h2>Testa a tua semana: Antes vs. Depois</h2>
+        <p>
+          Ajusta os valores à realidade da tua equipa (a jornada padrão parte de <strong>7,5 horas por dia</strong>). Alterna entre a barra de capacidade, o balanço antes/depois e o detalhe.
+        </p>
+
+        <section class="calc-card" id="time-drain-calc" aria-label="Calculadora interativa de desperdício de tempo">
+          <div class="calc-head">
+            <span class="calc-label">Verificação prática interativa</span>
+            <div class="view-tabs" role="group" aria-label="Modo de visualização">
+              <button type="button" class="view-btn" data-view="bar" aria-pressed="true">Barra de capacidade</button>
+              <button type="button" class="view-btn" data-view="compare" aria-pressed="false">Antes / Depois</button>
+              <button type="button" class="view-btn" data-view="table" aria-pressed="false">Detalhe</button>
+            </div>
+          </div>
+
+          <div class="inputs-grid">
+            <div class="inp-group">
+              <label for="in-hours">Horas por pessoa / dia</label>
+              <input type="number" id="in-hours" value="7.5" min="4" max="10" step="0.5">
+            </div>
+            <div class="inp-group">
+              <label for="in-team">Dimensão da equipa</label>
+              <input type="number" id="in-team" value="6" min="2" max="15" step="1">
+            </div>
+            <div class="inp-group">
+              <label for="in-weeks">Duração do ciclo</label>
+              <select id="in-weeks">
+                <option value="1">Sprint de 1 semana</option>
+                <option value="2" selected>Sprint de 2 semanas</option>
+              </select>
+            </div>
+            <div class="inp-group">
+              <label for="in-late">Atraso médio ao iniciar (min)</label>
+              <input type="number" id="in-late" value="5" min="0" max="15" step="1">
+            </div>
+            <div class="inp-group">
+              <label for="in-mini">Chamadas dispersas / semana</label>
+              <input type="number" id="in-mini" value="6" min="0" max="20" step="1">
+            </div>
+            <div class="inp-group">
+              <label for="in-resched">Mudanças de hora / semana</label>
+              <input type="number" id="in-resched" value="3" min="0" max="15" step="1">
+            </div>
+          </div>
+
+          <div class="result-panel">
+            <div id="view-bar">
+              <p style="font-family:var(--font-sans); font-size:0.95rem; font-weight:700; color:var(--brand-navy);" id="bar-headline"></p>
+              <div class="bar-track">
+                <div class="seg-focus" id="seg-focus"></div>
+                <div class="seg-meetings" id="seg-meetings"></div>
+                <div class="seg-drains" id="seg-drains"></div>
+              </div>
+              <div class="legend-row">
+                <span><span class="dot seg-focus"></span><span id="leg-focus"></span></span>
+                <span><span class="dot seg-meetings"></span><span id="leg-meetings"></span></span>
+                <span><span class="dot seg-drains"></span><span id="leg-drains"></span></span>
+              </div>
+            </div>
+
+            <div id="view-compare" class="hidden">
+              <div class="compare-grid">
+                <div class="cmp-box is-before">
+                  <div class="calc-label">Antes · Semana desordenada</div>
+                  <div class="cmp-num" id="cmp-before-hrs"></div>
+                  <p style="font-family:var(--font-sans); font-size:0.85rem; margin:0;" id="cmp-before-note"></p>
+                </div>
+                <div class="cmp-box is-after">
+                  <div class="calc-label" style="color:var(--brand-navy);">Depois · Cadência Scrum fixa</div>
+                  <div class="cmp-num" id="cmp-after-hrs"></div>
+                  <p style="font-family:var(--font-sans); font-size:0.85rem; margin:0;" id="cmp-after-note"></p>
+                </div>
+              </div>
+              <div class="net-gain" id="cmp-gain"></div>
+            </div>
+
+            <div id="view-table" class="hidden">
+              <table class="breakdown-table">
+                <thead>
+                  <tr>
+                    <th>Ladrão oculto</th>
+                    <th>Horas perdidas</th>
+                    <th>O que uma cadência fixa corrige</th>
+                  </tr>
+                </thead>
+                <tbody id="tbl-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <h2>Como recuperar estas horas na segunda-feira</h2>
+        <p>
+          Não precisas de reorganizar a empresa. Começa com dois hábitos simples: fixa a Daily à mesma hora com o nosso <a href="/tools/daily-timer/?lang=pt">Temporizador Daily de 15 minutos</a> para acabar com esperas, e usa o <a href="/tools/retro-cards/?lang=pt">Baralho de retrospetivas fora de TI</a> (foco: <em>Reduzir reuniões</em>) para juntar chamadas dispersas.
+        </p>
+
+        <aside class="index-card" aria-labelledby="card-note-title">
+          <div class="index-card-pin" aria-hidden="true"></div>
+          <h3 id="card-note-title">A história por trás dos números</h3>
+          <p>
+            Em <em>The Number on the Wall: A Business Novel About Scrum Beyond IT</em>, o George e a sua equipa de peças descobrem que cortar reuniões educadas e dispersas é o que devolve espaço para resolver o verdadeiro gargalo.
+          </p>
+          <p><a href="/pt/#cheatsheet">Obter folha resumo gratuita</a> &middot; <a href="/pt/news/">Todas as notícias</a></p>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <p class="footer-copy">&copy; 2026 Carlos Lucas &middot; <a href="/imprint">Ficha técnica</a> &middot; <a href="/privacy">Privacidade</a></p>
+        <p class="footer-links">
+          <a href="/pt/">Início</a> &middot; <a href="/pt/news/">Notícias</a> &middot; <a href="/tools/?lang=pt">Ferramentas</a> &middot; <a href="https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm" target="_blank" rel="noopener noreferrer">Música: CINZA</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+      function num(id) { return Math.max(0, parseFloat(document.getElementById(id).value) || 0); }
+      function recalc() {
+        var hrsDay = Math.max(1, num('in-hours'));
+        var team = Math.max(1, num('in-team'));
+        var weeks = parseInt(document.getElementById('in-weeks').value, 10) || 2;
+        var lateMin = num('in-late');
+        var miniCalls = num('in-mini');
+        var resched = num('in-resched');
+
+        var gross = hrsDay * 5 * weeks * team;
+        var adhocCallsTotal = miniCalls * weeks;
+        var adhocMeetingHrs = adhocCallsTotal * 0.5 * team;
+        var lateHrs = ((adhocCallsTotal * lateMin) / 60) * team;
+        var switchHrs = ((adhocCallsTotal * 12) / 60) * team;
+        var reschedHrs = ((resched * weeks * 10) / 60) * team;
+        var hiddenDrains = lateHrs + switchHrs + reschedHrs;
+        var beforeTotal = adhocMeetingHrs + hiddenDrains;
+
+        var scrumDailyHrs = (0.25 * 5 * weeks) * team;
+        var scrumEventsHrs = (weeks === 1 ? 3.0 : 5.5) * team;
+        var afterTotal = scrumDailyHrs + scrumEventsHrs;
+
+        var netFocus = Math.max(0, gross - beforeTotal);
+        var pFocus = Math.round((netFocus / gross) * 100);
+        var pMeet = Math.round((adhocMeetingHrs / gross) * 100);
+        var pDrain = Math.max(0, 100 - pFocus - pMeet);
+
+        document.getElementById('bar-headline').textContent = 'Capacidade bruta da equipa: ' + gross.toFixed(1) + ' h (' + weeks + ' sem., ' + team + ' pess. × ' + hrsDay + ' h/dia)';
+        document.getElementById('seg-focus').style.width = pFocus + '%';
+        document.getElementById('seg-meetings').style.width = pMeet + '%';
+        document.getElementById('seg-drains').style.width = pDrain + '%';
+        document.getElementById('leg-focus').textContent = 'Trabalho focado: ' + netFocus.toFixed(1) + ' h (' + pFocus + ' %)';
+        document.getElementById('leg-meetings').textContent = 'Agenda visível: ' + adhocMeetingHrs.toFixed(1) + ' h';
+        document.getElementById('leg-drains').textContent = 'Ladrões ocultos: ' + hiddenDrains.toFixed(1) + ' h';
+
+        document.getElementById('cmp-before-hrs').textContent = beforeTotal.toFixed(1) + ' h';
+        document.getElementById('cmp-before-note').textContent = adhocMeetingHrs.toFixed(1) + ' h marcadas + ' + hiddenDrains.toFixed(1) + ' h em esperas, trocas de contexto e reagendamentos.';
+        document.getElementById('cmp-after-hrs').textContent = afterTotal.toFixed(1) + ' h';
+        document.getElementById('cmp-after-note').textContent = 'Daily fixa de 15 min + Planning, Review e Retro agrupadas (' + Math.round((afterTotal / gross) * 100) + ' % bruto).';
+
+        var diff = beforeTotal - afterTotal;
+        document.getElementById('cmp-gain').textContent = diff >= 0
+          ? 'Ganho líquido com cadência Scrum fixa: +' + diff.toFixed(1) + ' horas de foco recuperadas por ciclo.'
+          : 'A tua carga atual já é muito baixa (' + Math.abs(diff).toFixed(1) + ' h abaixo do Scrum completo); mantém a Daily curta.';
+
+        document.getElementById('tbl-body').innerHTML =
+          '<tr><td>Atrasos ao iniciar (' + lateMin + ' min × ' + adhocCallsTotal + ' chamadas)</td><td>' + lateHrs.toFixed(1) + ' h</td><td>Começar à hora certa na Daily fixa</td></tr>' +
+          '<tr><td>Troca de contexto (12 min de preparação/regresso)</td><td>' + switchHrs.toFixed(1) + ' h</td><td>Agrupar temas no Planning e Review</td></tr>' +
+          '<tr><td>Alterações de horário (' + (resched * weeks) + ' ajustes)</td><td>' + reschedHrs.toFixed(1) + ' h</td><td>Horários fixos sem negociação diária</td></tr>';
+      }
+      document.querySelectorAll('.view-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var v = btn.getAttribute('data-view');
+          document.querySelectorAll('.view-btn').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+          ['bar', 'compare', 'table'].forEach(function (k) { document.getElementById('view-' + k).classList.toggle('hidden', k !== v); });
+        });
+      });
+      ['in-hours', 'in-team', 'in-weeks', 'in-late', 'in-mini', 'in-resched'].forEach(function (id) {
+        document.getElementById(id).addEventListener('input', recalc);
+        document.getElementById(id).addEventListener('change', recalc);
+      });
+      recalc();
+    })();
+  </script>
+</body>
+</html>
