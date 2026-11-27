@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balance de Scrum 2026: Menos ruido en TI, más uso en otras áreas | Carlos Lucas</title>
+  <meta name="description" content="Análisis verificado de Scrum en 2026 entre Europa, Norteamérica, Sudamérica y Asia: por qué el Scrum rígido pierde peso en tecnología mientras crece en compras, RR. HH., operaciones y sector público.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/es/news/scrum-resumen-anual-2026/">
+  <link rel="alternate" hreflang="en" href="https://carloslucas.de/news/scrum-year-in-review-2026/">
+  <link rel="alternate" hreflang="de" href="https://carloslucas.de/de/news/scrum-jahresrueckblick-2026/">
+  <link rel="alternate" hreflang="es-ES" href="https://carloslucas.de/es/news/scrum-resumen-anual-2026/">
+  <link rel="alternate" hreflang="pt-PT" href="https://carloslucas.de/pt/news/scrum-balanco-anual-2026/">
+  <link rel="alternate" hreflang="x-default" href="https://carloslucas.de/news/scrum-year-in-review-2026/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://carloslucas.de/es/news/scrum-resumen-anual-2026/">
+  <meta property="og:title" content="Balance de Scrum 2026: Menos ruido en TI, más uso en otras áreas">
+  <meta property="og:description" content="Por qué el Scrum de ceremonia retrocede en empresas tecnológicas mientras crece en operaciones, compras, RR. HH. y administración.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Number on the Wall: A Business Novel About Scrum Beyond IT de Carlos Lucas">
+  <meta property="article:author" content="Carlos Lucas">
+  <meta property="article:published_time" content="2026-11-27">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Balance de Scrum 2026: Menos ruido en TI, más uso en otras áreas">
+  <meta name="twitter:description" content="Análisis de Scrum 2026 en cuatro continentes: realidad de la IA, dieta de marcos y adopción fuera de TI.">
+  <meta name="twitter:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <style>
+    .page-article .container { max-width: 920px; }
+    .page-article main { padding: 3rem 0 4.5rem; }
+    .article-sheet { padding: 3.25rem 3.5rem; }
+    .article-header { padding-bottom: 1.75rem; margin-bottom: 2.25rem; border-bottom: 1px solid var(--border-subtle); }
+    .article-sheet h1 { font-size: clamp(1.95rem, 3.6vw, 2.7rem); line-height: 1.14; margin-bottom: 1.1rem; max-width: 24ch; }
+    .article-lead { font-size: 1.16rem; line-height: 1.66; color: var(--brand-navy); max-width: 62ch; margin-bottom: 1.25rem; }
+    .article-meta { font-family: var(--font-sans); font-size: 0.84rem; color: var(--text-muted); letter-spacing: 0.02em; }
+    .article-prose h2 { font-size: clamp(1.4rem, 2.5vw, 1.75rem); line-height: 1.24; margin-top: 2.75rem; margin-bottom: 0.95rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .article-prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+    .article-prose h3 { font-size: 1.12rem; line-height: 1.38; margin-top: 1.75rem; margin-bottom: 0.55rem; color: var(--brand-navy); }
+    .article-prose p, .article-prose ul, .article-prose ol { max-width: 66ch; }
+    .article-prose ol { padding-left: 1.45rem; margin-bottom: 1.25rem; }
+    .article-prose li { margin-bottom: 0.55rem; }
+
+    .table-wrap { width: 100%; overflow-x: auto; margin: 1.65rem 0 2rem; border-top: 2px solid var(--brand-navy); border-bottom: 1px solid var(--border-subtle); }
+    .editorial-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; line-height: 1.55; color: var(--text-main); background-color: var(--bg-card); }
+    .editorial-table th, .editorial-table td { text-align: left; vertical-align: top; padding: 0.85rem 0.95rem; border-bottom: 1px solid var(--border-subtle); }
+    .editorial-table th { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand-navy); background-color: var(--bg-paper); }
+    .editorial-table tr:last-child td { border-bottom: 0; }
+    .editorial-table strong { color: var(--brand-navy); }
+
+    .diagram-figure { margin: 2rem 0 2.15rem; padding: 1.35rem 1.4rem 1.25rem; background-color: var(--bg-paper); border: 1px solid var(--border-subtle); border-top: 2px solid var(--brand-navy); }
+    .diagram-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem 1rem; margin-bottom: 1rem; }
+    .diagram-label { font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--text-muted); }
+    .toggle-group { display: inline-flex; flex-wrap: wrap; gap: 0.45rem; }
+    .pill-btn { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; line-height: 1.25; color: var(--brand-navy); background-color: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 999px; padding: 0.42rem 0.9rem; cursor: pointer; transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease; }
+    .pill-btn:hover { border-color: var(--brand-navy); }
+    .pill-btn[aria-pressed="true"] { background-color: var(--brand-navy); border-color: var(--brand-navy); color: #FFFFFF; }
+    .pill-btn[aria-pressed="true"].pill-accent { background-color: var(--accent-red); border-color: var(--accent-red); color: #FFFFFF; }
+    .diagram-stage { background-color: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.65rem; }
+    .diagram-svg { display: block; width: 100%; height: auto; font-family: var(--font-sans); }
+    .diagram-caption { margin-top: 0.9rem; font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.58; color: var(--text-main); }
+    .diagram-caption strong { color: var(--brand-navy); }
+    .diagram-hint { display: block; margin-top: 0.35rem; font-family: var(--font-sans); font-size: 0.78rem; color: var(--text-muted); }
+
+    .view-layer { transition: opacity 0.28s ease; }
+    .view-regions { opacity: 0; pointer-events: none; }
+    #diagram-scrum-2026.mode-regions .view-regions { opacity: 1; pointer-events: auto; }
+    #diagram-scrum-2026.mode-regions .view-split { opacity: 0; pointer-events: none; }
+
+    .region-node { cursor: pointer; }
+    .region-node:focus { outline: none; }
+    .region-node .node-frame { transition: stroke 0.2s ease, stroke-width 0.2s ease; }
+    .region-node.is-selected .node-frame, .region-node:focus-visible .node-frame { stroke: var(--accent-red); stroke-width: 2.5; }
+
+    .sources-list { font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.62; color: var(--text-main); padding-left: 1.25rem; max-width: 66ch; }
+    .sources-list li { margin-bottom: 0.45rem; }
+
+    .article-faq { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .article-faq h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+    .article-faq .faq-entries { margin-top: 1rem; }
+    .article-faq .faq-entry { padding: 1.25rem 0; }
+    .article-faq .faq-entry h3 { margin-top: 0; font-size: 1.08rem; }
+
+    .checklist-section { margin-top: 2.75rem; }
+    .checklist-card { padding: 3.15rem 3rem 2.65rem; }
+    .checklist-card .eyebrow { margin-top: 0.45rem; margin-bottom: 0.5rem; color: var(--accent-red); }
+    .checklist-card h2 { margin-top: 0; padding-top: 0; border-top: 0; margin-bottom: 1.2rem; font-size: clamp(1.35rem, 2.3vw, 1.65rem); }
+    .checklist-steps { list-style: none; padding-left: 0; margin-bottom: 0; counter-reset: checklist-step; }
+    .checklist-steps li { position: relative; padding-left: 2.35rem; margin-bottom: 0.9rem; line-height: 1.62; }
+    .checklist-steps li:last-child { margin-bottom: 0; }
+    .checklist-steps li::before { counter-increment: checklist-step; content: counter(checklist-step); position: absolute; left: 0; top: 0.12rem; width: 1.55rem; height: 1.55rem; border: 1px solid var(--accent-red); border-radius: 2px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; color: var(--accent-red); display: flex; align-items: center; justify-content: center; background-color: var(--bg-paper); }
+
+    .author-bridge { margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid var(--border-subtle); }
+    .author-bridge p { font-style: italic; color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; max-width: 62ch; margin-bottom: 1.25rem; }
+    .author-bridge strong { color: var(--brand-navy); font-style: normal; }
+
+    @media (max-width: 760px) {
+      .article-sheet { padding: 2.15rem 1.5rem; }
+      .diagram-figure { padding: 1rem 0.9rem; }
+      .checklist-card { padding: 2.8rem 1.45rem 2.1rem; }
+    }
+    @media (max-width: 480px) {
+      .page-article main { padding: 2rem 0 3.25rem; }
+      .article-sheet { padding: 1.65rem 1.15rem; }
+      .pill-btn { font-size: 0.76rem; padding: 0.38rem 0.72rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .view-layer, .region-node .node-frame { transition: none; }
+    }
+  </style>
+
+  <!-- Structured Data: Article + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://carloslucas.de/es/news/scrum-resumen-anual-2026/#article",
+        "headline": "Balance de Scrum 2026: Menos ruido en TI, más uso en otras áreas",
+        "description": "Análisis verificado de Scrum en 2026 entre Europa, Norteamérica, Sudamérica y Asia: por qué el Scrum rígido pierde peso en tecnología mientras crece en compras, RR. HH., operaciones y sector público.",
+        "inLanguage": "es-ES",
+        "datePublished": "2026-11-27",
+        "dateModified": "2026-11-27",
+        "image": "https://carloslucas.de/assets/og-the-number-on-the-wall.jpg",
+        "author": { "@type": "Person", "@id": "https://carloslucas.de/#author", "name": "Carlos Lucas", "url": "https://carloslucas.de/es/" },
+        "publisher": { "@type": "Person", "@id": "https://carloslucas.de/#author", "name": "Carlos Lucas", "url": "https://carloslucas.de/es/" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://carloslucas.de/es/news/scrum-resumen-anual-2026/" },
+        "about": ["Scrum", "Scrum fuera de TI", "State of Agile 2026", "IA en operaciones", "Tendencias globales"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://carloslucas.de/es/news/scrum-resumen-anual-2026/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Está muriendo Scrum en TI en 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El Scrum rígido lleno de ceremonias y los puestos dedicados solo a moderar reuniones han caído con fuerza en empresas tecnológicas norteamericanas por el avance de la IA y el despliegue continuo. Sin embargo, el 74 % de los equipos ágiles sigue usando modelos híbridos o propios apoyados en Scrum."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué crece Scrum fuera de TI mientras se reduce en tecnología?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los equipos de software ya tenían ciclos rápidos de entrega. En cambio, áreas como compras, RR. HH., finanzas, logística y administración pública siguen sufriendo listas de tareas ocultas, silos y reuniones eternas de seguimiento; allí, un Scrum ligero resuelve un problema diario real."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Ha sustituido la IA a los equipos Scrum o al Product Owner en 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Gartner publicó en octubre de 2026 que el 62 % de los empleados ahorró tiempo con IA, pero solo el 7 % de las organizaciones indicó en qué invertir ese tiempo y apenas el 3 % superó sus metas de ahorro. Priorizar sigue siendo una decisión humana."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-article">
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/es/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="/es/">Inicio</a>
+        <a href="/es/news/">Noticias</a>
+        <a href="/cheatsheet">Guía rápida</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <article class="doc-sheet article-sheet">
+
+        <header class="article-header">
+          <span class="eyebrow">Balance anual 2026 · Análisis global</span>
+          <h1>Balance de Scrum 2026: Menos ruido en TI, más uso en otras áreas</h1>
+          <p class="article-lead">
+            Veinticinco años después del Manifiesto Ágil en Snowbird, 2026 dejó una clara división. Dentro de la ingeniería de software, el Scrum cargado de ceremonias se recorta o se sustituye por flujos más ligeros. Fuera de TI, en compras, operaciones, RR. HH., finanzas y sector público en cuatro continentes, los hábitos prácticos de Scrum ganan terreno.
+          </p>
+          <p class="article-meta">Por Carlos Lucas · Tiempo de lectura: 10 minutos · Publicado el 27 de noviembre de 2026</p>
+        </header>
+
+        <div class="article-prose">
+
+          <h2>1. La paradoja de 2026: menos visible en software, más necesario fuera</h2>
+          <p>
+            Si durante 2026 solo leíste foros de desarrollo de software, pudiste sacar la impresión de que Scrum había pasado a mejor vida. En muchas tecnológicas de Estados Unidos se recortaron puestos dedicados únicamente a moderar ceremonias o se integraron en perfiles de producto e ingeniería, mientras los asistentes de código con IA aceleraban la entrega.
+          </p>
+          <p>
+            Pero si miras fuera de TI, hacia compras, cadena de suministro, atención al cliente, recursos humanos o administraciones públicas, ocurre justo lo contrario. Mientras los equipos maduros de software dejaban atrás los rituales rígidos, las áreas de negocio comprobaron que su cuello de botella nunca fue programar, sino los pendientes ocultos, los silos entre departamentos y las reuniones semanales donde todo aparece en verde.
+          </p>
+          <p>
+            Los datos de los estudios publicados en 2025 y 2026 respaldan esta doble lectura:
+          </p>
+          <ul>
+            <li><strong>El Scrum puro de manual ya es minoría:</strong> Según el <a href="https://www.rebelscrum.site/post/18th-state-of-agile-report" target="_blank" rel="noopener noreferrer">18th State of Agile Report</a> (Digital.ai), el <strong>74 %</strong> de los equipos ágiles usa hoy modelos híbridos o propios (<strong>48 %</strong> híbridos, <strong>26 %</strong> a medida), combinando metas de Scrum con flujo Kanban.</li>
+            <li><strong>La satisfacción cae donde mandan los rituales:</strong> La satisfacción global con Agile bajó del <strong>72 %</strong> al <strong>59 %</strong>, mientras el <strong>76 %</strong> siente mayor presión por demostrar impacto real en negocio y el <strong>79 %</strong> debe hacer más con menos recursos (<a href="https://echometerapp.com/en/scrum-statistics-2026/" target="_blank" rel="noopener noreferrer">Echometer Scrum Statistics 2026</a>; <a href="https://www.breeze.pm/articles/agile-statistics" target="_blank" rel="noopener noreferrer">Breeze.pm</a>).</li>
+            <li><strong>La madurez en negocio sigue siendo baja:</strong> Solo el <strong>13 %</strong> de las empresas afirma tener la agilidad integrada en toda la organización y el <strong>44 %</strong> sigue gestionando sus entregas con hojas de cálculo e informes estáticos (<a href="https://www.breeze.pm/articles/agile-statistics" target="_blank" rel="noopener noreferrer">Breeze.pm</a>).</li>
+          </ul>
+
+          <!-- Interactive SVG -->
+          <figure class="diagram-figure" id="figure-scrum-2026">
+            <div class="diagram-toolbar">
+              <span class="diagram-label">Figura 1 · El giro de Scrum en 2026</span>
+              <div class="toggle-group" role="group" aria-label="Selector de vista">
+                <button type="button" class="pill-btn" data-review-mode="split" aria-pressed="true">Dentro de TI vs. Fuera de TI</button>
+                <button type="button" class="pill-btn pill-accent" data-review-mode="regions" aria-pressed="false">4 continentes comparados</button>
+              </div>
+            </div>
+            <div class="diagram-stage">
+              <svg id="diagram-scrum-2026" class="diagram-svg" viewBox="0 0 800 360" role="img" aria-labelledby="svg-review-title svg-review-desc">
+                <title id="svg-review-title">Scrum en 2026: dentro y fuera de TI y por continentes</title>
+                <desc id="svg-review-desc">Diagrama interactivo que compara el retroceso del Scrum rígido en tecnología frente al avance en áreas de negocio, y resume las diferencias entre Norteamérica, Europa, Sudamérica y Asia.</desc>
+
+                <g class="view-layer view-split">
+                  <rect x="24" y="18" width="752" height="44" rx="3" fill="#1B2A4A"></rect>
+                  <text x="400" y="45" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">Realidad 2026: Scrum no muere, cambia de lugar</text>
+
+                  <rect x="24" y="80" width="364" height="258" rx="3" fill="#FFFFFF" stroke="#5A5A5A" stroke-width="1.6"></rect>
+                  <rect x="24" y="80" width="364" height="30" rx="2" fill="#5A5A5A"></rect>
+                  <text x="40" y="100" fill="#FFFFFF" font-size="11.5" font-weight="700" letter-spacing="0.8">DENTRO DE TI Y GRANDES TECH</text>
+                  <text x="40" y="134" fill="#1B2A4A" font-size="14" font-weight="700">Adiós a las ceremonias rígidas</text>
+                  <text x="40" y="160" fill="#2B2B2B" font-size="12">- 74 % usa modelos híbridos o propios (State of Agile)</text>
+                  <text x="40" y="182" fill="#2B2B2B" font-size="12">- 90 % en tecnología usa herramientas de IA (DORA 2025)</text>
+                  <text x="40" y="204" fill="#2B2B2B" font-size="12">- Se recortan puestos centrados solo en reuniones</text>
+                  <text x="40" y="226" fill="#2B2B2B" font-size="12">- El despliegue continuo reduce el peso del Sprint</text>
+                  <line x1="40" y1="248" x2="372" y2="248" stroke="#E5DDD0" stroke-width="1"></line>
+                  <text x="40" y="272" fill="#5A5A5A" font-size="11.5" font-weight="700">LA TRAMPA EN TI:</text>
+                  <text x="40" y="293" fill="#2B2B2B" font-size="12">Programar más rápido sin ordenar el backlog solo</text>
+                  <text x="40" y="313" fill="#2B2B2B" font-size="12">engorda las colas de aprobación fuera del equipo.</text>
+
+                  <rect x="412" y="80" width="364" height="258" rx="3" fill="#FFFFFF" stroke="#9B1B20" stroke-width="2"></rect>
+                  <rect x="412" y="80" width="364" height="30" rx="2" fill="#9B1B20"></rect>
+                  <text x="428" y="100" fill="#FFFFFF" font-size="11.5" font-weight="700" letter-spacing="0.8">FUERA DE TI (OPS, RR. HH., COMPRAS, PÚBLICO)</text>
+                  <text x="428" y="134" fill="#9B1B20" font-size="14" font-weight="700">Alivio real frente al caos diario</text>
+                  <text x="428" y="160" fill="#2B2B2B" font-size="12">- Compras, logística y RR. HH. adoptan Scrum + Kanban</text>
+                  <text x="428" y="182" fill="#2B2B2B" font-size="12">- 44 % sigue repartido en hojas de cálculo sueltas</text>
+                  <text x="428" y="204" fill="#2B2B2B" font-size="12">- Un tablero visible corta excusas entre silos</text>
+                  <text x="428" y="226" fill="#2B2B2B" font-size="12">- Ciclos cortos sustituyen planes rígidos de 6 meses</text>
+                  <line x1="428" y1="248" x2="760" y2="248" stroke="#E5DDD0" stroke-width="1"></line>
+                  <text x="428" y="272" fill="#9B1B20" font-size="11.5" font-weight="700">POR QUÉ FUNCIONA ALLÍ:</text>
+                  <text x="428" y="293" fill="#2B2B2B" font-size="12">Fuera de TI no hacen falta story points, sino</text>
+                  <text x="428" y="313" fill="#2B2B2B" font-size="12">prioridades claras, límites WIP y revisiones honestas.</text>
+                </g>
+
+                <g class="view-layer view-regions">
+                  <rect x="24" y="18" width="752" height="44" rx="3" fill="#1B2A4A"></rect>
+                  <text x="400" y="45" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">Pulsa una región para ver su rasgo clave en 2026</text>
+
+                  <g class="region-node is-selected" data-region="na" role="button" tabindex="0" aria-pressed="true">
+                    <rect class="node-frame" x="24" y="84" width="364" height="118" rx="3" fill="#FFFFFF" stroke="#9B1B20" stroke-width="2.2"></rect>
+                    <text x="42" y="112" fill="#9B1B20" font-size="11.5" font-weight="700" letter-spacing="0.8">NORTEAMÉRICA (EE. UU. / CANADÁ)</text>
+                    <text x="42" y="136" fill="#1B2A4A" font-size="14" font-weight="700">«Post-Scrum» en Tech vs. áreas de negocio</text>
+                    <text x="42" y="159" fill="#2B2B2B" font-size="12">Agentes de código y recortes golpean el rol puro de SM;</text>
+                    <text x="42" y="178" fill="#5A5A5A" font-size="11.5">sanidad, banca y sector público adoptan foco en resultados.</text>
+                  </g>
+
+                  <g class="region-node" data-region="eu" role="button" tabindex="0" aria-pressed="false">
+                    <rect class="node-frame" x="412" y="84" width="364" height="118" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                    <text x="430" y="112" fill="#1B2A4A" font-size="11.5" font-weight="700" letter-spacing="0.8">EUROPA (ESPAÑA / PT / DACH / UK)</text>
+                    <text x="430" y="136" fill="#1B2A4A" font-size="14" font-weight="700">Dieta de marcos y sector público</text>
+                    <text x="430" y="159" fill="#2B2B2B" font-size="12">DACH prioriza liderazgo; UK recorta burocracia;</text>
+                    <text x="430" y="178" fill="#5A5A5A" font-size="11.5">España y Portugal impulsan Scrum en AA. PP., RR. HH. y pymes.</text>
+                  </g>
+
+                  <g class="region-node" data-region="sa" role="button" tabindex="0" aria-pressed="false">
+                    <rect class="node-frame" x="24" y="220" width="364" height="118" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                    <text x="42" y="248" fill="#1B2A4A" font-size="11.5" font-weight="700" letter-spacing="0.8">SUDAMÉRICA (BRASIL Y LATAM)</text>
+                    <text x="42" y="272" fill="#1B2A4A" font-size="14" font-weight="700">Fuerte empuje en banca, retail y Estado</text>
+                    <text x="42" y="295" fill="#2B2B2B" font-size="12">Gran actividad (Agile Trends Brasil y GOV 2026);</text>
+                    <text x="42" y="314" fill="#5A5A5A" font-size="11.5">los tableros visuales ayudan a salvar jerarquías rígidas.</text>
+                  </g>
+
+                  <g class="region-node" data-region="as" role="button" tabindex="0" aria-pressed="false">
+                    <rect class="node-frame" x="412" y="220" width="364" height="118" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                    <text x="430" y="248" fill="#1B2A4A" font-size="11.5" font-weight="700" letter-spacing="0.8">ASIA (INDIA / JAPÓN / SINGAPUR / CHINA)</text>
+                    <text x="430" y="272" fill="#1B2A4A" font-size="14" font-weight="700">IA en entrega vs. hardware y dirección</text>
+                    <text x="430" y="295" fill="#2B2B2B" font-size="12">India debate IA frente a autonomía; Japón une Kaizen;</text>
+                    <text x="430" y="314" fill="#5A5A5A" font-size="11.5">Singapur apunta a comités y China a automoción y hardware.</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <figcaption class="diagram-caption">
+              <div id="review-mode-note"><strong>Dentro de TI vs. Fuera de TI:</strong> Los equipos maduros de software simplifican Scrum hacia flujo continuo, mientras las áreas de negocio lo adoptan para sacar a la luz el trabajo oculto.</div>
+              <div id="review-region-note" style="margin-top: 0.45rem; display: none;"><strong>Norteamérica:</strong> El debate más ruidoso sobre «el fin de Scrum» llega de equipos de software en EE. UU. que programan con IA. A la vez, sanidad, finanzas y organismos públicos siguen implantando Scrum simplificado.</div>
+              <span class="diagram-hint">Consejo: Cambia arriba entre la comparativa TI/negocio y los cuatro continentes.</span>
+            </figcaption>
+          </figure>
+
+          <h2>2. La prueba de realidad con la IA: ir más rápido no desatasca colas</h2>
+          <p>
+            La inteligencia artificial copó casi todas las agendas de 2026. Sin embargo, los datos empíricos de otoño dibujan un panorama mucho más prudente que el de los anuncios comerciales:
+          </p>
+          <ul>
+            <li><strong>Las personas ahorran tiempo, las empresas lo desperdician:</strong> En octubre de 2026, Gartner informó de que el <strong>62 %</strong> de los empleados ahorró tiempo con herramientas de IA, pero solo el <strong>7 %</strong> de las organizaciones explicó cómo reinvertir esas horas y apenas el <strong>3 %</strong> superó sus metas de ahorro (<a href="https://www.scrum.org/resources/blog/ai-saved-your-team-time-product-backlog-decides-where-it-goes" target="_blank" rel="noopener noreferrer">análisis de Scrum.org sobre Gartner, oct. 2026</a>).</li>
+            <li><strong>El miedo no es perder el empleo, sino trabajar en vacío:</strong> El informe <a href="https://www.scrum.org/resources/blog/ai4agile-practitioners-report-2026" target="_blank" rel="noopener noreferrer">AI4Agile Practitioners Report 2026</a> (289 profesionales) muestra que el <strong>83 %</strong> usa IA sobre todo para quitarse papeleo (<strong>73,7 %</strong> más productividad, <strong>71,6 %</strong> menor carga mental). Solo un <strong>7,6 %</strong> la ve como amenaza laboral, pero un <strong>54,3 %</strong> señala la *incertidumbre de integración* como principal barrera: hay herramientas, pero falta encaje en el flujo diario.</li>
+            <li><strong>La IA actúa como espejo y multiplicador:</strong> El <a href="https://echometerapp.com/en/scrum-statistics-2026/" target="_blank" rel="noopener noreferrer">DORA Report 2025</a> (casi 5.000 encuestados, <strong>90 %</strong> de uso de IA, <strong>30 %</strong> con baja confianza en sus salidas) concluye que la IA acelera equipos bien coordinados y deja al descubierto los fallos de paso en organizaciones fragmentadas.</li>
+          </ul>
+          <p>
+            Para un equipo fuera de TI la lección es directa: si un técnico redacta un informe en cinco minutos en lugar de treinta gracias a la IA, pero ese expediente sigue parado seis días esperando una firma de validación, el cliente no nota mejora alguna. El cuello de botella está en el proceso, no en el teclado.
+          </p>
+
+          <h2>3. Dónde creció Scrum en 2026: compras, logística, RR. HH. y sector público</h2>
+          <p>
+            Una de las señales más claras de 2026 llegó con el <a href="https://www.scrum.org/resources/2026-state-agility-procurement-and-supply" target="_blank" rel="noopener noreferrer">2026 Global State of Agility in Procurement and Supply Study</a> (Scrum.org y Lean-Agile Procurement Alliance). Su conclusión apunta directo al corazón de las empresas: la tecnología se frena en seco mientras compras, finanzas, legal y cadena de suministro sigan atrapados en silos secuenciales.
+          </p>
+          <p>
+            En la misma línea, un <a href="https://www.ey.com/en_ch/insights/government-public-sector/integrating-agile-practices-into-procurement-processes" target="_blank" rel="noopener noreferrer">estudio de EY sobre Agile Sourcing</a> documentó cómo áreas de compras públicas y farmacéuticas están sustituyendo pliegos rígidos de meses por talleres breves e iteraciones inspiradas en Scrum. También el <a href="https://www.scrumalliance.org/about/annual-report-2025" target="_blank" rel="noopener noreferrer">informe anual de Scrum Alliance</a> destacó la expansión en *Agile for HR*, *Agile for Marketing*, *Agile in Sales* y sanidad.
+          </p>
+
+          <h2>4. Cuatro continentes, cuatro realidades distintas en 2026</h2>
+          <p>
+            Al comparar Norteamérica, Europa, Sudamérica y Asia se entiende por qué no existe una única receta para 2026:
+          </p>
+
+          <div class="table-wrap">
+            <table class="editorial-table">
+              <thead>
+                <tr>
+                  <th style="width: 18%;">Región</th>
+                  <th style="width: 28%;">Debate dominante en 2026</th>
+                  <th style="width: 27%;">Señal fuera de TI</th>
+                  <th style="width: 27%;">Principal fricción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Norteamérica</strong><br>(EE. UU. y Canadá)</td>
+                  <td>Equipos de software «post-Scrum» con agentes de IA; fuerte ajuste de puestos dedicados solo a Scrum Master en tecnológicas.</td>
+                  <td>Sanidad, banca y administraciones públicas mantienen Scrum simplificado y orientación a producto.</td>
+                  <td>Solo el <strong>15 %</strong> de los directivos de negocio participa en las rutinas ágiles; impaciencia por retorno rápido de la IA.</td>
+                </tr>
+                <tr>
+                  <td><strong>Europa</strong><br>(España, PT, DACH, UK)</td>
+                  <td>Dieta de marcos: abandono de capas pesadas (fatiga de SAFe) en favor de Scrumban pragmático.</td>
+                  <td>España y Portugal llevan Scrum a RR. HH., sector público, pymes y centros de servicio; DACH trabaja liderazgo; UK reduce burocracia.</td>
+                  <td>El <strong>33 %</strong> señala la falta de apoyo directivo como mayor freno (encuesta Scrum.org); cuellos por cumplimiento normativo.</td>
+                </tr>
+                <tr>
+                  <td><strong>Sudamérica</strong><br>(Brasil y LatAm)</td>
+                  <td>Cruce de Scrum e IA en banca digital y modernización estatal (<a href="https://agiletrendsbr.com/agile-trends-gov-2026/" target="_blank" rel="noopener noreferrer">Agile Trends GOV 2026</a>).</td>
+                  <td>Fuerte adopción en retail, agroindustria, telecomunicaciones y administración pública para unir negocio y sistemas antiguos.</td>
+                  <td>Jerarquías muy verticales convierten Scrum en reporte tradicional si no hay tableros transparentes.</td>
+                </tr>
+                <tr>
+                  <td><strong>Asia</strong><br>(India, Japón, SG, CN)</td>
+                  <td>India debate entrega con IA frente a autonomía; Japón une Kaizen y Scrum (<a href="https://agilegatherings.com/event/regional-scrum-gathering-tokyo-2026/" target="_blank" rel="noopener noreferrer">RSG Tokyo 2026</a>); China lo lleva a hardware.</td>
+                  <td><a href="https://www.rsg-singapore.org/" target="_blank" rel="noopener noreferrer">RSG Singapur</a> y RSG Taipéi 2026 suben la agilidad a los comités ejecutivos; industria y automoción la aplican a producto físico.</td>
+                  <td>En grandes centros de servicios externos persiste la brecha entre la etiqueta «Ágil» y la autonomía real.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>5. Qué conviene aplicar en 2027 en equipos fuera de TI</h2>
+          <p>
+            La mejor lección de 2026 es liberadora: no necesitas copiar a Silicon Valley ni implantar un manual de 200 páginas. Las empresas de software abandonan ciertos rituales porque ya despliegan código cada pocos minutos. En cambio, en operaciones, administración o pymes los problemas siguen siendo colas de aprobación de semanas, favores fuera de tablero y cuellos de botella en una sola persona.
+          </p>
+          <p>
+            Quédate en 2027 con las piezas que quitan presión real (un tablero único, límites claros de trabajo en curso y revisiones cortas con resultados reales) y suelta todo lo que huela a burocracia.
+          </p>
+
+          <h3>Fuentes y lecturas verificadas</h3>
+          <ol class="sources-list">
+            <li>Digital.ai y Rebel Scrum (nov./dic. 2025): <a href="https://www.rebelscrum.site/post/18th-state-of-agile-report" target="_blank" rel="noopener noreferrer">18th State of Agile Report</a> (74 % modelos híbridos o propios, paradoja de visibilidad).</li>
+            <li>Echometer (jul. 2026): <a href="https://echometerapp.com/en/scrum-statistics-2026/" target="_blank" rel="noopener noreferrer">Scrum Statistics 2026</a> (DORA 2025, comparativa regional, eventos en Alemania, India y China).</li>
+            <li>Breeze.pm (jul. 2026): <a href="https://www.breeze.pm/articles/agile-statistics" target="_blank" rel="noopener noreferrer">Agile and Scrum Statistics 2026</a> (satisfacción en el 59 %, 13 % adopción profunda, 44 % en hojas de cálculo).</li>
+            <li>Scrum.org (oct. 2026): <a href="https://www.scrum.org/resources/blog/ai-saved-your-team-time-product-backlog-decides-where-it-goes" target="_blank" rel="noopener noreferrer">AI Saved Your Team Time. The Product Backlog Decides Where It Goes</a> (datos de Gartner oct. 2026).</li>
+            <li>Scrum.org (feb. 2026): <a href="https://www.scrum.org/resources/blog/ai4agile-practitioners-report-2026" target="_blank" rel="noopener noreferrer">The AI4Agile Practitioners Report 2026</a> (n=289 profesionales).</li>
+            <li>Scrum.org y Lean-Agile Procurement Alliance (2026): <a href="https://www.scrum.org/resources/2026-state-agility-procurement-and-supply" target="_blank" rel="noopener noreferrer">2026 State of Agility in Procurement and Supply</a>.</li>
+            <li>EY (2025): <a href="https://www.ey.com/en_ch/insights/government-public-sector/integrating-agile-practices-into-procurement-processes" target="_blank" rel="noopener noreferrer">Integrating Agile Practices into Procurement Processes</a>.</li>
+            <li>Scrum Alliance (2025/2026): <a href="https://www.scrumalliance.org/about/annual-report-2025" target="_blank" rel="noopener noreferrer">Annual Report</a>, <a href="https://www.rsg-singapore.org/" target="_blank" rel="noopener noreferrer">RSG Singapore 2026</a> y <a href="https://agilegatherings.com/event/regional-scrum-gathering-tokyo-2026/" target="_blank" rel="noopener noreferrer">RSG Tokyo 2026</a>.</li>
+            <li>Agile Trends Brasil (2026): <a href="https://agiletrendsbr.com/agile-trends-gov-2026/" target="_blank" rel="noopener noreferrer">Agile Trends GOV 2026</a> y <a href="https://agiletrendsbr.com/agile-trends-2026/" target="_blank" rel="noopener noreferrer">Agile Trends 2026</a>.</li>
+          </ol>
+
+          <section class="article-faq" aria-labelledby="article-faq-heading">
+            <h2 id="article-faq-heading">Respuestas rápidas</h2>
+            <div class="faq-entries">
+              <article class="faq-entry">
+                <h3>¿Está muriendo Scrum en TI en 2026?</h3>
+                <p>El Scrum rígido lleno de ceremonias y los puestos dedicados solo a moderar reuniones han caído con fuerza en empresas tecnológicas norteamericanas por el avance de la IA y el despliegue continuo. Sin embargo, el 74 % de los equipos ágiles sigue usando modelos híbridos o propios apoyados en Scrum.</p>
+              </article>
+              <article class="faq-entry">
+                <h3>¿Por qué crece Scrum fuera de TI mientras se reduce en tecnología?</h3>
+                <p>Los equipos de software ya tenían ciclos rápidos de entrega. En cambio, áreas como compras, RR. HH., finanzas, logística y administración pública siguen sufriendo listas de tareas ocultas, silos y reuniones eternas de seguimiento; allí, un Scrum ligero resuelve un problema diario real.</p>
+              </article>
+              <article class="faq-entry">
+                <h3>¿Ha sustituido la IA a los equipos Scrum o al Product Owner en 2026?</h3>
+                <p>No. Gartner publicó en octubre de 2026 que el 62 % de los empleados ahorró tiempo con IA, pero solo el 7 % de las organizaciones indicó en qué invertir ese tiempo y apenas el 3 % superó sus metas de ahorro. Priorizar sigue siendo una decisión humana.</p>
+              </article>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- EXACTLY ONE .index-card + .index-card-pin -->
+        <section class="checklist-section" aria-labelledby="reset-2027-heading">
+          <div class="index-card checklist-card">
+            <span class="index-card-pin" aria-hidden="true"></span>
+            <span class="eyebrow">Puesta a punto 2027</span>
+            <h2 id="reset-2027-heading">Cinco hábitos para mantener en 2027 (y tres para soltar)</h2>
+            <ol class="checklist-steps">
+              <li><strong>Mantener:</strong> Un único tablero visible donde convivan proyectos planificados y urgencias diarias.</li>
+              <li><strong>Mantener:</strong> Planificación honesta con margen real para imprevistos en vez de fingir un 100 % libre.</li>
+              <li><strong>Mantener:</strong> Revisiones breves y claras enseñando trabajo terminado en lugar de diapositivas en verde.</li>
+              <li><strong>Mantener:</strong> Decisiones claras del Product Owner cada vez que la IA o la automatización liberen horas.</li>
+              <li><strong>Mantener:</strong> Límites WIP sencillos (máximo dos tarjetas activas por persona) para terminar lo empezado.</li>
+              <li><strong>Soltar:</strong> El teatro de los puntos de historia cuando solo miden ocupación y no impacto en el cliente.</li>
+              <li><strong>Soltar:</strong> Ceremonias pesadas copiadas de manuales de software en equipos de negocio de 20 personas.</li>
+              <li><strong>Soltar:</strong> Implantaciones «ágiles de palabra» donde siguen intactas todas las reuniones semanales de siempre.</li>
+            </ol>
+          </div>
+        </section>
+
+        <aside class="author-bridge" aria-label="Libro y recurso gratuito">
+          <p>
+            Si tu departamento está listo para dejar atrás el paripé metodológico y colgar los números reales en la pared, echa un vistazo a <strong>The Number on the Wall: A Business Novel About Scrum Beyond IT</strong>.
+          </p>
+          <div class="action-row">
+            <a href="/es/" class="btn btn-primary">Descubrir el libro</a>
+            <a href="/cheatsheet" class="btn btn-outline">Descargar gratis el Cheat Sheet (EN)</a>
+          </div>
+          <a href="/es/news/" class="back-link">Volver a Noticias y Guías Prácticas</a>
+        </aside>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <span>© 2026 Carlos Lucas</span>
+        <div class="footer-links">
+          <a href="/es/news/">Noticias</a>
+          <a href="/imprint">Imprint / Impressum</a>
+          <a href="/privacy">Privacy Policy / Datenschutz</a>
+          <a href="https://www.linkedin.com/in/it-for-humans/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm" target="_blank" rel="noopener noreferrer">CINZA (Spotify)</a>
+        </div>
+      </div>
+      <div class="footer-editions">
+        <div class="edition-links" aria-label="Idiomas del artículo">
+          <span>Idiomas del artículo:</span>
+          <a href="/news/scrum-year-in-review-2026/" lang="en">EN</a>
+          <a href="/de/news/scrum-jahresrueckblick-2026/" lang="de">DE</a>
+          <span class="edition-current" aria-current="page">ES</span>
+          <a href="/pt/news/scrum-balanco-anual-2026/" lang="pt-PT">PT</a>
+        </div>
+        <span>Disponible en inglés, alemán, español (ES) y portugués (PT).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var svg = document.getElementById('diagram-scrum-2026');
+      var modeBtns = document.querySelectorAll('[data-review-mode]');
+      var modeNote = document.getElementById('review-mode-note');
+      var regionNote = document.getElementById('review-region-note');
+      var regionNodes = document.querySelectorAll('[data-region]');
+
+      var modeCopy = {
+        split: '<strong>Dentro de TI vs. Fuera de TI:</strong> Los equipos maduros de software simplifican Scrum hacia flujo continuo, mientras las áreas de negocio lo adoptan para sacar a la luz el trabajo oculto.',
+        regions: '<strong>Cuatro continentes comparados:</strong> La foto de Scrum en 2026 cambia mucho según la región. Pulsa cualquier tarjeta arriba para ver el rasgo dominante.'
+      };
+
+      var regionCopy = {
+        na: '<strong>Norteamérica:</strong> El debate más ruidoso sobre «el fin de Scrum» llega de equipos de software en EE. UU. que programan con IA. A la vez, sanidad, finanzas y organismos públicos siguen implantando Scrum simplificado.',
+        eu: '<strong>Europa:</strong> En DACH priman el liderazgo y el diseño organizativo; en Reino Unido se recorta burocracia; en España y Portugal crece el uso en administración pública, RR. HH. y centros de servicio.',
+        sa: '<strong>Sudamérica:</strong> Gran dinamismo en banca digital, retail y sector público (como Agile Trends Brasil y GOV 2026), usando tableros visibles para salvar jerarquías muy marcadas.',
+        as: '<strong>Asia:</strong> India centra el debate en IA y autonomía real; Japón une Kaizen y Scrum en RSG Tokyo; Singapur y Taipéi suben la agilidad a los comités de dirección; China la aplica a vehículos inteligentes y hardware.'
+      };
+
+      modeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var mode = btn.getAttribute('data-review-mode');
+          modeBtns.forEach(function (b) {
+            b.setAttribute('aria-pressed', b.getAttribute('data-review-mode') === mode ? 'true' : 'false');
+          });
+          svg.classList.toggle('mode-regions', mode === 'regions');
+          modeNote.innerHTML = modeCopy[mode];
+          regionNote.style.display = mode === 'regions' ? 'block' : 'none';
+        });
+      });
+
+      function selectRegion(key) {
+        if (!regionCopy[key]) return;
+        regionNodes.forEach(function (node) {
+          var active = node.getAttribute('data-region') === key;
+          node.classList.toggle('is-selected', active);
+          node.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        regionNote.innerHTML = regionCopy[key];
+      }
+
+      regionNodes.forEach(function (node) {
+        node.addEventListener('click', function () { selectRegion(node.getAttribute('data-region')); });
+        node.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectRegion(node.getAttribute('data-region')); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
