@@ -267,6 +267,15 @@
       color: var(--text-muted);
     }
 
+    .audio-briefing { background-color: var(--bg-paper); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-red); padding: 1.25rem 1.45rem; margin: 0 0 2.25rem; max-width: 66ch; }
+    .audio-briefing-eyebrow { font-family: var(--font-sans); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--accent-red); display: block; margin-bottom: 0.35rem; }
+    .audio-briefing-title { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.45rem; line-height: 1.32; }
+    .audio-briefing-desc { font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.58; color: var(--text-main); margin-bottom: 0.9rem; }
+    .audio-briefing audio { display: block; width: 100%; height: 42px; margin-bottom: 0.65rem; }
+    .audio-briefing-meta { font-family: var(--font-sans); font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.35rem 1rem; }
+    .audio-briefing-meta a { color: var(--brand-navy); font-weight: 600; }
+    .audio-briefing-meta a:hover { color: var(--accent-red); }
+
     /* SVG Interactive Elements & Calm Editorial Animations */
     .svg-node {
       cursor: pointer;
@@ -703,8 +712,24 @@
           <p class="article-lead">
             Textbook Scrum assumes one small, cross-functional team working on one modern product without constant interruptions. Real operations rarely look like that. Here is a practical blueprint for introducing Scrum in a 30-person hybrid unit where business and technical specialists juggle long-term projects, 12 complex legacy systems, tight schedules, planned holidays, and unpredictable daily fires.
           </p>
-          <p class="article-meta">By Carlos Lucas · Reading time: 12 minutes · Hypothetical Field Scenario</p>
+          <p class="article-meta">By Carlos Lucas · Reading time: 12 minutes · Hypothetical Field Scenario · incl. 23-min Audio Discussion (EN)</p>
         </header>
+
+        <aside class="audio-briefing" aria-labelledby="audio-briefing-heading">
+          <span class="audio-briefing-eyebrow">Audio Discussion · English · 22:49 min</span>
+          <div id="audio-briefing-heading" class="audio-briefing-title">Prefer listening to reading? Podcast conversation on this blueprint</div>
+          <p class="audio-briefing-desc">
+            Two voices discuss the core ideas of this Field Blueprint in conversation format (rather than reading the text aloud): why textbook Scrum breaks with 30 people and 12 legacy systems, how Dual-Track Scrumban restores focus, and how to cover annual leave safely.
+          </p>
+          <audio controls preload="metadata">
+            <source src="/assets/audio/Wie_Agile_im_echten_IT-Chaos_%C3%BCberlebt.m4a" type="audio/mp4">
+            Your browser does not support embedded HTML5 audio. You can download the file directly below.
+          </audio>
+          <div class="audio-briefing-meta">
+            <span>AI-supported podcast discussion based on this article · hosted directly with zero cookies.</span>
+            <a href="/assets/audio/Wie_Agile_im_echten_IT-Chaos_%C3%BCberlebt.m4a" download>Download M4A (16 MB)</a>
+          </div>
+        </aside>
 
         <div class="article-prose">
 
