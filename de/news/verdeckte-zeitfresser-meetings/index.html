@@ -413,7 +413,7 @@
 
         var diff = beforeTotal - afterTotal;
         document.getElementById('cmp-gain').textContent = diff >= 0
-          ? 'Netto-Gewinn durch feste Scrum-Kadenz: +' + diff.toFixed(1) + ' Stunden ruhige Arbeitszeit pro Zyklus.'
+          ? 'Netto-Gewinn durch feste Scrum-Kadenz: +' + diff.toFixed(1) + ' Stunden ungestörte Arbeitszeit pro Zyklus.'
           : 'Eure aktuelle Meeting-Last ist sehr gering (' + Math.abs(diff).toFixed(1) + ' Std. unter voller Scrum-Kadenz); haltet das Daily kurz.';
 
         document.getElementById('tbl-body').innerHTML =
