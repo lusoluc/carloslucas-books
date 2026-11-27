@@ -1,42 +1,354 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, follow">
-  <title>The Number on the Wall: Edição em português em breve | Carlos Lucas</title>
-  <meta name="description" content="A edição em português de The Number on the Wall, um romance de negócios sobre Scrum além de TI por Carlos Lucas, está planejada.">
+  <title>The Number on the Wall: Um romance de gestão sobre Scrum fora de TI | Carlos Lucas</title>
+  <meta name="description" content="Passado num balcão de peças sobresselentes em Hamburgo, The Number on the Wall junta um romance empresarial a um guia prático para equipas que aplicam Scrum fora de TI. Primeira edição em inglês; tradução para português prevista.">
+  <meta name="author" content="Carlos Lucas">
   <link rel="canonical" href="https://carloslucas.de/pt/">
+  <link rel="alternate" hreflang="en" href="https://carloslucas.de/">
+  <link rel="alternate" hreflang="de" href="https://carloslucas.de/de/">
+  <link rel="alternate" hreflang="es-ES" href="https://carloslucas.de/es/">
+  <link rel="alternate" hreflang="pt-PT" href="https://carloslucas.de/pt/">
+  <link rel="alternate" hreflang="x-default" href="https://carloslucas.de/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="book">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:url" content="https://carloslucas.de/pt/">
+  <meta property="og:title" content="The Number on the Wall: Um romance de gestão sobre Scrum fora de TI">
+  <meta property="og:description" content="Todos os relatórios de estado estão a verde. Todos os clientes estão a perder a paciência. Um romance empresarial com guia prático sobre Scrum fora de TI.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Capa de The Number on the Wall: A Business Novel About Scrum Beyond IT de Carlos Lucas">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Number on the Wall: Um romance de gestão sobre Scrum fora de TI">
+  <meta name="twitter:description" content="Romance empresarial e guia prático para equipas fora de TI. Primeira edição em inglês; edição em português prevista.">
+  <meta name="twitter:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/style.css">
+
+  <!-- Structured Data: Person, Book, FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://carloslucas.de/#author",
+        "name": "Carlos Lucas",
+        "url": "https://carloslucas.de/pt/",
+        "description": "Autor de The Number on the Wall. Mais de duas décadas entre negócio e tecnologia, a ajudar equipas fora de TI com hábitos práticos sem jargão desnecessário.",
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Hamburgo, Alemanha"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/it-for-humans/"
+        ]
+      },
+      {
+        "@type": "Book",
+        "@id": "https://carloslucas.de/pt/#book",
+        "name": "The Number on the Wall",
+        "alternateName": "The Number on the Wall: Um romance de gestão sobre Scrum fora de TI",
+        "author": {
+          "@id": "https://carloslucas.de/#author"
+        },
+        "url": "https://carloslucas.de/pt/",
+        "image": "https://carloslucas.de/assets/cover-the-number-on-the-wall.jpg",
+        "inLanguage": "pt-PT",
+        "genre": [
+          "Romance empresarial",
+          "Gestão e liderança",
+          "Agile e Scrum"
+        ],
+        "about": [
+          "Scrum fora de TI",
+          "Trabalho ágil em equipas de negócio",
+          "Gestão de operações",
+          "Gestão visual"
+        ],
+        "description": "Passado num balcão de peças sobresselentes em Hamburgo, The Number on the Wall combina um romance empresarial com um guia prático em linguagem direta para equipas fora do desenvolvimento de software."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://carloslucas.de/pt/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O Scrum funciona mesmo fora da área de TI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. O Scrum tem muito pouco a ver com escrever código. No essencial, é uma disciplina simples para lidar com trabalho exigente e mutável em ciclos curtos: tornar visível o trabalho real em atraso, focar no que mais importa esta semana, rever resultados honestos e ajustar antes que passem meses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "The Number on the Wall é um romance ou um manual técnico?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É ambas as coisas. A parte principal é uma história num balcão de peças sobresselentes em Hamburgo, onde George e os colegas deixam de pintar de verde os relatórios de estado. No final, um guia de campo conciso traduz cada hábito em passos claros para segunda-feira de manhã."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando sai a edição em português?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A primeira edição sai primeiro em inglês, em papel e Kindle. As traduções para alemão, espanhol e português estão previstas a seguir. Quem se inscrever na lista de leitores será o primeiro a saber."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que significa o número na parede?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "É aquele facto desconfortável que uma equipa deixa finalmente de esconder atrás de diapositivos verdes, representado na capa por um 38 manuscrito a vermelho numa ficha simples. Colocar esse número à vista acaba com o teatro cortês e permite resolver o problema real."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body class="page-narrow">
-  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+<body>
+  <a href="#main-content" class="skip-link">Saltar para o conteúdo</a>
 
   <header class="site-header">
     <div class="container">
-      <a href="/" class="brand">Carlos Lucas</a>
+      <a href="/pt/" class="brand">Carlos Lucas</a>
       <nav class="site-nav" aria-label="Navegação principal">
-        <a href="/">English Edition</a>
-        <a href="/#newsletter">Lista de leitores</a>
+        <a href="#o-livro">O livro</a>
+        <a href="#nota-do-autor">Nota do autor</a>
+        <a href="#cheatsheet">Folha prática</a>
+        <a href="/pt/news/">Notícias</a>
+        <a href="#faq">Perguntas</a>
+        <a href="#autor">Autor</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <div class="container">
-      <article class="doc-sheet">
-        <span class="eyebrow">Edição em português</span>
-        <h1>Edição em português planejada</h1>
-        <p>A primeira edição de <strong><em>The Number on the Wall</em></strong>, um romance de negócios com guia prático sobre Scrum além da área de TI, será lançada primeiro em inglês. A tradução para o português já está planejada.</p>
-        <p>Enquanto isso, você pode conhecer todos os detalhes do livro, ler a nota do autor, consultar as perguntas frequentes e baixar gratuitamente o <strong>One-Page Scrum Cheat Sheet</strong> na página principal em inglês.</p>
 
-        <div class="action-row" style="margin-top: 1.75rem;">
-          <a href="/" class="btn btn-primary">Ir para a página principal (EN)</a>
-          <a href="/#newsletter" class="btn btn-outline">Receber novidades da lista</a>
+    <!-- HERO -->
+    <section class="hero-band" aria-labelledby="book-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-cover-col">
+            <div class="book-object">
+              <picture>
+                <source srcset="/assets/cover-the-number-on-the-wall.webp" type="image/webp">
+                <img
+                  src="/assets/cover-the-number-on-the-wall.jpg"
+                  alt="Capa de The Number on the Wall: A Business Novel About Scrum Beyond IT de Carlos Lucas, com uma ficha pautada e o número 38 manuscrito a vermelho"
+                  width="382"
+                  height="598"
+                  fetchpriority="high"
+                >
+              </picture>
+            </div>
+          </div>
+
+          <div class="hero-text-col">
+            <span class="eyebrow">Edição em português prevista · Primeira edição em inglês</span>
+            <h1 id="book-title">The <span class="hero-title-red">Number</span> on the Wall</h1>
+            <p class="hero-subtitle">Um romance de gestão sobre Scrum fora de TI</p>
+
+            <p class="hero-lead">
+              Todos os relatórios de estado estão a verde. Todos os clientes estão a perder a paciência. Numa segunda-feira de manhã em Hamburgo, alguém afixa finalmente o número real na parede.
+            </p>
+
+            <p class="hero-body">
+              <em>The Number on the Wall</em> junta uma história passada num balcão de peças sobresselentes a um guia prático no final do livro. Mostra como equipas comuns fora de TI usam o Scrum para deixar de fingir que um plano avariado funciona, sem uma única linha de código nem jargão de consultoria.
+            </p>
+
+            <div class="buy-block">
+              <div class="action-row">
+                <a href="/#cheatsheet" class="btn btn-primary">Folha prática gratuita e lista de leitores</a>
+                <a href="/pt/news/" class="btn btn-outline">Ler guias práticos em português</a>
+              </div>
+
+              <p class="edition-note">
+                A primeira edição sai primeiro em inglês (papel e Kindle). A tradução para português está prevista a seguir. <a href="/">Ir para a edição em inglês</a> ou inscreve-te na lista para saberes assim que sair em português.
+              </p>
+            </div>
+          </div>
         </div>
-      </article>
-    </div>
+      </div>
+    </section>
+
+    <!-- INSIDE THE BOOK -->
+    <section id="o-livro" class="story-band" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="story-grid">
+          <aside class="story-aside" aria-label="Detalhes do livro">
+            <div class="pull-number" aria-hidden="true">38</div>
+            <p class="aside-caption">
+              Um número escrito à mão numa ficha é muito mais difícil de ignorar do que quarenta diapositivos pintados a verde.
+            </p>
+            <dl class="book-ledger">
+              <dt>Formato</dt>
+              <dd>Romance empresarial e guia de campo</dd>
+              <dt>Cenário</dt>
+              <dd>Ashby &amp; Co., balcão de peças, Hamburgo</dd>
+              <dt>Primeira edição</dt>
+              <dd>Inglês (papel e Kindle)</dd>
+              <dt>Traduções previstas</dt>
+              <dd>Alemão, espanhol (ES) e português (PT)</dd>
+            </dl>
+          </aside>
+
+          <div class="story-prose">
+            <h2 id="story-heading">O que encontras dentro do livro</h2>
+            <p>
+              A maioria dos livros sobre Agile e Scrum parece um manual de software. Se geres uma equipa de operações, logística, apoio ao cliente ou um departamento de negócio, raramente soam à tua segunda-feira de manhã.
+            </p>
+
+            <h3 class="story-subhead">Primeira parte: A história</h3>
+            <p>
+              Na Ashby &amp; Co., em Hamburgo, o balcão de peças sobresselentes está a afundar-se em silêncio. As encomendas em atraso acumulam-se, os ânimos aquecem e, ainda assim, cada reunião semanal à volta da mesa de mogno continua educadamente a verde. George tem pouca paciência para slogans de gestão e ainda menos para fingir que está tudo bem. Acompanha o que acontece quando ele e os colegas deixam de esconder o caos, afixam o número real na parede e testam o Scrum sob a pressão do dia a dia.
+            </p>
+
+            <h3 class="story-subhead">Segunda parte: O guia de campo</h3>
+            <p>
+              Quando a história termina, o livro não te deixa às escuras. Um guia prático conciso no final traduz cada hábito do romance em passos concretos para equipas fora de TI: como montar um quadro visível, trabalhar em ciclos curtos com foco e impedir que as reuniões de ponto de situação voltem a transformar-se em teatro cortês.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHOR'S NOTE -->
+    <section id="nota-do-autor" class="note-band" aria-labelledby="author-note-heading">
+      <div class="container">
+        <article class="book-leaf">
+          <h2 id="author-note-heading">Uma nota do autor</h2>
+          <div class="book-leaf-body">
+            <p>Este livro começou como uma experiência comigo próprio. Ao longo dos anos, reparei em duas coisas. Primeiro, fico irrequieto sem um novo desafio. Segundo, modelos teóricos secos escorregam-me logo da cabeça se não vierem embrulhados numa história sobre pessoas reais a meterem-se em sarilhos. Ao mesmo tempo, amigos e familiares continuavam a dizer-me ao jantar que o Scrum serve apenas para programadores de capuz. Isso está simplesmente errado, e escrever sobre um balcão de peças sobresselentes em Hamburgo pareceu-me uma boa forma de o provar.</p>
+            <p>Na minha própria carreira, vi equipas agarradas durante meses a uma ficção educada, a pintar relatórios de estado a verde enquanto toda a gente na sala sabia que o barco já estava a meter água. Nada desgasta boas pessoas mais depressa do que fingir que um mau plano funciona. Mas também já vi o momento exato em que alguém finalmente suspira, coloca o número real e incómodo na parede e admite que estão bloqueados. Ninguém morre de vergonha. Pelo contrário: os ombros relaxam, as desculpas acabam e o verdadeiro trabalho começa.</p>
+            <p>De todas as pessoas à volta daquela mesa de mogno, o George é quem mais se parece comigo, talvez com um toque do Paul num dia bom. Tal como o George, desconfio de chavões à primeira vista e aprendo melhor arregaçando as mangas e testando ideias contra a realidade. Só para que ninguém em Hamburgo comece a vasculhar ficheiros antigos de pessoal: a Ashby &amp; Co., o Corvane Cruise Group, a Varnholt Process Services e todas as personagens destas páginas são totalmente inventados.</p>
+            <p>Quando fechares este livro, dispensa os grandes anúncios. Na segunda-feira de manhã, compra um maço de fichas de papel, escolhe o problema que a tua equipa tem evitado durante todo o mês e afixa-o na parede onde ninguém o possa ignorar. Depois dá três passos atrás e escuta.</p>
+          </div>
+          <span class="book-leaf-signature" aria-hidden="true">Carlos Lucas</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- CHEAT SHEET & FIELD BLUEPRINT BRIDGE (EXACTLY ONE .index-card) -->
+    <section id="cheatsheet" class="cheatsheet-band" aria-labelledby="cheatsheet-heading">
+      <div class="container">
+        <div class="index-card">
+          <span class="index-card-pin" aria-hidden="true"></span>
+
+          <div class="cheatsheet-grid">
+            <div class="cheatsheet-copy">
+              <span class="eyebrow">Recurso gratuito</span>
+              <h2 id="cheatsheet-heading">Uma folha junto à tua parede</h2>
+              <p>Se queres um lembrete imprimível para as segundas-feiras de manhã sem teres de voltar a folhear o guia de campo, podes descarregar gratuitamente o <strong>One-Page Scrum Cheat Sheet</strong> (atualmente em inglês, em PDF frente e verso) ao entrares na lista de leitores.</p>
+              <p class="cheatsheet-cadence">
+                Cerca de cinco e-mails por ano: notas práticas sobre Scrum fora de TI, novidades de lançamento de <em>The Number on the Wall</em> (incluindo a edição em português) e atualizações antecipadas do livro 2. Podes cancelar a subscrição com um clique.
+              </p>
+            </div>
+
+            <div>
+              <h3 style="margin-bottom: 0.75rem;">Começa já hoje</h3>
+              <p style="font-size: 0.98rem; line-height: 1.68; margin-bottom: 1.25rem;">
+                O formulário de inscrição com transferência imediata do PDF encontra-se ativo na página principal em inglês. Assim que prepararmos o lançamento em português, ativaremos aqui a lista dedicada em português.
+              </p>
+              <div class="action-row" style="flex-direction: column; align-items: stretch;">
+                <a href="/#cheatsheet" class="btn btn-primary">Descarregar o Cheat Sheet e inscrever-te (EN)</a>
+                <a href="/pt/news/scrum-30-pessoas-sistemas-legacy/" class="btn btn-outline">Ler o guia prático em português</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS TEASER -->
+    <section class="sequel-band" aria-labelledby="news-teaser-heading">
+      <div class="container">
+        <div class="sequel-grid">
+          <div class="sequel-label">Novo em português</div>
+          <div class="sequel-body">
+            <h2 id="news-teaser-heading" style="font-style: normal;">Scrum com 30 pessoas, 12 sistemas legacy e incêndios diários</h2>
+            <p>Um guia de campo detalhado com três diagramas interativos: Scrumban de dupla via, filtro de três perguntas para urgências, resposta à falta de tempo, férias e baixas médicas, e uma lista de sete passos para segunda-feira de manhã.</p>
+            <a href="/pt/news/scrum-30-pessoas-sistemas-legacy/" class="sequel-link">Ler o guia de campo completo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-band" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-grid">
+          <div class="faq-intro">
+            <h2 id="faq-heading">Scrum fora de TI: perguntas frequentes</h2>
+            <p>Respostas diretas sobre o livro, a quem se destina e como o Scrum encaixa no trabalho quotidiano fora do desenvolvimento de software.</p>
+          </div>
+
+          <div class="faq-entries">
+            <article class="faq-entry">
+              <h3>O Scrum funciona mesmo fora da área de TI?</h3>
+              <p>Sim. O Scrum tem muito pouco a ver com escrever código. No essencial, é uma disciplina simples para enfrentar trabalho exigente e mutável em ciclos curtos: tornar visível o trabalho real em atraso, focar no que mais importa esta semana, rever resultados honestos e ajustar antes que passem meses. Equipas de operações, peças sobresselentes, apoio ao cliente, finanças e administração usam estes hábitos todos os dias.</p>
+            </article>
+
+            <article class="faq-entry">
+              <h3><em>The Number on the Wall</em> é um romance ou um manual?</h3>
+              <p>É ambas as coisas. A parte principal é uma história passada num balcão de peças em Hamburgo que acompanha George e os colegas quando deixam de pintar de verde os relatórios de estado. No final, um guia de campo conciso transforma cada lição em passos simples que podes experimentar com a tua equipa na segunda-feira de manhã.</p>
+            </article>
+
+            <article class="faq-entry">
+              <h3>Quando sai a edição em português?</h3>
+              <p>A primeira edição em inglês sai primeiro em papel e Kindle, seguindo-se as traduções previstas para alemão, espanhol e português. Está também em preparação uma sequela, <em>More Trouble Ahead</em>. Os leitores inscritos em <a href="/newsletter">carloslucas.de/newsletter</a> ficam a saber em primeira mão.</p>
+            </article>
+
+            <article class="faq-entry">
+              <h3>O que significa «o número na parede»?</h3>
+              <p>É o facto desconfortável que uma equipa deixa finalmente de esconder atrás de diapositivos verdes, representado na capa por um 38 vermelho numa ficha comum. Colocar esse número bem visível acaba com a ficção educada, reduz a tensão na sala e permite resolver o problema verdadeiro.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEQUEL TEASER -->
+    <section class="sequel-band" aria-labelledby="sequel-heading">
+      <div class="container">
+        <div class="sequel-grid">
+          <div class="sequel-label">A seguir</div>
+          <div class="sequel-body">
+            <h2 id="sequel-heading">More Trouble Ahead</h2>
+            <p>Colocar um balcão de peças sob controlo é apenas o primeiro obstáculo. No livro 2, a equipa descobre o que acontece quando a transparência honesta de um departamento choca com os hábitos, a política e as dependências do resto da organização.</p>
+            <a href="/#newsletter" class="sequel-link">Acompanhar novidades do livro 2 na lista de leitores</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT THE AUTHOR -->
+    <section id="autor" class="about-band" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <h2 id="about-heading">Sobre o autor</h2>
+          </div>
+          <div class="about-prose">
+            <p>Carlos Lucas atravessa fronteiras com naturalidade há mais de duas décadas entre negócio e tecnologia, ajudando equipas a resolver problemas teimosos fora das caixas habituais. Sempre atraído por novos desafios, acredita que a única forma real de compreender um método é testá-lo na prática, cometer erros e aprender com a experiência. Vive no norte da Alemanha, perto de Hamburgo. Enquanto o George faz pão aos sábados para espairecer, o Carlos prefere procurar novas experiências ou dar uma caminhada enérgica à volta do lago Alster ou junto ao Elba. Podes encontrá-lo em <a href="https://www.linkedin.com/in/it-for-humans/" target="_blank" rel="noopener noreferrer">linkedin.com/in/it-for-humans/</a> ou juntar-te à lista de leitores em <a href="/#newsletter">carloslucas.de/newsletter</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -44,6 +356,7 @@
       <div class="footer-row">
         <span>© 2026 Carlos Lucas</span>
         <div class="footer-links">
+          <a href="/pt/news/">Notícias</a>
           <a href="/imprint">Imprint / Impressum</a>
           <a href="/privacy">Privacy Policy / Datenschutz</a>
           <a href="https://www.linkedin.com/in/it-for-humans/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -51,13 +364,13 @@
       </div>
       <div class="footer-editions">
         <div class="edition-links" aria-label="Edições por idioma">
-          <span>Edições:</span>
+          <span>Idiomas:</span>
           <a href="/" lang="en">EN</a>
           <a href="/de/" lang="de">DE</a>
-          <a href="/es/" lang="es">ES</a>
+          <a href="/es/" lang="es-ES">ES</a>
           <span class="edition-current" aria-current="page">PT</span>
         </div>
-        <span>Edição em inglês ativa. Edições em alemão, espanhol e português planejadas.</span>
+        <span>Primeira edição em inglês ativa. Edições em alemão, espanhol e português previstas.</span>
       </div>
     </div>
   </footer>

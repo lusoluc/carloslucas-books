@@ -6,12 +6,57 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://carloslucas.de/de/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/es/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/pt/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://carloslucas.de/news/</loc>
     <lastmod>2026-11-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://carloslucas.de/de/news/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/es/news/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/pt/news/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://carloslucas.de/news/scrum-30-people-legacy-systems/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/de/news/scrum-30-personen-legacy-systeme/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carloslucas.de/pt/news/scrum-30-pessoas-sistemas-legacy/</loc>
     <lastmod>2026-11-26</lastmod>
     <priority>0.8</priority>
   </url>

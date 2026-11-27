@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrum con 30 personas, 12 sistemas legacy e incendios diarios | Carlos Lucas</title>
+  <meta name="description" content="Guía de campo práctica para introducir Scrum en una unidad híbrida de 30 personas entre negocio y tecnología con 12 sistemas legacy, incendios diarios, falta de tiempo y vacaciones.">
+  <meta name="author" content="Carlos Lucas">
+  <link rel="canonical" href="https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/">
+  <link rel="alternate" hreflang="en" href="https://carloslucas.de/news/scrum-30-people-legacy-systems/">
+  <link rel="alternate" hreflang="de" href="https://carloslucas.de/de/news/scrum-30-personen-legacy-systeme/">
+  <link rel="alternate" hreflang="es-ES" href="https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/">
+  <link rel="alternate" hreflang="pt-PT" href="https://carloslucas.de/pt/news/scrum-30-pessoas-sistemas-legacy/">
+  <link rel="alternate" hreflang="x-default" href="https://carloslucas.de/news/scrum-30-people-legacy-systems/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Carlos Lucas">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/">
+  <meta property="og:title" content="Scrum con 30 personas, 12 sistemas legacy e incendios diarios">
+  <meta property="og:description" content="Guía de campo práctica para introducir Scrum en una unidad híbrida de 30 personas con 12 sistemas legacy, incendios diarios y cobertura en vacaciones.">
+  <meta property="og:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Number on the Wall: A Business Novel About Scrum Beyond IT de Carlos Lucas">
+  <meta property="article:author" content="Carlos Lucas">
+  <meta property="article:published_time" content="2026-11-26">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scrum con 30 personas, 12 sistemas legacy e incendios diarios">
+  <meta name="twitter:description" content="Guía práctica para aplicar Scrum en una unidad híbrida de 30 personas con 12 sistemas legacy, incendios diarios y cobertura de vacaciones.">
+  <meta name="twitter:image" content="https://carloslucas.de/assets/og-the-number-on-the-wall.jpg">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+
+  <style>
+    .page-article .container { max-width: 920px; }
+    .page-article main { padding: 3rem 0 4.5rem; }
+    .article-sheet { padding: 3.25rem 3.5rem; }
+    .article-header { padding-bottom: 1.75rem; margin-bottom: 2.25rem; border-bottom: 1px solid var(--border-subtle); }
+    .article-sheet h1 { font-size: clamp(1.95rem, 3.6vw, 2.7rem); line-height: 1.14; margin-bottom: 1.1rem; max-width: 24ch; }
+    .article-lead { font-size: 1.16rem; line-height: 1.66; color: var(--brand-navy); max-width: 62ch; margin-bottom: 1.25rem; }
+    .article-meta { font-family: var(--font-sans); font-size: 0.84rem; color: var(--text-muted); letter-spacing: 0.02em; }
+    .article-prose h2 { font-size: clamp(1.4rem, 2.5vw, 1.75rem); line-height: 1.24; margin-top: 2.75rem; margin-bottom: 0.95rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .article-prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+    .article-prose h3 { font-size: 1.12rem; line-height: 1.38; margin-top: 1.75rem; margin-bottom: 0.55rem; color: var(--brand-navy); }
+    .article-prose p, .article-prose ul, .article-prose ol { max-width: 66ch; }
+    .article-prose ol { padding-left: 1.45rem; margin-bottom: 1.25rem; }
+    .article-prose li { margin-bottom: 0.55rem; }
+    .article-prose li > ul { margin-top: 0.45rem; margin-bottom: 0.45rem; }
+    .quote-line { font-style: italic; color: var(--brand-navy); margin-bottom: 0.7rem; }
+
+    .table-wrap { width: 100%; overflow-x: auto; margin: 1.65rem 0 2rem; border-top: 2px solid var(--brand-navy); border-bottom: 1px solid var(--border-subtle); }
+    .editorial-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; line-height: 1.55; color: var(--text-main); background-color: var(--bg-card); }
+    .editorial-table th, .editorial-table td { text-align: left; vertical-align: top; padding: 0.85rem 0.95rem; border-bottom: 1px solid var(--border-subtle); }
+    .editorial-table th { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand-navy); background-color: var(--bg-paper); }
+    .editorial-table tr:last-child td { border-bottom: 0; }
+    .editorial-table strong { color: var(--brand-navy); }
+
+    .diagram-figure { margin: 2rem 0 2.15rem; padding: 1.35rem 1.4rem 1.25rem; background-color: var(--bg-paper); border: 1px solid var(--border-subtle); border-top: 2px solid var(--brand-navy); }
+    .diagram-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem 1rem; margin-bottom: 1rem; }
+    .diagram-label { font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--text-muted); }
+    .toggle-group { display: inline-flex; flex-wrap: wrap; gap: 0.45rem; }
+    .pill-btn { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; line-height: 1.25; color: var(--brand-navy); background-color: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 999px; padding: 0.42rem 0.9rem; cursor: pointer; transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease; }
+    .pill-btn:hover { border-color: var(--brand-navy); }
+    .pill-btn[aria-pressed="true"] { background-color: var(--brand-navy); border-color: var(--brand-navy); color: #FFFFFF; }
+    .pill-btn[aria-pressed="true"].pill-accent { background-color: var(--accent-red); border-color: var(--accent-red); color: #FFFFFF; }
+    .diagram-stage { background-color: var(--bg-card); border: 1px solid var(--border-subtle); padding: 0.65rem; }
+    .diagram-svg { display: block; width: 100%; height: auto; font-family: var(--font-sans); }
+    .diagram-caption { margin-top: 0.9rem; font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.58; color: var(--text-main); }
+    .diagram-caption strong { color: var(--brand-navy); }
+    .diagram-hint { display: block; margin-top: 0.35rem; font-family: var(--font-sans); font-size: 0.78rem; color: var(--text-muted); }
+
+    .svg-node { cursor: pointer; }
+    .svg-node:focus { outline: none; }
+    .svg-node:focus-visible .node-frame, .svg-node.is-selected .node-frame { stroke: var(--accent-red); stroke-width: 2.5; }
+    .svg-node .node-frame { transition: stroke 0.2s ease, stroke-width 0.2s ease, fill 0.2s ease; }
+    .flow-line { stroke-dasharray: 6 6; animation: editorialFlow 2.6s linear infinite; }
+    .flow-line-fast { stroke-dasharray: 6 6; animation: editorialFlow 1.8s linear infinite; }
+    .diagram-high-fire .flow-line-fast { animation-duration: 1.1s; }
+    @keyframes editorialFlow { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }
+
+    .topology-layer { transition: opacity 0.32s ease; }
+    .topology-before-layer { opacity: 0; pointer-events: none; }
+    .topology-after-layer { opacity: 1; }
+    #diagram-topology.mode-before .topology-before-layer { opacity: 1; pointer-events: auto; }
+    #diagram-topology.mode-before .topology-after-layer { opacity: 0; pointer-events: none; }
+    .bottleneck-pulse { transform-box: fill-box; transform-origin: center; animation: calmPulse 2.2s ease-in-out infinite; }
+    @keyframes calmPulse { 0%, 100% { opacity: 0.22; transform: scale(1); } 50% { opacity: 0.55; transform: scale(1.03); } }
+
+    .roadmap-progress { stroke-dasharray: 610; stroke-dashoffset: 610; transition: stroke-dashoffset 1.3s ease-out; }
+    #diagram-roadmap.is-visible .roadmap-progress { stroke-dashoffset: 0; }
+    .week-node { cursor: pointer; }
+    .week-node:focus { outline: none; }
+    .week-node .week-ring { opacity: 0; transition: opacity 0.2s ease; }
+    .week-node.is-active .week-ring, .week-node:focus-visible .week-ring { opacity: 1; }
+    .week-node .week-dot { transition: fill 0.2s ease; }
+    .week-node.is-active .week-dot { fill: var(--accent-red); }
+    .roadmap-detail { margin-top: 1rem; margin-bottom: 0; background-color: var(--bg-card); }
+    .roadmap-detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.85rem 1.25rem; margin-top: 0.65rem; font-family: var(--font-sans); font-size: 0.86rem; line-height: 1.5; }
+    .roadmap-detail-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-red); margin-bottom: 0.2rem; }
+
+    .field-card-box { background-color: var(--bg-paper); border: 1px solid var(--border-subtle); padding: 1.35rem 1.5rem; margin: 1.5rem 0 1.85rem; max-width: 66ch; }
+    .field-card-box h3 { margin-top: 0; margin-bottom: 0.6rem; font-size: 1.04rem; }
+    .field-card-box ol, .field-card-box ul { margin-bottom: 0; }
+
+    .article-faq { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .article-faq h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+    .article-faq .faq-entries { margin-top: 1rem; }
+    .article-faq .faq-entry { padding: 1.25rem 0; }
+    .article-faq .faq-entry h3 { margin-top: 0; font-size: 1.08rem; }
+
+    .checklist-section { margin-top: 2.75rem; }
+    .checklist-card { padding: 3.15rem 3rem 2.65rem; }
+    .checklist-card .eyebrow { margin-top: 0.45rem; margin-bottom: 0.5rem; color: var(--accent-red); }
+    .checklist-card h2 { margin-top: 0; padding-top: 0; border-top: 0; margin-bottom: 1.2rem; font-size: clamp(1.35rem, 2.3vw, 1.65rem); }
+    .checklist-steps { list-style: none; padding-left: 0; margin-bottom: 0; counter-reset: checklist-step; }
+    .checklist-steps li { position: relative; padding-left: 2.35rem; margin-bottom: 0.9rem; line-height: 1.62; }
+    .checklist-steps li:last-child { margin-bottom: 0; }
+    .checklist-steps li::before { counter-increment: checklist-step; content: counter(checklist-step); position: absolute; left: 0; top: 0.12rem; width: 1.55rem; height: 1.55rem; border: 1px solid var(--accent-red); border-radius: 2px; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; color: var(--accent-red); display: flex; align-items: center; justify-content: center; background-color: var(--bg-paper); }
+
+    .author-bridge { margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid var(--border-subtle); }
+    .author-bridge p { font-style: italic; color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; max-width: 62ch; margin-bottom: 1.25rem; }
+    .author-bridge strong { color: var(--brand-navy); font-style: normal; }
+
+    @media (max-width: 760px) {
+      .article-sheet { padding: 2.15rem 1.5rem; }
+      .diagram-figure { padding: 1rem 0.9rem; }
+      .roadmap-detail-grid { grid-template-columns: 1fr; }
+      .checklist-card { padding: 2.8rem 1.45rem 2.1rem; }
+    }
+    @media (max-width: 480px) {
+      .page-article main { padding: 2rem 0 3.25rem; }
+      .article-sheet { padding: 1.65rem 1.15rem; }
+      .pill-btn { font-size: 0.76rem; padding: 0.38rem 0.72rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flow-line, .flow-line-fast, .bottleneck-pulse { animation: none; }
+      .roadmap-progress { stroke-dashoffset: 0; transition: none; }
+      .topology-layer, .svg-node .node-frame, .week-node .week-ring, .week-node .week-dot { transition: none; }
+    }
+  </style>
+
+  <!-- Structured Data: Article + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/#article",
+        "headline": "Scrum con 30 personas, 12 sistemas legacy e incendios diarios",
+        "description": "Guía de campo práctica para introducir Scrum en una unidad híbrida de 30 personas entre negocio y tecnología con 12 sistemas legacy, incendios diarios, falta de tiempo y vacaciones.",
+        "inLanguage": "es-ES",
+        "datePublished": "2026-11-26",
+        "dateModified": "2026-11-26",
+        "image": "https://carloslucas.de/assets/og-the-number-on-the-wall.jpg",
+        "author": { "@type": "Person", "@id": "https://carloslucas.de/#author", "name": "Carlos Lucas", "url": "https://carloslucas.de/es/" },
+        "publisher": { "@type": "Person", "@id": "https://carloslucas.de/#author", "name": "Carlos Lucas", "url": "https://carloslucas.de/es/" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/" },
+        "about": ["Scrum", "Scrumban", "Gestión de operaciones", "Sistemas legacy", "Transferencia de conocimiento"]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://carloslucas.de/es/news/scrum-30-personas-sistemas-legacy/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Se puede hacer Scrum con 30 personas en un solo equipo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Un Daily Scrum de 30 personas se convierte en un informe de estado de 45 minutos donde casi todo el mundo desconecta. Organiza la unidad en torno a un Product Owner unificado, tres equipos mixtos de dominio de 8 a 9 personas entre negocio y tecnología, y un pequeño grupo compartido de 3 a 5 especialistas en sistemas legacy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se gestiona en Scrum a un único experto de un sistema legacy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mantén a los pocos expertos con Bus-Factor 1 en un grupo compartido en lugar de encerrarlos en un solo equipo. Protege su foco con franjas reservadas en el Refinement semanal, trabajo en pareja obligatorio en tareas complejas y un suplente 80/20 respaldado por una ficha de emergencia de una página."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se protege un Sprint frente al trabajo imprevisto diario?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Con Scrumban de doble vía. Canaliza todo el trabajo entrante por un triaje diario de 10 minutos con un filtro claro de tres preguntas, reserva un colchón honesto (entre el 30 % y el 40 %) para urgencias, nombra un First Responder rotatorio por Sprint y limita el trabajo activo de la vía rápida a dos tarjetas por persona."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo sigue funcionando Scrum cuando un especialista clave se va de vacaciones o coge una baja médica?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Planifica las ausencias con dos Sprints de antelación, evita cambios arriesgados en ese sistema justo antes de marcharse y prepara un suplente 80/20 con una ficha de emergencia de una página. Durante la ausencia aplica un triaje de tres niveles: aparca lo no urgente, deja las incidencias rutinarias al suplente y usa un escalado al proveedor o un plan manual para caídas graves."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-article">
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/es/" class="brand">Carlos Lucas</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="/es/">Inicio</a>
+        <a href="/es/news/">Noticias</a>
+        <a href="/cheatsheet">Guía rápida</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <article class="doc-sheet article-sheet">
+
+        <header class="article-header">
+          <span class="eyebrow">Guía de campo · Scrum más allá de los manuales</span>
+          <h1>Scrum con 30 personas, 12 sistemas legacy e incendios diarios</h1>
+          <p class="article-lead">
+            El Scrum de manual supone un único equipo pequeño y multidisciplinar trabajando en un producto moderno sin interrupciones constantes. La operativa real rara vez se parece a eso. Aquí tienes una guía práctica para introducir Scrum en una unidad híbrida de 30 personas donde negocio y tecnología compaginan proyectos largos, 12 sistemas legacy complejos, falta de tiempo, vacaciones e incendios diarios imprevisibles.
+          </p>
+          <p class="article-meta">Por Carlos Lucas · Tiempo de lectura: 12 minutos · Escenario práctico hipotético</p>
+        </header>
+
+        <div class="article-prose">
+
+          <h2>1. Por qué el Scrum de manual se rompe el primer día</h2>
+          <p>
+            Imagina un escenario cotidiano que existe en cientos de organizaciones medianas y grandes.
+          </p>
+          <p>
+            Una división operativa cuenta con unas 30 personas repartidas casi a partes iguales. Una mitad pertenece al lado de negocio: especialistas de procesos, coordinadores de área y responsables operativos que conocen las reglas, a los clientes y los plazos normativos. La otra mitad tiene perfil técnico: gestores de aplicaciones, especialistas en interfaces e ingenieros de sistemas que mantienen en pie un mapa de 12 sistemas legacy complejos.
+          </p>
+          <p>Tres realidades marcan su semana:</p>
+          <ol>
+            <li><strong>Heterogeneidad extrema:</strong> Habilidades, experiencia y tareas diarias varían muchísimo entre las 30 personas.</li>
+            <li><strong>Cuellos de botella con Bus-Factor 1:</strong> Para varios sistemas críticos solo hay una o dos personas en toda la empresa que saben de verdad cómo se comporta el sistema bajo presión. Cada vez que una de ellas se toma dos semanas de vacaciones o coge una baja médica, el ritmo se frena en seco.</li>
+            <li><strong>Dos mundos de trabajo en competencia:</strong> Proyectos estratégicos a largo plazo conviven con incidencias urgentes, consultas imprevistas de negocio e incendios operativos, mientras todo el mundo siente que no tiene ni cinco minutos libres.</li>
+          </ol>
+          <p>
+            Si entras en este entorno y anuncias Scrum de manual, colapsará en tres semanas. Un Daily Scrum de 30 personas se convierte en un eterno informe de 45 minutos donde 27 personas desconectan. Dividir a todo el mundo en equipos rígidos fracasa porque no puedes clonar al único especialista que conoce el Sistema Legacy C. Y comprometer al equipo con un Sprint cerrado salta por los aires en cuanto aparece una incidencia grave el martes por la mañana.
+          </p>
+          <p>
+            ¿Significa eso que Scrum no sirve aquí? No. Significa que tienes que dejar de tratar Scrum como un guion rígido de software y empezar a usar sus mecánicas reales: transparencia, empirismo, lotes pequeños y responsabilidades claras.
+          </p>
+
+          <h2>2. Separa el trabajo planificado de los incendios diarios (Scrumban de doble vía)</h2>
+          <p>
+            La principal razón por la que mueren las implantaciones ágiles en departamentos híbridos es el trabajo imprevisto e invisible. Cuando un problema urgente aterriza directamente en la mesa de un especialista por correo, chat o una charla en el pasillo, destroza el Sprint en silencio.
+          </p>
+          <p>
+            La solución es un <strong>modelo operativo a dos velocidades</strong> (Scrumban de doble vía). Cada tarea, sea un cambio regulatorio de seis meses o un fallo repentino, entra por un único embudo central. Nada esquiva el tablero.
+          </p>
+          <p>
+            Cada mañana, un <strong>triaje de 10 minutos</strong> (liderado por el Product Owner y un referente técnico) clasifica las entradas nuevas en dos vías claras:
+          </p>
+          <ul>
+            <li><strong>Vía A (Valor planificado / Sprint de 2 semanas):</strong> Mejoras de varios días, hitos de proyecto y cambios planificados. Esta vía recibe una cuota protegida de capacidad (normalmente del 60 % al 70 % al inicio, con una franja reservada para trabajo en pareja y traspasos) y un Objetivo de Sprint claro.</li>
+            <li><strong>Vía B (Vía rápida / Flujo Kanban):</strong> Incidencias urgentes, peticiones imprevistas de negocio y arreglos pequeños. Recibe un colchón dedicado (del 30 % al 40 %), priorizado estrictamente por urgencia y controlado por límites rígidos de trabajo en curso (WIP).</li>
+          </ul>
+
+          <!-- SVG 1 -->
+          <figure class="diagram-figure" id="figure-dual-track">
+            <div class="diagram-toolbar">
+              <span class="diagram-label">Figura 1 · Entrada y triaje de doble vía</span>
+              <div class="toggle-group" role="group" aria-label="Selector de carga semanal">
+                <button type="button" class="pill-btn" data-track-mode="normal" aria-pressed="true">Semana normal (70 % Sprint / 30 % Vía rápida)</button>
+                <button type="button" class="pill-btn pill-accent" data-track-mode="highfire" aria-pressed="false">Semana crítica (50 % Sprint / 50 % Vía rápida)</button>
+              </div>
+            </div>
+            <div class="diagram-stage">
+              <svg id="diagram-dual-track" class="diagram-svg" viewBox="0 0 800 420" role="img" aria-labelledby="svg1-title svg1-desc">
+                <title id="svg1-title">Flujo de entrada y triaje de doble vía</title>
+                <desc id="svg1-desc">Diagrama que muestra cómo el trabajo entrante pasa por un triaje diario de 10 minutos y se divide entre Vía A (Sprint de 2 semanas) y Vía B (Vía rápida Kanban).</desc>
+                <defs>
+                  <marker id="arrow-navy-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1B2A4A"></path>
+                  </marker>
+                  <marker id="arrow-red-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#9B1B20"></path>
+                  </marker>
+                </defs>
+
+                <rect x="175" y="12" width="450" height="54" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                <text x="400" y="34" text-anchor="middle" fill="#1B2A4A" font-size="14" font-weight="700">Trabajo entrante</text>
+                <text x="400" y="53" text-anchor="middle" fill="#5A5A5A" font-size="12">Proyectos, incidencias y peticiones ad-hoc (un solo embudo)</text>
+
+                <line x1="400" y1="66" x2="400" y2="96" stroke="#1B2A4A" stroke-width="1.8" class="flow-line" marker-end="url(#arrow-navy-1)"></line>
+
+                <g class="svg-node is-selected" data-track-node="triage" role="button" tabindex="0" aria-pressed="true" aria-label="Regla del triaje diario de 10 minutos">
+                  <rect class="node-frame" x="155" y="98" width="490" height="60" rx="3" fill="#FAF6F0" stroke="#9B1B20" stroke-width="2.2"></rect>
+                  <text x="400" y="122" text-anchor="middle" fill="#9B1B20" font-size="14" font-weight="700">Triaje diario de 10 min (PO + Tech Lead)</text>
+                  <text x="400" y="143" text-anchor="middle" fill="#2B2B2B" font-size="12">Filtro de 3 preguntas para urgencias · Nada esquiva el tablero</text>
+                </g>
+
+                <path d="M 310 158 L 310 176 L 205 176 L 205 204" fill="none" stroke="#1B2A4A" stroke-width="2" class="flow-line" marker-end="url(#arrow-navy-1)"></path>
+                <path d="M 490 158 L 490 176 L 595 176 L 595 204" fill="none" stroke="#9B1B20" stroke-width="2.2" class="flow-line-fast" marker-end="url(#arrow-red-1)"></path>
+
+                <g class="svg-node" data-track-node="sprint" role="button" tabindex="0" aria-pressed="false" aria-label="Regla del Sprint protegido de 2 semanas">
+                  <rect class="node-frame" x="30" y="206" width="350" height="132" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.8"></rect>
+                  <rect x="30" y="206" width="350" height="28" rx="2" fill="#1B2A4A"></rect>
+                  <text x="46" y="224" fill="#FFFFFF" font-size="11.5" font-weight="700" letter-spacing="0.8">VÍA A · VALOR PLANIFICADO</text>
+                  <text id="track-a-badge" x="364" y="224" text-anchor="end" fill="#FAF6F0" font-size="11.5" font-weight="700">70 % Capacidad</text>
+
+                  <text x="46" y="255" fill="#1B2A4A" font-size="13.5" font-weight="700">Backlog priorizado -> Sprint de 2 semanas</text>
+                  <text x="46" y="276" fill="#2B2B2B" font-size="12">Objetivo fijo · Sin interrupciones ad-hoc</text>
+                  <text x="46" y="294" fill="#5A5A5A" font-size="11.5">Incluye huecos para pairing y traspasos</text>
+
+                  <rect x="46" y="309" width="318" height="14" rx="2" fill="#FAF6F0" stroke="#E5DDD0" stroke-width="1"></rect>
+                  <rect id="track-a-bar" x="46" y="309" width="223" height="14" rx="2" fill="#1B2A4A"></rect>
+                </g>
+
+                <g class="svg-node" data-track-node="fastlane" role="button" tabindex="0" aria-pressed="false" aria-label="Regla de la Vía rápida Kanban">
+                  <rect class="node-frame" x="420" y="206" width="350" height="132" rx="3" fill="#FFFFFF" stroke="#9B1B20" stroke-width="1.8"></rect>
+                  <rect x="420" y="206" width="350" height="28" rx="2" fill="#9B1B20"></rect>
+                  <text x="436" y="224" fill="#FFFFFF" font-size="11.5" font-weight="700" letter-spacing="0.8">VÍA B · VÍA RÁPIDA KANBAN</text>
+                  <text id="track-b-badge" x="754" y="224" text-anchor="end" fill="#FAF6F0" font-size="11.5" font-weight="700">30 % Capacidad</text>
+
+                  <text x="436" y="255" fill="#9B1B20" font-size="13.5" font-weight="700">Cola de urgencias -> Flujo continuo</text>
+                  <text x="436" y="276" fill="#2B2B2B" font-size="12">Límite WIP estricto: Máx. 2 tarjetas / persona</text>
+                  <text x="436" y="294" fill="#5A5A5A" font-size="11.5">Protegido por el First Responder rotatorio</text>
+
+                  <rect x="436" y="309" width="318" height="14" rx="2" fill="#FAF6F0" stroke="#E5DDD0" stroke-width="1"></rect>
+                  <rect id="track-b-bar" x="436" y="309" width="95" height="14" rx="2" fill="#9B1B20"></rect>
+                </g>
+
+                <line x1="205" y1="338" x2="205" y2="365" stroke="#1B2A4A" stroke-width="1.8" class="flow-line" marker-end="url(#arrow-navy-1)"></line>
+                <line x1="595" y1="338" x2="595" y2="365" stroke="#9B1B20" stroke-width="1.8" class="flow-line-fast" marker-end="url(#arrow-red-1)"></line>
+
+                <rect x="30" y="367" width="740" height="42" rx="3" fill="#FAF6F0" stroke="#1B2A4A" stroke-width="1.5"></rect>
+                <text x="400" y="393" text-anchor="middle" fill="#1B2A4A" font-size="13" font-weight="700">Tablero visual común + Review y Retro quincenal (ajustar reparto con datos reales)</text>
+              </svg>
+            </div>
+            <figcaption class="diagram-caption">
+              <div id="dual-track-mode-note"><strong>Semana normal (70/30):</strong> La Vía A mantiene un avance constante de proyecto (con un pequeño margen para trabajo en pareja), mientras la Vía B absorbe el día a día sin romper el Sprint.</div>
+              <div id="dual-track-node-note" style="margin-top: 0.45rem;"><strong>Regla activa (Triaje diario de 10 min):</strong> De pie y sin rodeos. Si una petición nueva no pasa el filtro de tres preguntas, va al backlog de la Vía A, no a la vía rápida de hoy.</div>
+              <span class="diagram-hint">Consejo: Cambia arriba la carga semanal o pulsa en Triaje, Vía A o Vía B dentro del diagrama para ver cada regla.</span>
+            </figcaption>
+          </figure>
+
+          <div class="note-box">
+            <strong>Regla de campo: Nunca escondas el colchón.</strong><br>
+            Si el 35 % de tu semana real se va en mantener las luces encendidas, planifica tu Sprint al 65 % de capacidad. Los equipos pierden la confianza en Scrum cuando la dirección finge que ese 35 % no existe y exige además el 100 % en proyectos.
+          </div>
+
+          <div class="field-card-box">
+            <h3>El filtro de 3 preguntas para la vía rápida (frenar falsas urgencias)</h3>
+            <p style="margin-bottom: 0.65rem;">Sin reglas claras de entrada, cualquier interlocutor etiqueta su petición como «urgente» e inunda la Vía B. En el triaje de 10 minutos, una tarea entra en la vía rápida <strong>solo si al menos una respuesta es sí</strong>:</p>
+            <ol>
+              <li><strong>Impacto real hoy:</strong> ¿Hay un cliente, un servicio activo o un proceso operativo clave caído ahora mismo?</li>
+              <li><strong>Plazo externo inamovible:</strong> ¿Existe un plazo legal, normativo o contractual obligatorio en los próximos cinco días laborables?</li>
+              <li><strong>Bloqueo de equipo:</strong> ¿Impide este problema que dos o más compañeros puedan seguir trabajando hoy?</li>
+            </ol>
+            <p style="margin-top: 0.65rem; font-size: 0.94rem; color: var(--text-muted);">Si las tres respuestas son no, no es una emergencia. Colócala con calma en el backlog priorizado de la Vía A para el próximo Sprint.</p>
+          </div>
+
+          <h2>3. Organiza a 30 personas sin romper tus cuellos de botella</h2>
+          <p>
+            No puedes gestionar un equipo Scrum de 30 personas. Al mismo tiempo, no puedes fingir que cada equipo tiene su propio experto para los 12 sistemas legacy.
+          </p>
+          <p>
+            En lugar de dividir siguiendo el viejo muro («Departamento de negocio» frente a «Departamento técnico»), organiza el trabajo en torno a <strong>flujos de valor o dominios de negocio</strong> y trata con honestidad a los pocos especialistas de sistemas:
+          </p>
+          <ol>
+            <li><strong>Un Product Owner unificado (PO):</strong> Negocio y tecnología comparten un único backlog priorizado. Dos backlogs separados garantizan prioridades contradictorias y reuniones interminables de escalado.</li>
+            <li><strong>Tres equipos mixtos de dominio (8 a 9 personas cada uno):</strong> Cada equipo combina especialistas de negocio y técnicos generalistas alrededor de un área coherente (por ejemplo: Operaciones de cliente, Procesamiento central, Reporting y cumplimiento).</li>
+            <li><strong>Un grupo compartido de especialistas legacy (3 a 5 personas):</strong> Los pocos expertos que sostienen sistemas con Bus-Factor 1 no quedan atrapados en un solo equipo. Trabajan como un grupo habilitador compartido con dos reglas claras:
+              <ul>
+                <li>Disponen de <strong>franjas reservadas de soporte</strong> que los equipos de dominio reservan en el Refinement semanal (y no por sorpresa el jueves por la tarde).</li>
+                <li>Cada tarea compleja en un sistema de un solo experto activa <strong>trabajo en pareja obligatorio</strong> con una persona del equipo solicitante, formando poco a poco a un suplente 80/20 para cada sistema clave. La transferencia de conocimiento deja de ser un deseo vago y entra en el flujo real.</li>
+              </ul>
+            </li>
+          </ol>
+
+          <!-- SVG 2 -->
+          <figure class="diagram-figure" id="figure-topology">
+            <div class="diagram-toolbar">
+              <span class="diagram-label">Figura 2 · Topología de 30 personas y grupo compartido</span>
+              <div class="toggle-group" role="group" aria-label="Selector Antes y Después">
+                <button type="button" class="pill-btn pill-accent" data-topo-mode="before" aria-pressed="false">Antes: Interrupciones directas (Caos)</button>
+                <button type="button" class="pill-btn" data-topo-mode="after" aria-pressed="true">Después: Franjas y trabajo en pareja</button>
+              </div>
+            </div>
+            <div class="diagram-stage">
+              <svg id="diagram-topology" class="diagram-svg" viewBox="0 0 800 450" role="img" aria-labelledby="svg2-title svg2-desc">
+                <title id="svg2-title">Topología de 30 personas y grupo de especialistas</title>
+                <desc id="svg2-desc">Comparación interactiva entre interrupciones caóticas directas y una estructura con un Product Owner unificado, tres equipos de dominio y un grupo compartido de especialistas legacy con trabajo en pareja.</desc>
+                <defs>
+                  <marker id="arrow-navy-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#1B2A4A"></path>
+                  </marker>
+                  <marker id="arrow-red-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#9B1B20"></path>
+                  </marker>
+                </defs>
+
+                <rect x="40" y="16" width="720" height="54" rx="3" fill="#1B2A4A"></rect>
+                <text x="400" y="38" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">1 Product Owner unificado</text>
+                <text x="400" y="57" text-anchor="middle" fill="#E5DDD0" font-size="12">Un único backlog de cartera priorizado (Negocio y Tecnología alineados)</text>
+
+                <g>
+                  <rect x="40" y="122" width="224" height="92" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                  <text x="152" y="146" text-anchor="middle" fill="#1B2A4A" font-size="13.5" font-weight="700">Equipo de dominio 1</text>
+                  <text x="152" y="167" text-anchor="middle" fill="#2B2B2B" font-size="12">8 a 9 personas | Negocio + Tech</text>
+                  <text x="152" y="187" text-anchor="middle" fill="#5A5A5A" font-size="11.5">p. ej. Operaciones de cliente</text>
+                  <text x="152" y="204" text-anchor="middle" fill="#9B1B20" font-size="11" font-weight="600">1 First Responder rotatorio</text>
+
+                  <rect x="288" y="122" width="224" height="92" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                  <text x="400" y="146" text-anchor="middle" fill="#1B2A4A" font-size="13.5" font-weight="700">Equipo de dominio 2</text>
+                  <text x="400" y="167" text-anchor="middle" fill="#2B2B2B" font-size="12">8 a 9 personas | Negocio + Tech</text>
+                  <text x="400" y="187" text-anchor="middle" fill="#5A5A5A" font-size="11.5">p. ej. Procesamiento central</text>
+                  <text x="400" y="204" text-anchor="middle" fill="#9B1B20" font-size="11" font-weight="600">1 First Responder rotatorio</text>
+
+                  <rect x="536" y="122" width="224" height="92" rx="3" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="1.6"></rect>
+                  <text x="648" y="146" text-anchor="middle" fill="#1B2A4A" font-size="13.5" font-weight="700">Equipo de dominio 3</text>
+                  <text x="648" y="167" text-anchor="middle" fill="#2B2B2B" font-size="12">8 a 9 personas | Negocio + Tech</text>
+                  <text x="648" y="187" text-anchor="middle" fill="#5A5A5A" font-size="11.5">p. ej. Reporting y cumplimiento</text>
+                  <text x="648" y="204" text-anchor="middle" fill="#9B1B20" font-size="11" font-weight="600">1 First Responder rotatorio</text>
+                </g>
+
+                <g class="topology-layer topology-after-layer">
+                  <path d="M 400 70 L 400 94 L 152 94 L 152 119" fill="none" stroke="#1B2A4A" stroke-width="1.8" marker-end="url(#arrow-navy-2)"></path>
+                  <line x1="400" y1="70" x2="400" y2="119" stroke="#1B2A4A" stroke-width="1.8" marker-end="url(#arrow-navy-2)"></line>
+                  <path d="M 400 70 L 400 94 L 648 94 L 648 119" fill="none" stroke="#1B2A4A" stroke-width="1.8" marker-end="url(#arrow-navy-2)"></path>
+
+                  <path d="M 152 214 L 152 268 L 235 268 L 235 315" fill="none" stroke="#1B2A4A" stroke-width="1.8" marker-end="url(#arrow-navy-2)"></path>
+                  <line x1="400" y1="214" x2="400" y2="315" stroke="#1B2A4A" stroke-width="1.8" marker-end="url(#arrow-navy-2)"></line>
+                  <path d="M 648 214 L 648 268 L 565 268 L 565 315" fill="none" stroke="#1B2A4A" stroke-width="1.8" marker-end="url(#arrow-navy-2)"></path>
+
+                  <rect x="260" y="246" width="280" height="24" rx="12" fill="#FAF6F0" stroke="#1B2A4A" stroke-width="1"></rect>
+                  <text x="400" y="262" text-anchor="middle" fill="#1B2A4A" font-size="11" font-weight="600">Franjas reservadas (Refinement semanal)</text>
+
+                  <path d="M 195 318 C 125 296, 105 256, 124 217" fill="none" stroke="#9B1B20" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrow-red-2)"></path>
+                  <path d="M 605 318 C 675 296, 695 256, 676 217" fill="none" stroke="#9B1B20" stroke-width="1.8" stroke-dasharray="4 4" marker-end="url(#arrow-red-2)"></path>
+
+                  <text x="24" y="274" fill="#9B1B20" font-size="11" font-weight="700">Traspaso de</text>
+                  <text x="24" y="288" fill="#9B1B20" font-size="11" font-weight="700">saber hacer</text>
+                  <text x="776" y="274" text-anchor="end" fill="#9B1B20" font-size="11" font-weight="700">Suplente</text>
+                  <text x="776" y="288" text-anchor="end" fill="#9B1B20" font-size="11" font-weight="700">80/20</text>
+
+                  <rect x="95" y="318" width="610" height="110" rx="3" fill="#FAF6F0" stroke="#1B2A4A" stroke-width="2"></rect>
+                  <text x="400" y="346" text-anchor="middle" fill="#1B2A4A" font-size="14" font-weight="700">Grupo compartido de especialistas legacy (3 a 5 expertos)</text>
+                  <text x="400" y="369" text-anchor="middle" fill="#2B2B2B" font-size="12.5">Franjas reservadas de soporte + trabajo en pareja obligatorio</text>
+                  <line x1="150" y1="384" x2="650" y2="384" stroke="#E5DDD0" stroke-width="1"></line>
+                  <text x="400" y="407" text-anchor="middle" fill="#9B1B20" font-size="12" font-weight="600">Resultado: El Bus-Factor 1 se reduce · Las vacaciones no paran el Sprint</text>
+                </g>
+
+                <g class="topology-layer topology-before-layer">
+                  <rect x="175" y="84" width="450" height="24" rx="12" fill="#FAF6F0" stroke="#9B1B20" stroke-width="1"></rect>
+                  <text x="400" y="100" text-anchor="middle" fill="#9B1B20" font-size="11" font-weight="700">Se salta al PO con correos directos, chats y favores de pasillo</text>
+
+                  <path d="M 110 214 L 185 262 L 160 278 L 325 322" fill="none" stroke="#9B1B20" stroke-width="2" class="flow-line-fast" marker-end="url(#arrow-red-2)"></path>
+                  <path d="M 195 214 L 255 258 L 295 268 L 360 320" fill="none" stroke="#9B1B20" stroke-width="2" class="flow-line-fast" marker-end="url(#arrow-red-2)"></path>
+                  <path d="M 380 214 L 350 264 L 415 278 L 395 318" fill="none" stroke="#9B1B20" stroke-width="2.2" class="flow-line-fast" marker-end="url(#arrow-red-2)"></path>
+                  <path d="M 435 214 L 465 262 L 420 282 L 415 318" fill="none" stroke="#9B1B20" stroke-width="2" class="flow-line-fast" marker-end="url(#arrow-red-2)"></path>
+                  <path d="M 610 214 L 545 256 L 560 276 L 445 320" fill="none" stroke="#9B1B20" stroke-width="2" class="flow-line-fast" marker-end="url(#arrow-red-2)"></path>
+                  <path d="M 695 214 L 620 266 L 580 284 L 478 322" fill="none" stroke="#9B1B20" stroke-width="2" class="flow-line-fast" marker-end="url(#arrow-red-2)"></path>
+
+                  <rect class="bottleneck-pulse" x="195" y="314" width="410" height="116" rx="5" fill="#9B1B20"></rect>
+                  <rect x="205" y="322" width="390" height="100" rx="3" fill="#FFFFFF" stroke="#9B1B20" stroke-width="2.4"></rect>
+                  <text x="400" y="349" text-anchor="middle" fill="#9B1B20" font-size="14" font-weight="700">1 Especialista legacy desbordado (Bus-Factor 1)</text>
+                  <text x="400" y="372" text-anchor="middle" fill="#2B2B2B" font-size="12">6 «favores de 5 minutos» a la vez · Pérdida grave por cambio de foco</text>
+                  <text x="400" y="395" text-anchor="middle" fill="#5A5A5A" font-size="11.5">Si se va de vacaciones o enferma, los tres equipos se frenan</text>
+                </g>
+              </svg>
+            </div>
+            <figcaption class="diagram-caption" id="topology-caption">
+              <strong>Después (Franjas y trabajo en pareja):</strong> Los tres equipos de dominio reservan el tiempo de los especialistas durante el Refinement semanal en lugar de interrumpirlos por sorpresa. Las tareas en pareja devuelven conocimiento real a los equipos y diluyen el riesgo de Bus-Factor 1.
+            </figcaption>
+          </figure>
+
+          <h2>4. Tres reglas diarias que mantienen la calma</h2>
+          <p>
+            Una estructura sobre el papel sirve de poco si los hábitos diarios siguen siendo caóticos. Tres reglas sencillas protegen el foco sin crear burocracia:
+          </p>
+
+          <h3>1. El rol rotatorio de «First Responder»</h3>
+          <p>
+            En cada Sprint, cada equipo de dominio (y el grupo de especialistas) designa a una persona rotatoria como <strong>First Responder</strong> (el «bombero» de turno). Toda petición imprevista pasa primero por esta persona. El resto del equipo queda protegido y avanza en el Objetivo del Sprint. Si la semana es tranquila, el First Responder atiende tareas menores de mantenimiento o documentación. Si surge un incendio grande, un segundo compañero entra de forma deliberada en lugar de que todo el mundo entre en pánico.
+          </p>
+
+          <h3>2. Límites WIP estrictos (máximo 2 tareas por persona)</h3>
+          <p>
+            En la vía rápida Kanban, nadie puede tener más de <strong>dos tarjetas activas en curso</strong> al mismo tiempo. Cuando un experto en sistemas legacy ya lleva dos tarjetas abiertas, nadie puede soltarle una tercera urgencia encima. O se termina una tarjeta activa, o el solicitante acuerda de forma explícita con el PO qué tarea se pausa. De golpe, las renuncias se vuelven visibles en lugar de convertirse en estrés oculto.
+          </p>
+
+          <h3>3. Una cadencia semanal ligera (elimina primero reuniones viejas)</h3>
+          <p>
+            Los equipos híbridos ya sufren fatiga de reuniones. Antes de añadir eventos de Scrum, cancela las reuniones semanales redundantes de estado y sustitúyelas por tres puntos de contacto breves:
+          </p>
+
+          <div class="table-wrap">
+            <table class="editorial-table">
+              <thead>
+                <tr>
+                  <th style="width: 19%;">Ritmo</th>
+                  <th style="width: 19%;">Reunión</th>
+                  <th style="width: 24%;">Quién asiste</th>
+                  <th style="width: 38%;">Foco concreto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Diario (15 min)</strong></td>
+                  <td><strong>Sync ante el tablero</strong></td>
+                  <td>Cada equipo de dominio</td>
+                  <td>No es un informe de estado. Solo tres preguntas: <em>¿Qué tarjeta está atascada? ¿Necesitamos hoy a un especialista? ¿Algún incendio amenaza el Objetivo del Sprint?</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Semanal (45 min)</strong></td>
+                  <td><strong>Refinement conjunto</strong></td>
+                  <td>PO, negocio, técnicos y especialistas</td>
+                  <td><strong>La reunión más importante.</strong> Trocear proyectos grandes, detectar dependencias legacy y revisar próximas vacaciones <em>antes</em> de empezar el Sprint.</td>
+                </tr>
+                <tr>
+                  <td><strong>Cada 2 semanas (60 min)</strong></td>
+                  <td><strong>Review y Retro</strong></td>
+                  <td>Todos los equipos + stakeholders clave</td>
+                  <td><strong>30 min Review:</strong> Enseñar lo que está realmente terminado (sin diapositivas). <strong>30 min Retro:</strong> Medir cuánto tiempo se fue en incendios y ajustar el reparto (p. ej. de 70/30 a 60/40).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>5. Sobrevivir sin tiempo libre, en vacaciones y ante bajas médicas</h2>
+          <p>
+            El trabajo en pareja y el grupo compartido funcionan de maravilla en un horizonte de seis a doce meses. Pero el lunes por la mañana aparecen dos objeciones inmediatas: <em>«No tenemos ni un minuto libre para documentar ni trabajar en pareja»</em> y <em>«¿Qué pasa si nuestro único experto en el Sistema Legacy C se va dos semanas de vacaciones el mes que viene o coge la baja el martes?»</em>
+          </p>
+          <p>
+            Si el proceso entero se viene abajo cada vez que falta una persona clave, el equipo abandona Scrum enseguida y vuelve al modo apagafuegos. Cuatro hábitos sencillos mantienen en marcha a toda la unidad.
+          </p>
+
+          <h3>1. Presupuesta la resiliencia de forma explícita (regla 60/30/10 y regla de los 5 minutos)</h3>
+          <p>
+            La transferencia de conocimiento muere siempre que se espera que ocurra «en ratos libres» sobre una carga del 100 %. En cuanto el tablero de doble vía esté rodando, reserva dentro de la Vía A un <strong>10 % visible para trabajo en pareja y traspasos</strong>. Tu reparto real queda entonces en torno a <strong>60 % Sprint planificado / 10 % Pairing y relevos / 30 % Vía rápida</strong>. Las tareas de relevo van al tablero como trabajo de Sprint de primera clase.
+          </p>
+          <p>
+            Para no perder horas en manuales de 15 páginas que nadie actualiza, aplica la <strong>regla de documentación de 5 minutos</strong>: prohíbe los wikis gigantes. Cada vez que un especialista resuelve un fallo recurrente o ejecuta un cierre mensual delicado, graba cinco minutos de pantalla mientras realiza el trabajo real y anota cinco puntos debajo. La documentación ocurre dentro del trabajo vivo casi sin tiempo extra.
+          </p>
+
+          <h3>2. Forma suplentes 80/20 en lugar de intentar clonar expertos</h3>
+          <p>
+            No necesitas dos veteranos con 15 años de experiencia por cada uno de tus 12 sistemas legacy. Eso tarda años y es inviable. Lo que necesitas de verdad es un <strong>responsable principal</strong> y un <strong>suplente operativo 80/20 («Safe-Hands Deputy»)</strong> por sistema crítico. El suplente no necesita rediseñar la base de datos: solo necesita el 20 % de saber operativo que cubre el 80 % de las incidencias cotidianas, como revisar registros, reiniciar procesos bloqueados, aplicar soluciones conocidas y distinguir qué puede esperar sin riesgo dos semanas.
+          </p>
+          <p>
+            Cuelga junto al tablero una <strong>rejilla sencilla de cobertura de sistemas</strong> con los 12 sistemas y tres columnas: <em>Responsable principal</em>, <em>Suplente 80/20</em> y <em>Bandera roja (Bus-Factor 1)</em>. Cada hueco vacío en la segunda columna es un auténtico número en la pared que decide dónde invertir tu próximo 10 % de trabajo en pareja.
+          </p>
+
+          <h3>3. Mantén una ficha de emergencia de 1 página por sistema legacy</h3>
+          <p>
+            Da a cada suplente una sola hoja clara por sistema crítico (30 minutos para redactarla una vez y actualizarla solo cuando algo sorprenda al equipo):
+          </p>
+
+          <div class="table-wrap">
+            <table class="editorial-table">
+              <thead>
+                <tr>
+                  <th style="width: 30%;">Apartado de la ficha</th>
+                  <th style="width: 70%;">Qué debe incluir (en lenguaje directo)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Los 5 fallos más frecuentes</strong></td>
+                  <td>Los cinco problemas que se repiten cada trimestre, cómo reconocerlos y los pasos exactos y seguros para resolverlos o reiniciar.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Registros, tareas y accesos</strong></td>
+                  <td>Rutas exactas, nombres de trabajos programados, enlaces a paneles y qué permisos del suplente hay que verificar <em>antes</em> de las vacaciones.</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Plan manual de negocio</strong></td>
+                  <td>Si el sistema cae 24 horas, cómo sigue atendiendo negocio a los clientes de forma manual (hoja de cálculo puente, cola temporal, envío alternativo).</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Escalado y proveedor</strong></td>
+                  <td>Teléfono de soporte del proveedor externo, número de contrato o SLA y compañero sénior interno para una caída grave real.</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Puede esperar 2 semanas</strong></td>
+                  <td>Lista breve acordada de antemano con el PO con peticiones menores (ajustes estéticos, informes puntuales) que se aparcan tranquilamente hasta la vuelta.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>4. Planificación a prueba de vacaciones y traspaso de 45 minutos</h3>
+          <p>
+            Coloca las vacaciones previstas en el tablero <strong>con cuatro a seis semanas de antelación</strong> (dos Sprints de horizonte). En el Refinement semanal aplica un <strong>chequeo directo de dependencias</strong> antes de meter una tarjeta en la Vía A: <em>«Si el especialista X coge la baja mañana, ¿bloquea esta tarjeta a todo el equipo?»</em> Si es así, adelanta su parte al Sprint anterior, trabaja en pareja antes o selecciona tareas de los otros 11 sistemas.
+          </p>
+
+          <div class="field-card-box">
+            <h3>Lista de traspaso en 4 pasos antes de vacaciones (45 minutos en total)</h3>
+            <ol>
+              <li><strong>Dos semanas antes:</strong> Cero cambios arriesgados ni despliegues grandes en ese sistema durante el Sprint que coincide con la ausencia. Ninguna subida grande 48 horas antes de marcharse.</li>
+              <li><strong>Una semana antes:</strong> Especialista y suplente 80/20 resuelven juntos una incidencia real rutinaria, comprueban que los accesos funcionan de verdad y repasan la ficha de emergencia de 1 página.</li>
+              <li><strong>Durante la ausencia (triaje en 3 niveles):</strong> <em>Nivel 1</em> (mejoras y cambios no urgentes) se aparcan visibles hasta la vuelta; <em>Nivel 2</em> (incidencias habituales) los resuelve el suplente con la ficha; <em>Nivel 3</em> (caída grave real) activa el escalado al proveedor o el plan manual de negocio, nunca llamar a la playa como Plan A.</li>
+              <li><strong>Primera Retro tras la vuelta (prueba de esfuerzo de 5 minutos):</strong> Pregunta: <em>«¿Qué se atascó o estuvo a punto de fallar mientras X no estaba?»</em> Convierte cada hueco en una tarjeta de 30 minutos de acompañamiento para el siguiente Sprint.</li>
+            </ol>
+          </div>
+
+          <div class="note-box">
+            <strong>Regla de campo: Trata las ausencias como una auditoría gratuita.</strong><br>
+            Dos semanas de vacaciones o una baja imprevista no son un fracaso de Scrum, sino la prueba de esfuerzo más barata que tendrá tu organización. Cierra los dos huecos que saque a la luz cada vez y, en tres ciclos vacacionales, tus mayores riesgos perderán fuerza.
+          </div>
+
+          <h2>6. El despliegue suave en 4 semanas sin «Big Bang»</h2>
+          <p>
+            Nunca empieces repartiendo nuevos títulos, carteles ágiles y un taller obligatorio para las 30 personas. En equipos escépticos y heterogéneos, las palabras de moda activan anticuerpos al instante. Empieza por la visibilidad y gánate la confianza paso a paso.
+          </p>
+
+          <!-- SVG 3 -->
+          <figure class="diagram-figure" id="figure-roadmap">
+            <div class="diagram-toolbar">
+              <span class="diagram-label">Figura 3 · Hoja de ruta suave en 4 semanas</span>
+              <span class="diagram-label" style="color: var(--accent-red); font-weight: 600;">Pulsa cualquier semana</span>
+            </div>
+            <div class="diagram-stage">
+              <svg id="diagram-roadmap" class="diagram-svg" viewBox="0 0 800 220" role="img" aria-labelledby="svg3-title svg3-desc">
+                <title id="svg3-title">Hoja de ruta de despliegue suave en 4 semanas</title>
+                <desc id="svg3-desc">Línea de tiempo interactiva de 4 semanas: Semana 1 Todo en una pared, Semana 2 First Responder y límites WIP, Semana 3 Primer Sprint de 2 semanas, Semana 4 Medir, trabajar en pareja y asignar suplente.</desc>
+
+                <line x1="95" y1="88" x2="705" y2="88" stroke="#E5DDD0" stroke-width="4" stroke-linecap="round"></line>
+                <line class="roadmap-progress" x1="95" y1="88" x2="705" y2="88" stroke="#1B2A4A" stroke-width="3" stroke-linecap="round"></line>
+
+                <g class="week-node is-active" data-week="1" role="button" tabindex="0" aria-pressed="true" aria-label="Semana 1: Todo el trabajo en una pared">
+                  <rect x="12" y="22" width="166" height="172" rx="4" fill="transparent"></rect>
+                  <circle class="week-ring" cx="95" cy="88" r="22" fill="none" stroke="#9B1B20" stroke-width="2.2"></circle>
+                  <circle cx="95" cy="88" r="15" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="2"></circle>
+                  <circle class="week-dot" cx="95" cy="88" r="6" fill="#1B2A4A"></circle>
+                  <text x="95" y="45" text-anchor="middle" fill="#9B1B20" font-size="11.5" font-weight="700" letter-spacing="0.8">SEMANA 1</text>
+                  <text x="95" y="136" text-anchor="middle" fill="#1B2A4A" font-size="13" font-weight="700">Todo el trabajo</text>
+                  <text x="95" y="154" text-anchor="middle" fill="#2B2B2B" font-size="12">en una pared</text>
+                  <text x="95" y="176" text-anchor="middle" fill="#5A5A5A" font-size="11">2 vías + regla de entrada</text>
+                </g>
+
+                <g class="week-node" data-week="2" role="button" tabindex="0" aria-pressed="false" aria-label="Semana 2: First Responder y límites WIP">
+                  <rect x="215" y="22" width="166" height="172" rx="4" fill="transparent"></rect>
+                  <circle class="week-ring" cx="298" cy="88" r="22" fill="none" stroke="#9B1B20" stroke-width="2.2"></circle>
+                  <circle cx="298" cy="88" r="15" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="2"></circle>
+                  <circle class="week-dot" cx="298" cy="88" r="6" fill="#1B2A4A"></circle>
+                  <text x="298" y="45" text-anchor="middle" fill="#9B1B20" font-size="11.5" font-weight="700" letter-spacing="0.8">SEMANA 2</text>
+                  <text x="298" y="136" text-anchor="middle" fill="#1B2A4A" font-size="13" font-weight="700">First Responder</text>
+                  <text x="298" y="154" text-anchor="middle" fill="#2B2B2B" font-size="12">y límites WIP</text>
+                  <text x="298" y="176" text-anchor="middle" fill="#5A5A5A" font-size="11">Máx. 2 tarjetas / persona</text>
+                </g>
+
+                <g class="week-node" data-week="3" role="button" tabindex="0" aria-pressed="false" aria-label="Semana 3: Primer Sprint de 2 semanas">
+                  <rect x="419" y="22" width="166" height="172" rx="4" fill="transparent"></rect>
+                  <circle class="week-ring" cx="502" cy="88" r="22" fill="none" stroke="#9B1B20" stroke-width="2.2"></circle>
+                  <circle cx="502" cy="88" r="15" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="2"></circle>
+                  <circle class="week-dot" cx="502" cy="88" r="6" fill="#1B2A4A"></circle>
+                  <text x="502" y="45" text-anchor="middle" fill="#9B1B20" font-size="11.5" font-weight="700" letter-spacing="0.8">SEMANA 3</text>
+                  <text x="502" y="136" text-anchor="middle" fill="#1B2A4A" font-size="13" font-weight="700">Primer Sprint</text>
+                  <text x="502" y="154" text-anchor="middle" fill="#2B2B2B" font-size="12">de 2 semanas</text>
+                  <text x="502" y="176" text-anchor="middle" fill="#5A5A5A" font-size="11">Colchón real + 1 objetivo</text>
+                </g>
+
+                <g class="week-node" data-week="4" role="button" tabindex="0" aria-pressed="false" aria-label="Semana 4: Medir, pairing y suplente">
+                  <rect x="622" y="22" width="166" height="172" rx="4" fill="transparent"></rect>
+                  <circle class="week-ring" cx="705" cy="88" r="22" fill="none" stroke="#9B1B20" stroke-width="2.2"></circle>
+                  <circle cx="705" cy="88" r="15" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="2"></circle>
+                  <circle class="week-dot" cx="705" cy="88" r="6" fill="#1B2A4A"></circle>
+                  <text x="705" y="45" text-anchor="middle" fill="#9B1B20" font-size="11.5" font-weight="700" letter-spacing="0.8">SEMANA 4</text>
+                  <text x="705" y="136" text-anchor="middle" fill="#1B2A4A" font-size="13" font-weight="700">Medir, pairing</text>
+                  <text x="705" y="154" text-anchor="middle" fill="#2B2B2B" font-size="12">y 1.er suplente</text>
+                  <text x="705" y="176" text-anchor="middle" fill="#5A5A5A" font-size="11">Ratio real + 1.ª ficha</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="note-box roadmap-detail" id="roadmap-detail-panel" aria-live="polite">
+              <strong id="roadmap-detail-title">Semana 1: Todo el trabajo en una pared</strong>
+              <div class="roadmap-detail-grid">
+                <div>
+                  <span class="roadmap-detail-label">Objetivo concreto</span>
+                  <span id="roadmap-detail-goal">Montar un único tablero con dos carriles (Urgencias arriba, Proyectos planificados abajo) y fijar una regla simple: lo que no está en el tablero no existe.</span>
+                </div>
+                <div>
+                  <span class="roadmap-detail-label">Trampa a evitar</span>
+                  <span id="roadmap-detail-trap">Perder dos semanas configurando flujos complejos en Jira o soltando jerga de Scrum antes de hacer visible el trabajo real.</span>
+                </div>
+                <div>
+                  <span class="roadmap-detail-label">Señal visible de avance</span>
+                  <span id="roadmap-detail-signal">La dirección ve por primera vez cuántas interrupciones ocultas golpean a los especialistas en una sola semana.</span>
+                </div>
+              </div>
+            </div>
+          </figure>
+
+          <ul>
+            <li><strong>Semana 1: Todo el trabajo en una pared.</strong> Monta un tablero compartido (físico o digital) con dos carriles horizontales: <em>Urgencias / Operativa diaria</em> arriba y <em>Proyectos planificados</em> abajo. Regla única: si no está en el tablero, no existe.</li>
+            <li><strong>Semana 2: Activa el First Responder y los límites WIP.</strong> Asigna el primer First Responder rotatorio, aplica el filtro de 3 preguntas y fija el límite de 2 tarjetas. Deja que el equipo note qué se siente al terminar tareas en lugar de empezar diez a la vez.</li>
+            <li><strong>Semana 3: Lanza el primer Sprint de 2 semanas.</strong> Baja al carril inferior solo trabajo realista, respetando tu colchón de urgencias y mirando las vacaciones dos Sprints por delante. Cumple un 60 % con fiabilidad antes que prometer un 100 % y fallar.</li>
+            <li><strong>Semana 4: Mide cifras reales, empieza el pairing y nombra tu primer suplente.</strong> En la primera Retro mira el porcentaje real de incendios frente a proyectos. Marca en rojo cada sistema Bus-Factor 1, programa la primera tarea en pareja y redacta una ficha de emergencia de 1 página con su suplente 80/20.</li>
+          </ul>
+
+          <h2>7. Guía de campo frente a resistencias, tropiezos y fricciones</h2>
+          <p>
+            Todo despliegue real atraviesa turbulencias entre la semana 3 y la semana 8. La diferencia entre un profesional curtido y un teórico de manual es cómo responde cuando alguien frena el cambio.
+          </p>
+
+          <h3>Resistencia 1: El especialista indispensable</h3>
+          <p class="quote-line">«No tengo tiempo para explicarle esto a otra persona. Solo tardo 20 minutos y en pareja dos horas.»</p>
+          <ul>
+            <li><strong>Por qué ocurre:</strong> Suele mezclar presión real de carga con el orgullo silencioso de ser el único capaz de salvar el día.</li>
+            <li><strong>Respuesta práctica:</strong> No le des sermones sobre «espíritu de equipo». Reconoce que trabajar en pareja es más lento <em>hoy</em>. Luego llévalo a su propio dolor: <em>«Ahora mismo no puedes tomarte dos semanas de vacaciones tranquilas sin que suene tu móvil. Trabajar en pareja no es trabajo extra; es cómo recuperamos tu tranquilidad.»</em> Empieza por una grabación de pantalla de cinco minutos o una sola sesión de 30 minutos dentro del 10 % reservado.</li>
+          </ul>
+
+          <h3>Resistencia 2: Interlocutores que esquivan el tablero</h3>
+          <p class="quote-line">«¿Me haces un favor rápido de 5 minutos? No hace falta abrir ticket.»</p>
+          <ul>
+            <li><strong>Por qué ocurre:</strong> Los favores directos han funcionado durante años y el tablero nuevo parece más lento para quien pide.</li>
+            <li><strong>Respuesta práctica:</strong> Entrena al equipo en una frase serena y amable: <em>«Encantado de ayudarte. Pongamos una tarjeta rápida en el tablero y veamos con el Product Owner qué tarea actual pausamos para hacerla.»</em> Nunca digas «no» de forma brusca; haz visible el coste de oportunidad. Cuando ven que su favor retrasa otra prioridad que también les importa, las peticiones por la puerta de atrás caen en picado.</li>
+          </ul>
+
+          <h3>Tropiezo 1: Una caída grave de producción arruina el Sprint</h3>
+          <p>
+            En la semana 2 cae un sistema legacy central durante dos días. Se pierde la mitad del Objetivo del Sprint. Los escépticos saltan al instante: <em>«¿Ves? Scrum no funciona en nuestro departamento.»</em>
+          </p>
+          <ul>
+            <li><strong>Respuesta práctica:</strong> Mantén la calma total y celebra la transparencia. Señala el tablero y di: <em>«Scrum no causó la caída. Por primera vez, el tablero enseña a dirección blanco sobre negro cuánto costó realmente ese fallo legacy al calendario de proyectos.»</em> Ajusta el alcance restante con el PO, registra la causa raíz en el backlog y sigue adelante sin dramas.</li>
+          </ul>
+
+          <h3>Tropiezo 2: Negocio y tecnología no se entienden en el Refinement</h3>
+          <p>
+            Negocio describe metas difusas y tecnología inunda la sala con tablas de base de datos y logs. Ambos salen frustrados.
+          </p>
+          <ul>
+            <li><strong>Respuesta práctica:</strong> Prohíbe hablar de soluciones técnicas durante los primeros 10 minutos de cada punto. Haz a negocio una pregunta llana: <em>«Cuando esto esté acabado el viernes que viene, ¿qué cosa concreta podrá hacer un cliente o un compañero que hoy no puede hacer?»</em> Escribe esa única frase arriba de la tarjeta. Solo entonces los técnicos enumeran qué sistemas legacy se tocan y dónde están los riesgos ocultos.</li>
+          </ul>
+
+          <h3>Tropiezo 3: «Esto es solo más burocracia de reuniones»</h3>
+          <p>
+            La gente con experiencia operativa detesta sentarse en reuniones recurrentes cuando tiene la bandeja de entrada a rebosar.
+          </p>
+          <ul>
+            <li><strong>Respuesta práctica:</strong> Aplica una regla estricta de <strong>una entra, una sale</strong> para reuniones. Antes de añadir un Sync diario de 15 minutos, elimina la vieja reunión semanal de estado del lunes de 60 minutos. Respeta los tiempos a rajatabla: cierra el Daily de 15 minutos en el minuto 14 aunque alguien esté a mitad de historia y mueve el detalle técnico a una charla opcional de dos personas justo después. Cuando ven que respetas su agenda, el escepticismo desaparece rápido.</li>
+          </ul>
+
+          <h3>Tropiezo 4: Un especialista clave coge la baja a mitad del Sprint</h3>
+          <p>
+            El miércoles por la mañana el único experto profundo del Sistema Legacy F se da de baja médica para el resto de la semana. Dos tarjetas del Sprint y una interfaz activa dependen de él.
+          </p>
+          <ul>
+            <li><strong>Respuesta práctica:</strong> No congeles el tablero ni llames al compañero enfermo a su casa. Aplica de inmediato el <strong>triaje en 3 niveles</strong>: mueve las dos tarjetas no urgentes a un carril visible <em>Aparcado (Esperando al Sistema F)</em> para que el PO meta trabajo limpio de sustitución; pasa cualquier incidencia rutinaria al suplente 80/20 con la ficha de emergencia de 1 página; y deja que las otras 29 personas sigan entregando el resto del Sprint. En la siguiente Retro dedica cinco minutos a tapar el hueco de conocimiento que más dolió.</li>
+          </ul>
+
+          <div class="note-box">
+            <strong>La brújula del practicante:</strong><br>
+            No intentes convencer a las 30 personas a la vez. Busca a los 4 o 5 pragmáticos respetados de negocio y tecnología que estén hartos del caos diario. Resuelve con ellos un dolor real en un tablero visible. Nada convence más rápido a un escéptico que ver al equipo de al lado salir a su hora un viernes.
+          </div>
+
+          <!-- FAQ -->
+          <section class="article-faq" aria-labelledby="article-faq-heading">
+            <h2 id="article-faq-heading">Respuestas rápidas de práctica</h2>
+            <div class="faq-entries">
+              <article class="faq-entry">
+                <h3>¿Se puede hacer Scrum con 30 personas en un solo equipo?</h3>
+                <p>No. Un Daily Scrum de 30 personas se convierte en un informe de estado de 45 minutos donde casi todo el mundo desconecta. Organiza la unidad en torno a un Product Owner unificado, tres equipos mixtos de dominio de 8 a 9 personas entre negocio y tecnología, y un pequeño grupo compartido de 3 a 5 especialistas en sistemas legacy.</p>
+              </article>
+              <article class="faq-entry">
+                <h3>¿Cómo se gestiona en Scrum a un único experto de un sistema legacy?</h3>
+                <p>Mantén a los pocos expertos con Bus-Factor 1 en un grupo compartido en lugar de encerrarlos en un solo equipo. Protege su foco con franjas reservadas en el Refinement semanal, trabajo en pareja obligatorio en tareas complejas y un suplente 80/20 respaldado por una ficha de emergencia de una página.</p>
+              </article>
+              <article class="faq-entry">
+                <h3>¿Cómo se protege un Sprint frente al trabajo imprevisto diario?</h3>
+                <p>Con Scrumban de doble vía. Canaliza todo el trabajo entrante por un triaje diario de 10 minutos con un filtro claro de tres preguntas, reserva un colchón honesto (entre el 30 % y el 40 %) para urgencias, nombra un First Responder rotatorio por Sprint y limita el trabajo activo de la vía rápida a dos tarjetas por persona.</p>
+              </article>
+              <article class="faq-entry">
+                <h3>¿Cómo sigue funcionando Scrum cuando un especialista clave se va de vacaciones o coge una baja médica?</h3>
+                <p>Planifica las ausencias con dos Sprints de antelación, evita cambios arriesgados en ese sistema justo antes de marcharse y prepara un suplente 80/20 con una ficha de emergencia de una página. Durante la ausencia aplica un triaje de tres niveles: aparca lo no urgente, deja las incidencias rutinarias al suplente y usa un escalado al proveedor o un plan manual para caídas graves.</p>
+              </article>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- EXACTLY ONE .index-card + .index-card-pin -->
+        <section class="checklist-section" aria-labelledby="monday-checklist-heading">
+          <div class="index-card checklist-card">
+            <span class="index-card-pin" aria-hidden="true"></span>
+            <span class="eyebrow">Lista para el lunes por la mañana</span>
+            <h2 id="monday-checklist-heading">Siete pasos para probarlo sin pedir permiso</h2>
+            <ol class="checklist-steps">
+              <li>Elige un único flujo doloroso entre departamentos donde negocio y tecnología chocan cada semana.</li>
+              <li>Cancela primero una reunión semanal de estado redundante para que el equipo note tiempo libre real en su agenda.</li>
+              <li>Coloca el trabajo planificado y los incendios diarios en un único tablero visible, protegido por el filtro de 3 preguntas.</li>
+              <li>Nombra un First Responder rotatorio para la semana y protege bloques de foco sin interrupciones para el resto.</li>
+              <li>Limita la vía rápida a dos tarjetas activas por persona y haz visible cada renuncia ante los stakeholders.</li>
+              <li>Marca en rojo cada sistema legacy con Bus-Factor 1, asigna un suplente 80/20 y redacta una ficha de emergencia de 1 página antes de las próximas vacaciones.</li>
+              <li>Tras dos semanas, cuenta el reparto real entre incendios, proyectos y trabajo en pareja, y cuelga ese número honesto en la pared.</li>
+            </ol>
+          </div>
+        </section>
+
+        <aside class="author-bridge" aria-label="Libro y recurso gratuito">
+          <p>
+            Esta guía de campo nace de la misma convicción práctica que <strong>The Number on the Wall: A Business Novel About Scrum Beyond IT</strong>. Cuando los equipos dejan de fingir que un plan roto funciona y cuelgan los números reales en la pared, las excusas terminan y empieza el trabajo de verdad.
+          </p>
+          <div class="action-row">
+            <a href="/es/" class="btn btn-primary">Descubrir el libro</a>
+            <a href="/cheatsheet" class="btn btn-outline">Descargar gratis el Cheat Sheet (EN)</a>
+          </div>
+          <a href="/es/news/" class="back-link">Volver a Noticias y Guías de Campo</a>
+        </aside>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <span>© 2026 Carlos Lucas</span>
+        <div class="footer-links">
+          <a href="/es/news/">Noticias</a>
+          <a href="/imprint">Imprint / Impressum</a>
+          <a href="/privacy">Privacy Policy / Datenschutz</a>
+          <a href="https://www.linkedin.com/in/it-for-humans/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-editions">
+        <div class="edition-links" aria-label="Idiomas del artículo">
+          <span>Idiomas del artículo:</span>
+          <a href="/news/scrum-30-people-legacy-systems/" lang="en">EN</a>
+          <a href="/de/news/scrum-30-personen-legacy-systeme/" lang="de">DE</a>
+          <span class="edition-current" aria-current="page">ES</span>
+          <a href="/pt/news/scrum-30-pessoas-sistemas-legacy/" lang="pt-PT">PT</a>
+        </div>
+        <span>Disponible en inglés, alemán, español (ES) y portugués (PT).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var dualSvg = document.getElementById('diagram-dual-track');
+      var trackModeButtons = document.querySelectorAll('[data-track-mode]');
+      var trackABadge = document.getElementById('track-a-badge');
+      var trackBBadge = document.getElementById('track-b-badge');
+      var trackABar = document.getElementById('track-a-bar');
+      var trackBBar = document.getElementById('track-b-bar');
+      var trackModeNote = document.getElementById('dual-track-mode-note');
+      var trackNodeNote = document.getElementById('dual-track-node-note');
+      var trackNodes = document.querySelectorAll('[data-track-node]');
+
+      var trackModeCopy = {
+        normal: {
+          aLabel: '70 % Capacidad',
+          bLabel: '30 % Capacidad',
+          aWidth: '223',
+          bWidth: '95',
+          note: '<strong>Semana normal (70/30):</strong> La Vía A mantiene un avance constante de proyecto (con un pequeño margen para trabajo en pareja), mientras la Vía B absorbe el día a día sin romper el Sprint.'
+        },
+        highfire: {
+          aLabel: '50 % Capacidad',
+          bLabel: '50 % Capacidad',
+          aWidth: '159',
+          bWidth: '159',
+          note: '<strong>Semana crítica (50/50):</strong> En vez de cancelar el Sprint por pánico, el PO reduce de forma visible la entrada en Vía A y amplía Vía B para que el objetivo reducido siga siendo viable.'
+        }
+      };
+
+      var trackNodeCopy = {
+        triage: '<strong>Regla activa (Triaje diario de 10 min):</strong> De pie y sin rodeos. Si una petición nueva no pasa el filtro de tres preguntas, va al backlog de la Vía A, no a la vía rápida de hoy.',
+        sprint: '<strong>Regla activa (Sprint protegido de 2 semanas):</strong> Una vez que el trabajo entra en Vía A, nadie cuela urgencias sin intercambio explícito con el PO. Un 10 % de esta vía financia trabajo en pareja y traspasos.',
+        fastlane: '<strong>Regla activa (Vía rápida Kanban):</strong> Límite estricto de dos tarjetas activas por persona. Si llega una tercera urgencia, se acaba una tarjeta o el PO decide cuál queda en pausa.'
+      };
+
+      function setTrackMode(mode) {
+        var cfg = trackModeCopy[mode];
+        if (!cfg) return;
+        trackModeButtons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-track-mode') === mode ? 'true' : 'false');
+        });
+        trackABadge.textContent = cfg.aLabel;
+        trackBBadge.textContent = cfg.bLabel;
+        trackABar.setAttribute('width', cfg.aWidth);
+        trackBBar.setAttribute('width', cfg.bWidth);
+        trackModeNote.innerHTML = cfg.note;
+        dualSvg.classList.toggle('diagram-high-fire', mode === 'highfire');
+      }
+
+      function selectTrackNode(nodeKey) {
+        if (!trackNodeCopy[nodeKey]) return;
+        trackNodes.forEach(function (node) {
+          var active = node.getAttribute('data-track-node') === nodeKey;
+          node.classList.toggle('is-selected', active);
+          node.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        trackNodeNote.innerHTML = trackNodeCopy[nodeKey];
+      }
+
+      trackModeButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () { setTrackMode(btn.getAttribute('data-track-mode')); });
+      });
+
+      trackNodes.forEach(function (node) {
+        node.addEventListener('click', function () { selectTrackNode(node.getAttribute('data-track-node')); });
+        node.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectTrackNode(node.getAttribute('data-track-node')); }
+        });
+      });
+
+      var topoSvg = document.getElementById('diagram-topology');
+      var topoButtons = document.querySelectorAll('[data-topo-mode]');
+      var topoCaption = document.getElementById('topology-caption');
+
+      var topoCopy = {
+        before: '<strong>Antes (Interrupciones directas y caos):</strong> Los tres equipos tiran a la vez por chat y pasillo del mismo especialista con Bus-Factor 1. El cambio constante de contexto hunde el avance y cualquier baja o vacación detiene a los tres equipos.',
+        after: '<strong>Después (Franjas y trabajo en pareja):</strong> Los tres equipos de dominio reservan el tiempo de los especialistas durante el Refinement semanal en lugar de interrumpirlos por sorpresa. Las tareas en pareja devuelven conocimiento real a los equipos y diluyen el riesgo de Bus-Factor 1.'
+      };
+
+      function setTopoMode(mode) {
+        if (!topoCopy[mode]) return;
+        topoButtons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-topo-mode') === mode ? 'true' : 'false');
+        });
+        topoSvg.classList.toggle('mode-before', mode === 'before');
+        topoCaption.innerHTML = topoCopy[mode];
+      }
+
+      topoButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () { setTopoMode(btn.getAttribute('data-topo-mode')); });
+      });
+
+      var roadmapSvg = document.getElementById('diagram-roadmap');
+      var weekNodes = document.querySelectorAll('[data-week]');
+      var detailTitle = document.getElementById('roadmap-detail-title');
+      var detailGoal = document.getElementById('roadmap-detail-goal');
+      var detailTrap = document.getElementById('roadmap-detail-trap');
+      var detailSignal = document.getElementById('roadmap-detail-signal');
+
+      var weekData = {
+        '1': {
+          title: 'Semana 1: Todo el trabajo en una pared',
+          goal: 'Montar un único tablero con dos carriles (Urgencias arriba, Proyectos planificados abajo) y fijar una regla simple: lo que no está en el tablero no existe.',
+          trap: 'Perder dos semanas configurando flujos complejos en Jira o soltando jerga de Scrum antes de hacer visible el trabajo real.',
+          signal: 'La dirección ve por primera vez cuántas interrupciones ocultas golpean a los especialistas en una sola semana.'
+        },
+        '2': {
+          title: 'Semana 2: First Responder y límites WIP',
+          goal: 'Nombrar un First Responder rotatorio por equipo, aplicar el filtro de 3 preguntas y limitar la vía rápida a dos tarjetas activas por persona.',
+          trap: 'Dejar que los expertos sigan aceptando «favores de 5 minutos» por fuera mientras los límites WIP solo rigen para el resto.',
+          signal: 'El equipo disfruta de sus primeros bloques tranquilos sin interrupciones y empieza a terminar tarjetas en vez de abrir seis a la vez.'
+        },
+        '3': {
+          title: 'Semana 3: Primer Sprint de 2 semanas',
+          goal: 'Cargar un lote realista en la Vía A respetando el colchón de urgencias, revisar vacaciones dos Sprints antes y acordar un Objetivo de Sprint claro.',
+          trap: 'Comprometerse por costumbre al 100 % de capacidad de proyecto y declarar que Scrum no funciona cuando llegan los incendios.',
+          signal: 'El equipo entrega entre el 60 % y el 70 % de forma fiable y deja de sorprender a dirección con retrasos de última hora.'
+        },
+        '4': {
+          title: 'Semana 4: Medir, pairing y primer suplente',
+          goal: 'Contar en la Retro el reparto real entre incendios y proyectos, marcar en rojo cada sistema Bus-Factor 1, agendar la primera tarea en pareja y redactar una ficha de emergencia de 1 página.',
+          trap: 'Exigir manuales de 20 páginas en lugar de una grabación de pantalla de cinco minutos y una hoja práctica de emergencia.',
+          signal: 'El departamento cuelga en la pared su cifra real de incendios frente a proyectos y desactiva su primer riesgo vacacional de persona única.'
+        }
+      };
+
+      function selectWeek(weekKey) {
+        var data = weekData[weekKey];
+        if (!data) return;
+        weekNodes.forEach(function (node) {
+          var active = node.getAttribute('data-week') === weekKey;
+          node.classList.toggle('is-active', active);
+          node.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+        detailTitle.textContent = data.title;
+        detailGoal.textContent = data.goal;
+        detailTrap.textContent = data.trap;
+        detailSignal.textContent = data.signal;
+      }
+
+      weekNodes.forEach(function (node) {
+        node.addEventListener('click', function () { selectWeek(node.getAttribute('data-week')); });
+        node.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectWeek(node.getAttribute('data-week')); }
+        });
+      });
+
+      if ('IntersectionObserver' in window && roadmapSvg) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              roadmapSvg.classList.add('is-visible');
+              observer.unobserve(roadmapSvg);
+            }
+          });
+        }, { threshold: 0.25 });
+        observer.observe(roadmapSvg);
+      } else if (roadmapSvg) {
+        roadmapSvg.classList.add('is-visible');
+      }
+    })();
+  </script>
+</body>
+</html>
