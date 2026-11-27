@@ -107,6 +107,15 @@
     .field-card-box h3 { margin-top: 0; margin-bottom: 0.6rem; font-size: 1.04rem; }
     .field-card-box ol, .field-card-box ul { margin-bottom: 0; }
 
+    .audio-briefing { background-color: var(--bg-paper); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-red); padding: 1.25rem 1.45rem; margin: 0 0 2.25rem; max-width: 66ch; }
+    .audio-briefing-eyebrow { font-family: var(--font-sans); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--accent-red); display: block; margin-bottom: 0.35rem; }
+    .audio-briefing-title { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.45rem; line-height: 1.32; }
+    .audio-briefing-desc { font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.58; color: var(--text-main); margin-bottom: 0.9rem; }
+    .audio-briefing audio { display: block; width: 100%; height: 42px; margin-bottom: 0.65rem; }
+    .audio-briefing-meta { font-family: var(--font-sans); font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.35rem 1rem; }
+    .audio-briefing-meta a { color: var(--brand-navy); font-weight: 600; }
+    .audio-briefing-meta a:hover { color: var(--accent-red); }
+
     .article-faq { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); }
     .article-faq h2 { margin-top: 0; padding-top: 0; border-top: 0; }
     .article-faq .faq-entries { margin-top: 1rem; }
@@ -161,7 +170,16 @@
         "author": { "@type": "Person", "@id": "https://carloslucas.de/#author", "name": "Carlos Lucas", "url": "https://carloslucas.de/de/" },
         "publisher": { "@type": "Person", "@id": "https://carloslucas.de/#author", "name": "Carlos Lucas", "url": "https://carloslucas.de/de/" },
         "mainEntityOfPage": { "@type": "WebPage", "@id": "https://carloslucas.de/de/news/scrum-30-personen-legacy-systeme/" },
-        "about": ["Scrum", "Scrumban", "Operations Management", "Legacy-Systeme", "Wissenstransfer"]
+        "about": ["Scrum", "Scrumban", "Operations Management", "Legacy-Systeme", "Wissenstransfer"],
+        "audio": {
+          "@type": "AudioObject",
+          "name": "Podcast-Diskussion: Warum Lehrbuch-Scrum an Legacy-Systemen scheitert",
+          "description": "Deutschsprachige, KI-gestützte Podcast-Diskussion (ca. 21 Minuten) über die zentralen Praxisideen dieses Field Blueprints zu Scrum mit 30 Leuten, 12 Legacy-Systemen, täglichen Bränden, Zeitnot und Urlaubsvertretung.",
+          "contentUrl": "https://carloslucas.de/assets/Warum_Lehrbuch-Scrum_an_Legacy-Systemen_scheitert.m4a",
+          "encodingFormat": "audio/mp4",
+          "duration": "PT20M46S",
+          "inLanguage": "de"
+        }
       },
       {
         "@type": "FAQPage",
@@ -229,8 +247,24 @@
           <p class="article-lead">
             Lehrbuch-Scrum geht von einem kleinen, funktionsübergreifenden Team an einem modernen Produkt ohne ständige Unterbrechungen aus. Die betriebliche Realität sieht selten so aus. Hier ist ein praxisnaher Bauplan für Scrum in einem gemischten 30-Personen-Bereich, in dem Fachseite und Technik gleichzeitig Langfristprojekte, 12 gewachsene Legacy-Systeme, Zeitnot, Urlaube und tägliche Brände stemmen müssen.
           </p>
-          <p class="article-meta">Von Carlos Lucas · Lesezeit: 12 Minuten · Hypothetisches Praxisszenario</p>
+          <p class="article-meta">Von Carlos Lucas · Lesezeit: 12 Minuten · inkl. 21-Min.-Audio-Diskussion (DE)</p>
         </header>
+
+        <aside class="audio-briefing" aria-labelledby="audio-briefing-heading">
+          <span class="audio-briefing-eyebrow">Audio-Diskussion · Deutsch · 20:46 Min.</span>
+          <div id="audio-briefing-heading" class="audio-briefing-title">Lieber hören statt lesen? Podcast-Gespräch zum Artikel</div>
+          <p class="audio-briefing-desc">
+            Zwei Stimmen diskutieren die Kernideen dieses Praxis-Blueprints im Gesprächsformat (kein reines Vorlesen des Textes): warum Lehrbuch-Scrum bei 30 Leuten und 12 Legacy-Systemen bricht, wie Dual-Track-Scrumban Ruhe reinbringt und wie du Urlaub und Krankheit abfederst.
+          </p>
+          <audio controls preload="metadata">
+            <source src="/assets/Warum_Lehrbuch-Scrum_an_Legacy-Systemen_scheitert.m4a" type="audio/mp4">
+            Dein Browser unterstützt kein integriertes HTML5-Audio. Du kannst die Datei direkt unten herunterladen.
+          </audio>
+          <div class="audio-briefing-meta">
+            <span>KI-gestützte Gesprächszusammenfassung auf Basis dieses Artikels · direkt und cookiefrei gehostet.</span>
+            <a href="/assets/Warum_Lehrbuch-Scrum_an_Legacy-Systemen_scheitert.m4a" download>M4A herunterladen (15 MB)</a>
+          </div>
+        </aside>
 
         <div class="article-prose">
 
