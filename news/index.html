@@ -301,12 +301,7 @@
         </p>
 
         <div class="news-controls" id="news-controls">
-          <div class="cat-pills" role="group" aria-label="Category filter">
-            <button type="button" class="cat-btn" data-cat="all" aria-pressed="true">All</button>
-            <button type="button" class="cat-btn" data-cat="essay" aria-pressed="false">Field Essays</button>
-            <button type="button" class="cat-btn" data-cat="review" aria-pressed="false">Year in Review</button>
-            <button type="button" class="cat-btn" data-cat="blueprint" aria-pressed="false">Field Blueprints</button>
-          </div>
+          <div class="cat-pills" id="cat-pills" role="group" aria-label="Category filter"></div>
           <input type="search" class="news-search-input" id="news-search" aria-label="Filter by keyword..." placeholder="Filter by keyword...">
         </div>
 
@@ -320,7 +315,7 @@
             <span>No articles match your filter.</span>
             <button type="button" class="cat-btn" id="news-reset-btn">Reset filter</button>
           </div>
-          <article class="news-entry" data-category="essay">
+          <article class="news-entry" data-category="essay meetings">
             <span class="news-entry-meta">Field Essay · 27 November 2026 · Interactive Calculator</span>
             <h2>
               <a href="/news/hidden-meeting-time-drains/">Hidden Time Drains in Meetings: Why Ad-Hoc Chaos Costs More Than Scrum</a>
@@ -331,7 +326,7 @@
             <a href="/news/hidden-meeting-time-drains/" class="news-entry-link">Open the interactive calculator & essay</a>
           </article>
 
-          <article class="news-entry" data-category="review">
+          <article class="news-entry" data-category="review ai operations">
             <span class="news-entry-meta">Year in Review · 27 November 2026 · 10 min read</span>
             <h2>
               <a href="/news/scrum-year-in-review-2026/">Scrum Year in Review 2026: Fading in Big Tech, Growing Outside IT</a>
@@ -342,7 +337,7 @@
             <a href="/news/scrum-year-in-review-2026/" class="news-entry-link">Read the 2026 Year in Review</a>
           </article>
 
-          <article class="news-entry" data-category="blueprint">
+          <article class="news-entry" data-category="blueprint operations legacy">
             <span class="news-entry-meta">Field Blueprint · 26 November 2026 · 12 min read</span>
             <h2>
               <a href="/news/scrum-30-people-legacy-systems/">Scrum with 30 People, 12 Legacy Systems, and Daily Fires</a>
@@ -397,6 +392,7 @@
     (function () {
       'use strict';
       var PER_PAGE = 2;
+      var CAT_LABELS = {"blueprint": "Field Blueprints", "essay": "Field Essays", "review": "Market & Reviews", "meetings": "Meetings & Focus", "leadership": "Leadership & Roles", "operations": "Daily Operations", "legacy": "Legacy & Bottlenecks", "ai": "AI in Practice", "metrics": "Honest Metrics", "cases": "Industry Cases"};
       var entries = Array.prototype.slice.call(document.querySelectorAll(".news-ledger .news-entry"));
       var tocList = document.getElementById("news-toc-list");
       var pagNav = document.getElementById("news-pagination");
@@ -405,22 +401,59 @@
       var searchInput = document.getElementById("news-search");
       var emptyBox = document.getElementById("news-empty");
       var resetBtn = document.getElementById("news-reset-btn");
-      var catBtns = Array.prototype.slice.call(document.querySelectorAll(".cat-btn[data-cat]"));
-      if (!entries.length || !tocList || !pagNav) return;
+      var catWrap = document.getElementById("cat-pills");
+      if (!entries.length || !tocList || !pagNav || !catWrap) return;
 
       var activeCat = "all";
       var query = "";
       var params = new URLSearchParams(window.location.search);
       var currentPage = Math.max(1, parseInt(params.get("page"), 10) || 1);
 
+      var seenCats = [];
       entries.forEach(function (entry, idx) {
         entry.id = "article-" + (idx + 1);
+        var raw = (entry.getAttribute("data-category") || "").trim().split(/\s+/);
+        raw.forEach(function (c) {
+          if (c && seenCats.indexOf(c) === -1) seenCats.push(c);
+        });
       });
+
+      function buildCatButtons() {
+        catWrap.innerHTML = "";
+        var allBtn = document.createElement("button");
+        allBtn.type = "button";
+        allBtn.className = "cat-btn";
+        allBtn.setAttribute("data-cat", "all");
+        allBtn.setAttribute("aria-pressed", activeCat === "all" ? "true" : "false");
+        allBtn.textContent = "All (" + entries.length + ")";
+        catWrap.appendChild(allBtn);
+
+        seenCats.forEach(function (c) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cat-btn";
+          btn.setAttribute("data-cat", c);
+          btn.setAttribute("aria-pressed", activeCat === c ? "true" : "false");
+          btn.textContent = CAT_LABELS[c] || (c.charAt(0).toUpperCase() + c.slice(1));
+          catWrap.appendChild(btn);
+        });
+
+        Array.prototype.slice.call(catWrap.querySelectorAll(".cat-btn")).forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            activeCat = btn.getAttribute("data-cat");
+            Array.prototype.slice.call(catWrap.querySelectorAll(".cat-btn")).forEach(function (b) {
+              b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+            });
+            render(1, true);
+          });
+        });
+      }
 
       function getMatches() {
         var q = query.trim().toLowerCase();
         return entries.filter(function (entry) {
-          var catOk = activeCat === "all" || entry.getAttribute("data-category") === activeCat;
+          var cats = (entry.getAttribute("data-category") || "").trim().split(/\s+/);
+          var catOk = activeCat === "all" || cats.indexOf(activeCat) !== -1;
           var txtOk = !q || entry.textContent.toLowerCase().indexOf(q) !== -1;
           return catOk && txtOk;
         });
@@ -447,7 +480,6 @@
 
         emptyBox.classList.toggle("is-visible", matches.length === 0);
 
-        // Rebuild TOC for matched items
         tocList.innerHTML = "";
         matches.forEach(function (entry, mIdx) {
           var link = entry.querySelector("h2 a");
@@ -512,14 +544,6 @@
         }
       }
 
-      catBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          activeCat = btn.getAttribute("data-cat");
-          catBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-          render(1, true);
-        });
-      });
-
       if (searchInput) {
         searchInput.addEventListener("input", function () {
           query = searchInput.value;
@@ -532,11 +556,12 @@
           activeCat = "all";
           query = "";
           if (searchInput) searchInput.value = "";
-          catBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-cat") === "all" ? "true" : "false"); });
+          buildCatButtons();
           render(1, true);
         });
       }
 
+      buildCatButtons();
       render(currentPage, false);
     })();
   </script>

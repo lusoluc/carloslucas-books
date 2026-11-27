@@ -301,12 +301,7 @@
         </p>
 
         <div class="news-controls" id="news-controls">
-          <div class="cat-pills" role="group" aria-label="Category filter">
-            <button type="button" class="cat-btn" data-cat="all" aria-pressed="true">Alle</button>
-            <button type="button" class="cat-btn" data-cat="essay" aria-pressed="false">Praxis-Essays</button>
-            <button type="button" class="cat-btn" data-cat="review" aria-pressed="false">Jahresrückblick</button>
-            <button type="button" class="cat-btn" data-cat="blueprint" aria-pressed="false">Praxisleitfäden</button>
-          </div>
+          <div class="cat-pills" id="cat-pills" role="group" aria-label="Category filter"></div>
           <input type="search" class="news-search-input" id="news-search" aria-label="Stichwort filtern..." placeholder="Stichwort filtern...">
         </div>
 
@@ -320,7 +315,7 @@
             <span>Keine Beiträge passend zum Filter.</span>
             <button type="button" class="cat-btn" id="news-reset-btn">Filter zurücksetzen</button>
           </div>
-          <article class="news-entry" data-category="essay">
+          <article class="news-entry" data-category="essay meetings">
             <span class="news-entry-meta">Praxis-Essay · 27. November 2026 · Interaktiver Rechner</span>
             <h2>
               <a href="/de/news/verdeckte-zeitfresser-meetings/">Verdeckte Zeitfresser in Meetings: Warum Termin-Chaos mehr kostet als Scrum</a>
@@ -331,7 +326,7 @@
             <a href="/de/news/verdeckte-zeitfresser-meetings/" class="news-entry-link">Rechner & Praxis-Essay öffnen</a>
           </article>
 
-          <article class="news-entry" data-category="review">
+          <article class="news-entry" data-category="review ai operations">
             <span class="news-entry-meta">Jahresrückblick · 27. November 2026 · 10 Min. Lesezeit</span>
             <h2>
               <a href="/de/news/scrum-jahresrueckblick-2026/">Scrum-Jahresrückblick 2026: Weniger Hype in der IT, mehr Nutzen in den Fachbereichen</a>
@@ -342,7 +337,7 @@
             <a href="/de/news/scrum-jahresrueckblick-2026/" class="news-entry-link">Jahresrückblick 2026 lesen</a>
           </article>
 
-          <article class="news-entry" data-category="blueprint">
+          <article class="news-entry" data-category="blueprint operations legacy">
             <span class="news-entry-meta">Praxisleitfaden · 26. November 2026 · 12 Min. Lesezeit · inkl. 21-Min.-Audio-Diskussion</span>
             <h2>
               <a href="/de/news/scrum-30-personen-legacy-systeme/">Scrum mit 30 Leuten, 12 Legacy-Systemen und täglichem Feuerlöschen</a>
@@ -397,6 +392,7 @@
     (function () {
       'use strict';
       var PER_PAGE = 2;
+      var CAT_LABELS = {"blueprint": "Praxisleitfäden", "essay": "Praxis-Essays", "review": "Markt & Rückblick", "meetings": "Meetings & Zeit", "leadership": "Führung & Rollen", "operations": "Tagesgeschäft", "legacy": "Legacy & Engpässe", "ai": "KI im Alltag", "metrics": "Zahlen & Wahrheit", "cases": "Branchen-Fälle"};
       var entries = Array.prototype.slice.call(document.querySelectorAll(".news-ledger .news-entry"));
       var tocList = document.getElementById("news-toc-list");
       var pagNav = document.getElementById("news-pagination");
@@ -405,22 +401,59 @@
       var searchInput = document.getElementById("news-search");
       var emptyBox = document.getElementById("news-empty");
       var resetBtn = document.getElementById("news-reset-btn");
-      var catBtns = Array.prototype.slice.call(document.querySelectorAll(".cat-btn[data-cat]"));
-      if (!entries.length || !tocList || !pagNav) return;
+      var catWrap = document.getElementById("cat-pills");
+      if (!entries.length || !tocList || !pagNav || !catWrap) return;
 
       var activeCat = "all";
       var query = "";
       var params = new URLSearchParams(window.location.search);
       var currentPage = Math.max(1, parseInt(params.get("page"), 10) || 1);
 
+      var seenCats = [];
       entries.forEach(function (entry, idx) {
         entry.id = "article-" + (idx + 1);
+        var raw = (entry.getAttribute("data-category") || "").trim().split(/\s+/);
+        raw.forEach(function (c) {
+          if (c && seenCats.indexOf(c) === -1) seenCats.push(c);
+        });
       });
+
+      function buildCatButtons() {
+        catWrap.innerHTML = "";
+        var allBtn = document.createElement("button");
+        allBtn.type = "button";
+        allBtn.className = "cat-btn";
+        allBtn.setAttribute("data-cat", "all");
+        allBtn.setAttribute("aria-pressed", activeCat === "all" ? "true" : "false");
+        allBtn.textContent = "Alle (" + entries.length + ")";
+        catWrap.appendChild(allBtn);
+
+        seenCats.forEach(function (c) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cat-btn";
+          btn.setAttribute("data-cat", c);
+          btn.setAttribute("aria-pressed", activeCat === c ? "true" : "false");
+          btn.textContent = CAT_LABELS[c] || (c.charAt(0).toUpperCase() + c.slice(1));
+          catWrap.appendChild(btn);
+        });
+
+        Array.prototype.slice.call(catWrap.querySelectorAll(".cat-btn")).forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            activeCat = btn.getAttribute("data-cat");
+            Array.prototype.slice.call(catWrap.querySelectorAll(".cat-btn")).forEach(function (b) {
+              b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+            });
+            render(1, true);
+          });
+        });
+      }
 
       function getMatches() {
         var q = query.trim().toLowerCase();
         return entries.filter(function (entry) {
-          var catOk = activeCat === "all" || entry.getAttribute("data-category") === activeCat;
+          var cats = (entry.getAttribute("data-category") || "").trim().split(/\s+/);
+          var catOk = activeCat === "all" || cats.indexOf(activeCat) !== -1;
           var txtOk = !q || entry.textContent.toLowerCase().indexOf(q) !== -1;
           return catOk && txtOk;
         });
@@ -447,7 +480,6 @@
 
         emptyBox.classList.toggle("is-visible", matches.length === 0);
 
-        // Rebuild TOC for matched items
         tocList.innerHTML = "";
         matches.forEach(function (entry, mIdx) {
           var link = entry.querySelector("h2 a");
@@ -512,14 +544,6 @@
         }
       }
 
-      catBtns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          activeCat = btn.getAttribute("data-cat");
-          catBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-          render(1, true);
-        });
-      });
-
       if (searchInput) {
         searchInput.addEventListener("input", function () {
           query = searchInput.value;
@@ -532,11 +556,12 @@
           activeCat = "all";
           query = "";
           if (searchInput) searchInput.value = "";
-          catBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-cat") === "all" ? "true" : "false"); });
+          buildCatButtons();
           render(1, true);
         });
       }
 
+      buildCatButtons();
       render(currentPage, false);
     })();
   </script>
