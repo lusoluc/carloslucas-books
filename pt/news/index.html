@@ -100,6 +100,139 @@
       text-decoration: underline;
       text-decoration-color: var(--accent-red);
     }
+
+    .news-toc {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--brand-navy);
+      padding: 1rem 1.25rem;
+      margin: 1.4rem 0 1.8rem;
+    }
+    .news-toc-title {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-red);
+      margin-bottom: 0.55rem;
+    }
+    .news-toc-list {
+      list-style: decimal;
+      padding-left: 1.25rem;
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .news-toc-list li { margin-bottom: 0.3rem; }
+    .news-toc-list a {
+      color: var(--brand-navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .news-toc-list a:hover {
+      color: var(--accent-red);
+      text-decoration: underline;
+    }
+    .news-toc-meta {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-left: 0.35rem;
+    }
+    .news-pagination {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 1.6rem 0 1.8rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-sans);
+    }
+    .pag-info {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .pag-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .pag-btn {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.38rem 0.75rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .pag-btn:hover:not(:disabled) { border-color: var(--brand-navy); }
+    .pag-btn[aria-current="page"] {
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      border-color: var(--brand-navy);
+    }
+    .pag-btn:disabled { opacity: 0.45; cursor: default; }
+    .news-entry.is-paged-out { display: none; }
+
+    .news-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 1.4rem 0 1rem;
+    }
+    .cat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .cat-btn {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.36rem 0.72rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .cat-btn:hover { border-color: var(--brand-navy); }
+    .cat-btn[aria-pressed="true"] {
+      background: var(--brand-navy);
+      color: var(--bg-card);
+      border-color: var(--brand-navy);
+    }
+    .news-search-input {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      padding: 0.4rem 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-main);
+      border-radius: 3px;
+      min-width: 210px;
+    }
+    .news-empty {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      margin: 1rem 0;
+      display: none;
+    }
+    .news-empty.is-visible { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; }
+    .news-entry.is-filtered-out { display: none; }
   </style>
 
   <!-- Structured Data: CollectionPage -->
@@ -167,8 +300,27 @@
           Guias práticos e resumos mensais serenos para responsáveis de operações, equipas de negócio e profissionais que aplicam Scrum fora do desenvolvimento de software. Sem ruído diário nem jargão de consultoria, apenas formas de trabalhar testadas sob pressão real.
         </p>
 
+        <div class="news-controls" id="news-controls">
+          <div class="cat-pills" role="group" aria-label="Category filter">
+            <button type="button" class="cat-btn" data-cat="all" aria-pressed="true">Todos</button>
+            <button type="button" class="cat-btn" data-cat="essay" aria-pressed="false">Ensaios práticos</button>
+            <button type="button" class="cat-btn" data-cat="review" aria-pressed="false">Balanço anual</button>
+            <button type="button" class="cat-btn" data-cat="blueprint" aria-pressed="false">Guias práticos</button>
+          </div>
+          <input type="search" class="news-search-input" id="news-search" aria-label="Filtrar por palavra..." placeholder="Filtrar por palavra...">
+        </div>
+
+        <nav class="news-toc" aria-label="Índice de publicações">
+          <div class="news-toc-title">Índice de publicações</div>
+          <ol class="news-toc-list" id="news-toc-list"></ol>
+        </nav>
+
         <section class="news-ledger" aria-label="Artigos e guias publicados">
-          <article class="news-entry">
+          <div class="news-empty" id="news-empty">
+            <span>Nenhum artigo corresponde ao filtro.</span>
+            <button type="button" class="cat-btn" id="news-reset-btn">Repor filtro</button>
+          </div>
+          <article class="news-entry" data-category="essay">
             <span class="news-entry-meta">Ensaio prático · 27 de novembro de 2026 · Calculadora interativa</span>
             <h2>
               <a href="/pt/news/ladroes-ocultos-tempo-reunioes/">Ladrões ocultos de tempo em reuniões: Porque o caos custa mais do que o Scrum</a>
@@ -179,7 +331,7 @@
             <a href="/pt/news/ladroes-ocultos-tempo-reunioes/" class="news-entry-link">Abrir calculadora e ensaio</a>
           </article>
 
-          <article class="news-entry">
+          <article class="news-entry" data-category="review">
             <span class="news-entry-meta">Balanço anual · 27 de novembro de 2026 · 10 min de leitura</span>
             <h2>
               <a href="/pt/news/scrum-balanco-anual-2026/">Balanço de Scrum 2026: Menos peso em TI, mais procura noutras áreas</a>
@@ -190,7 +342,7 @@
             <a href="/pt/news/scrum-balanco-anual-2026/" class="news-entry-link">Ler o balanço anual 2026</a>
           </article>
 
-          <article class="news-entry">
+          <article class="news-entry" data-category="blueprint">
             <span class="news-entry-meta">Guia prático · 26 de novembro de 2026 · 12 min de leitura</span>
             <h2>
               <a href="/pt/news/scrum-30-pessoas-sistemas-legacy/">Scrum com 30 pessoas, 12 sistemas legacy e urgências diárias</a>
@@ -201,6 +353,11 @@
             <a href="/pt/news/scrum-30-pessoas-sistemas-legacy/" class="news-entry-link">Ler o guia prático completo</a>
           </article>
         </section>
+
+        <nav class="news-pagination" id="news-pagination" aria-label="Pagination">
+          <span class="pag-info" id="pag-info"></span>
+          <div class="pag-controls" id="pag-controls"></div>
+        </nav>
 
         <div class="note-box">
           <strong>Preferes a versão curta cerca de cinco vezes por ano?</strong><br>
@@ -236,5 +393,152 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      'use strict';
+      var PER_PAGE = 2;
+      var entries = Array.prototype.slice.call(document.querySelectorAll(".news-ledger .news-entry"));
+      var tocList = document.getElementById("news-toc-list");
+      var pagNav = document.getElementById("news-pagination");
+      var pagInfo = document.getElementById("pag-info");
+      var pagControls = document.getElementById("pag-controls");
+      var searchInput = document.getElementById("news-search");
+      var emptyBox = document.getElementById("news-empty");
+      var resetBtn = document.getElementById("news-reset-btn");
+      var catBtns = Array.prototype.slice.call(document.querySelectorAll(".cat-btn[data-cat]"));
+      if (!entries.length || !tocList || !pagNav) return;
+
+      var activeCat = "all";
+      var query = "";
+      var params = new URLSearchParams(window.location.search);
+      var currentPage = Math.max(1, parseInt(params.get("page"), 10) || 1);
+
+      entries.forEach(function (entry, idx) {
+        entry.id = "article-" + (idx + 1);
+      });
+
+      function getMatches() {
+        var q = query.trim().toLowerCase();
+        return entries.filter(function (entry) {
+          var catOk = activeCat === "all" || entry.getAttribute("data-category") === activeCat;
+          var txtOk = !q || entry.textContent.toLowerCase().indexOf(q) !== -1;
+          return catOk && txtOk;
+        });
+      }
+
+      function render(page, updateUrl) {
+        var matches = getMatches();
+        var totalPages = Math.max(1, Math.ceil(matches.length / PER_PAGE));
+        currentPage = Math.min(totalPages, Math.max(1, page));
+        var start = (currentPage - 1) * PER_PAGE;
+        var end = start + PER_PAGE;
+
+        entries.forEach(function (entry) {
+          entry.classList.add("is-filtered-out");
+          entry.classList.remove("is-paged-out");
+        });
+
+        matches.forEach(function (entry, mIdx) {
+          entry.classList.remove("is-filtered-out");
+          if (mIdx < start || mIdx >= end) {
+            entry.classList.add("is-paged-out");
+          }
+        });
+
+        emptyBox.classList.toggle("is-visible", matches.length === 0);
+
+        // Rebuild TOC for matched items
+        tocList.innerHTML = "";
+        matches.forEach(function (entry, mIdx) {
+          var link = entry.querySelector("h2 a");
+          var meta = entry.querySelector(".news-entry-meta");
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          a.href = "#" + entry.id;
+          a.textContent = link ? link.textContent : ("Article " + (mIdx + 1));
+          a.addEventListener("click", function (e) {
+            e.preventDefault();
+            var targetPage = Math.floor(mIdx / PER_PAGE) + 1;
+            render(targetPage, true);
+            entry.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+          li.appendChild(a);
+          if (meta) {
+            var span = document.createElement("span");
+            span.className = "news-toc-meta";
+            span.textContent = "(" + meta.textContent.split("·")[0].trim() + ")";
+            li.appendChild(span);
+          }
+          tocList.appendChild(li);
+        });
+
+        pagInfo.textContent = matches.length ? ("Página " + currentPage + " / " + totalPages) : "0 / 0";
+        pagControls.innerHTML = "";
+
+        var prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "pag-btn";
+        prevBtn.textContent = "Anterior";
+        prevBtn.disabled = currentPage <= 1 || matches.length === 0;
+        prevBtn.addEventListener("click", function () { render(currentPage - 1, true); });
+        pagControls.appendChild(prevBtn);
+
+        for (var i = 1; i <= totalPages; i++) {
+          (function (pNum) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "pag-btn";
+            b.textContent = String(pNum);
+            if (pNum === currentPage) b.setAttribute("aria-current", "page");
+            b.disabled = matches.length === 0;
+            b.addEventListener("click", function () { render(pNum, true); });
+            pagControls.appendChild(b);
+          })(i);
+        }
+
+        var nextBtn = document.createElement("button");
+        nextBtn.type = "button";
+        nextBtn.className = "pag-btn";
+        nextBtn.textContent = "Seguinte";
+        nextBtn.disabled = currentPage >= totalPages || matches.length === 0;
+        nextBtn.addEventListener("click", function () { render(currentPage + 1, true); });
+        pagControls.appendChild(nextBtn);
+
+        if (updateUrl) {
+          var url = new URL(window.location.href);
+          if (currentPage === 1) url.searchParams.delete("page");
+          else url.searchParams.set("page", String(currentPage));
+          window.history.replaceState({}, "", url.toString());
+        }
+      }
+
+      catBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          activeCat = btn.getAttribute("data-cat");
+          catBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+          render(1, true);
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          query = searchInput.value;
+          render(1, true);
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", function () {
+          activeCat = "all";
+          query = "";
+          if (searchInput) searchInput.value = "";
+          catBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-cat") === "all" ? "true" : "false"); });
+          render(1, true);
+        });
+      }
+
+      render(currentPage, false);
+    })();
+  </script>
 </body>
 </html>
