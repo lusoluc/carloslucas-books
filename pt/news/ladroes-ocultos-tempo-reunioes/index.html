@@ -70,6 +70,14 @@
     .breakdown-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 0.9rem; }
     .breakdown-table th, .breakdown-table td { text-align: left; padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--border-subtle); }
     .hidden { display: none !important; }
+    .video-briefing { background-color: var(--bg-paper); border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-red); padding: 1.25rem 1.45rem; margin: 0 0 2rem; }
+    .video-briefing-eyebrow { font-family: var(--font-sans); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--accent-red); display: block; margin-bottom: 0.35rem; }
+    .video-briefing-title { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 700; color: var(--brand-navy); margin-bottom: 0.45rem; line-height: 1.32; }
+    .video-briefing-desc { font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.58; color: var(--text-main); margin-bottom: 0.9rem; }
+    .video-briefing video { display: block; width: 100%; height: auto; border: 1px solid var(--border-subtle); background: #000; margin-bottom: 0.65rem; border-radius: 2px; }
+    .video-briefing-meta { font-family: var(--font-sans); font-size: 0.78rem; line-height: 1.5; color: var(--text-muted); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.35rem 1rem; }
+    .video-briefing-meta a { color: var(--brand-navy); font-weight: 600; }
+    .video-briefing-meta a:hover { color: var(--accent-red); }
     @media (max-width: 720px) { .inputs-grid, .compare-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -94,11 +102,27 @@
         <span class="eyebrow">Ensaio prático · Tempo e foco</span>
         <h1>Ladrões ocultos de tempo em reuniões: Porque o caos custa mais do que o Scrum</h1>
         <p class="article-meta">
-          Por Carlos Lucas &middot; 27 de novembro de 2026 &middot; Ler em
+          Por Carlos Lucas &middot; 27 de novembro de 2026 &middot; incl. Vídeo explicativo (5:23 min) &middot; Ler em
           <a href="/news/hidden-meeting-time-drains/">English</a>,
           <a href="/de/news/verdeckte-zeitfresser-meetings/">Deutsch</a>,
           <a href="/es/news/ladrones-ocultos-tiempo-reuniones/">Español</a>
         </p>
+
+        <aside class="video-briefing" aria-labelledby="video-briefing-heading">
+          <span class="video-briefing-eyebrow">Vídeo explicativo · Português · 5:23 min</span>
+          <div id="video-briefing-heading" class="video-briefing-title">Preferes ver o resumo em vídeo?</div>
+          <p class="video-briefing-desc">
+            Este vídeo curto explica como os atrasos ao iniciar, as trocas constantes de contexto e os reagendamentos consomem horas de trabalho sem aparecerem no calendário, e como uma cadência Scrum simples devolve foco à equipa.
+          </p>
+          <video controls preload="metadata" playsinline>
+            <source src="/assets/video/Scrum_Alem.mp4" type="video/mp4">
+            O teu navegador não suporta vídeo HTML5 incorporado. Podes descarregar o ficheiro abaixo.
+          </video>
+          <div class="video-briefing-meta">
+            <span>Alojado diretamente sem cookies nem rastreadores externos.</span>
+            <a href="/assets/video/Scrum_Alem.mp4" download>Descarregar MP4 (19 MB)</a>
+          </div>
+        </aside>
 
         <p class="doc-lead">
           Sempre que uma área fora de TI pondera experimentar Scrum, surge a mesma objeção: "Não temos tempo para mais quatro reuniões." Mas quando medes uma semana sem cadência fixa, o verdadeiro custo não está na agenda visível, mas no desgaste silencioso à volta dela.
