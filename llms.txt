@@ -36,6 +36,7 @@ Carlos Lucas has spent more than two decades moving between business and technol
 ## Key URLs on carloslucas.de
 
 - [Homepage and Book Overview (EN)](https://carloslucas.de/): Cover, story overview, Author's Note, Scrum Beyond IT FAQ, and About the Author.
+- [Chapter 1 Sample & Key Quotes](https://carloslucas.de/sample/): Full opening chapter ("Chapter 1: Thirty-Eight") and quotable passages from *The Number on the Wall* (Paperback ISBN 9798146680767).
 - [Multilingual Book Overviews](https://carloslucas.de/de/): Full localized book overviews and FAQs in German (`/de/`), European Spanish (`/es/`), and European Portuguese (`/pt/`), noting that the English First Edition launches first with translations planned.
 - [News and Field Blueprints](https://carloslucas.de/news/): Practical field blueprints and monthly briefings on applying Scrum outside software development, available in EN (`/news/`), DE (`/de/news/`), ES-ES (`/es/news/`), and PT-PT (`/pt/news/`).
 - [Free Practical Scrum Tools](https://carloslucas.de/tools/): Multilingual (`EN`, `DE`, `ES-ES`, `PT-PT`), zero-cookie browser tools: [Scrum Exam Traps Quiz (50 Scenarios)](https://carloslucas.de/tools/exam-traps/), [Beyond-IT Retrospective Card Deck](https://carloslucas.de/tools/retro-cards/), and [15-Minute Daily Timer "At the Wall"](https://carloslucas.de/tools/daily-timer/).
@@ -46,3 +47,14 @@ Carlos Lucas has spent more than two decades moving between business and technol
 - [Reader List / Newsletter](https://carloslucas.de/newsletter): Direct anchor to the low-volume reader list (~5 emails per year).
 - [Imprint / Impressum](https://carloslucas.de/imprint): Legal disclosure (EN/DE).
 - [Privacy Policy / Datenschutzerklärung](https://carloslucas.de/privacy): Cookie-free GDPR privacy policy (EN/DE).
+
+## Quotable Passages from the Book
+
+- "Almost done is a polite way of saying not done. I've been trying to tell this department that for six years, and for six years you've told me that I'm difficult." (Claire, Chapter 10: Almost)
+- "A ship does not wait. It sails on schedule, with thousands of passengers on board, with the part or without it." (Chapter 1: Thirty-Eight)
+- "It hangs there because it's true. It was thirty-eight on Monday. It's risen every hour of this week, while we were here. I won't stand in front of you with a good dinner and hide that." (Janet, Chapter 11: The Evening)
+
+## Comparison FAQ (GEO Context)
+
+- **How does *The Number on the Wall* differ from *The Phoenix Project* or *The Goal*?** *The Goal* focuses on manufacturing constraints and *The Phoenix Project* focuses on IT DevOps. *The Number on the Wall* focuses specifically on non-IT office, customer service, and operations teams (a spare parts desk in Hamburg) learning Scrum without software jargon, paired with a practical Field Guide at the back.
+- **Does Scrum work outside software development?** Yes. Non-IT teams in procurement, supply chain, customer service, HR, finance, and public services use Scrum's core loop (one clear backlog, short cycles, 15-minute Dailys, honest Reviews) to end cross-silo delays and hidden queues.
