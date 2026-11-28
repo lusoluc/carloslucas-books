@@ -8,6 +8,7 @@
 - **Subtitle:** A Business Novel About Scrum Beyond IT
 - **Author:** Carlos Lucas
 - **Format:** Business Novel and Practical Field Guide (Paperback and Kindle Edition)
+- **Paperback ISBN (EN):** 9798146680767 (6 x 9 in / 15.24 x 22.86 cm, matte cover, cream paper)
 - **Language:** English (First Edition). German, Spanish, and Portuguese editions planned.
 - **Setting:** A spare parts desk at Ashby & Co. in Hamburg, Germany (fictionalised companies: Ashby & Co., Corvane Cruise Group, Varnholt Process Services).
 - **Premise:** Every status report is green, while customers grow angry and backlogs pile up. When George and his colleagues stop pretending a broken plan works and pin the real, uncomfortable number ("38") on the wall, blame gives way to shared visibility and practical Scrum habits outside software development.
