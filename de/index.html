@@ -37,87 +37,89 @@
   <!-- Structured Data: Person, Book, FAQPage -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://carloslucas.de/#author",
-        "name": "Carlos Lucas",
-        "url": "https://carloslucas.de/de/",
-        "description": "Autor von The Number on the Wall. Seit mehr als zwei Jahrzehnten zwischen Fachbereich und Technologie unterwegs, hilft Teams außerhalb der IT mit praxisnahen Methoden statt Schlagworten.",
-        "homeLocation": {
-          "@type": "Place",
-          "name": "Hamburg, Deutschland"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/it-for-humans/",
-          "https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm"
-        ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://carloslucas.de/#author",
+      "name": "Carlos Lucas",
+      "url": "https://carloslucas.de/de/",
+      "description": "Autor von The Number on the Wall. Seit mehr als zwei Jahrzehnten zwischen Fachbereich und Technologie unterwegs, hilft Teams außerhalb der IT mit praxisnahen Methoden statt Schlagworten.",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Hamburg, Deutschland"
       },
-      {
-        "@type": "Book",
-        "@id": "https://carloslucas.de/de/#book",
-        "name": "The Number on the Wall",
-        "alternateName": "The Number on the Wall: Ein Business-Roman über Scrum außerhalb der IT",
-        "author": {
-          "@id": "https://carloslucas.de/#author"
-        },
-        "url": "https://carloslucas.de/de/",
-        "image": "https://carloslucas.de/assets/cover-the-number-on-the-wall.jpg",
-        "inLanguage": "de",
-        "genre": [
-          "Business-Roman",
-          "Management",
-          "Agile und Scrum"
-        ],
-        "about": [
-          "Scrum außerhalb der IT",
-          "Agiles Arbeiten in Fachabteilungen",
-          "Operations Management",
-          "Visuelles Management"
-        ],
-        "description": "An einem Ersatzteil-Desk in Hamburg verbindet The Number on the Wall einen Business-Roman mit einem kompakten Field Guide für Teams außerhalb der Softwareentwicklung."
+      "sameAs": [
+        "https://www.linkedin.com/in/it-for-humans/",
+        "https://open.spotify.com/artist/0n5fZ8BYZffnaL8Ug45Vjm"
+      ]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://carloslucas.de/de/#book",
+      "name": "The Number on the Wall",
+      "alternateName": "The Number on the Wall: Ein Business-Roman über Scrum außerhalb der IT",
+      "author": {
+        "@id": "https://carloslucas.de/#author"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://carloslucas.de/de/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Funktioniert Scrum wirklich außerhalb der IT?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Scrum hat sehr wenig mit Programmieren zu tun. Im Kern ist es eine schlichte Disziplin für unübersichtliche, wechselhafte Arbeit in kurzen Zyklen: den echten Rückstau sichtbar machen, sich auf das Wichtigste dieser Woche konzentrieren, ehrliche Ergebnisse prüfen und nachsteuern, bevor Monate vergehen."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Ist The Number on the Wall ein Roman oder ein Fachbuch?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Es ist beides. Der Hauptteil ist eine Geschichte an einem Ersatzteil-Desk in Hamburg, in der George und seine Kollegen aufhören, Statusberichte grün zu färben. Im hinteren Teil übersetzt ein kompakter Field Guide jede Gewohnheit aus dem Roman in klare Schritte für den eigenen Montagmorgen."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Wann erscheint die deutsche Ausgabe?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Die englische Erstausgabe erscheint zuerst als Taschenbuch und Kindle-Ausgabe. Die deutsche, spanische und portugiesische Übersetzung folgen im Anschluss. Über die Leserliste erfährst du als Erstes, sobald die deutsche Ausgabe startet."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Was bedeutet die Zahl an der Wand?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sie steht für die eine unbequeme Tatsache, die ein Team nicht länger hinter grünen Statusfolien versteckt, symbolisiert durch die handgeschriebene rote 38 auf einer schlichten Karteikarte. Sobald diese Zahl offen hängt, endet das höfliche Theater und die echte Lösung beginnt."
-            }
+      "url": "https://carloslucas.de/de/",
+      "image": "https://carloslucas.de/assets/cover-the-number-on-the-wall.jpg",
+      "inLanguage": "de",
+      "genre": [
+        "Business-Roman",
+        "Management",
+        "Agile und Scrum"
+      ],
+      "about": [
+        "Scrum außerhalb der IT",
+        "Agiles Arbeiten in Fachabteilungen",
+        "Operations Management",
+        "Visuelles Management"
+      ],
+      "description": "An einem Ersatzteil-Desk in Hamburg verbindet The Number on the Wall einen Business-Roman mit einem kompakten Field Guide für Teams außerhalb der Softwareentwicklung.",
+      "isbn": "9798146680767",
+      "bookEdition": "First Edition (English)"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://carloslucas.de/de/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Funktioniert Scrum wirklich außerhalb der IT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Scrum hat sehr wenig mit Programmieren zu tun. Im Kern ist es eine schlichte Disziplin für unübersichtliche, wechselhafte Arbeit in kurzen Zyklen: den echten Rückstau sichtbar machen, sich auf das Wichtigste dieser Woche konzentrieren, ehrliche Ergebnisse prüfen und nachsteuern, bevor Monate vergehen."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist The Number on the Wall ein Roman oder ein Fachbuch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es ist beides. Der Hauptteil ist eine Geschichte an einem Ersatzteil-Desk in Hamburg, in der George und seine Kollegen aufhören, Statusberichte grün zu färben. Im hinteren Teil übersetzt ein kompakter Field Guide jede Gewohnheit aus dem Roman in klare Schritte für den eigenen Montagmorgen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wann erscheint die deutsche Ausgabe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die englische Erstausgabe erscheint zuerst als Taschenbuch und Kindle-Ausgabe. Die deutsche, spanische und portugiesische Übersetzung folgen im Anschluss. Über die Leserliste erfährst du als Erstes, sobald die deutsche Ausgabe startet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was bedeutet die Zahl an der Wand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sie steht für die eine unbequeme Tatsache, die ein Team nicht länger hinter grünen Statusfolien versteckt, symbolisiert durch die handgeschriebene rote 38 auf einer schlichten Karteikarte. Sobald diese Zahl offen hängt, endet das höfliche Theater und die echte Lösung beginnt."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -223,6 +225,14 @@
             <p>
               Wenn die Geschichte endet, lässt dich das Buch nicht allein. Ein kompakter Praxisteil in klarer Alltagssprache übersetzt jede Gewohnheit aus dem Roman in konkrete Schritte für Nicht-IT-Teams: wie du ein sichtbares Board aufbaust, kurze fokussierte Zyklen führst und verhinderst, dass Statusrunden wieder zur reinen Pflichtübung verkommen.
             </p>
+
+            <div class="book-quotes-box" style="margin-top:1.4rem; padding:1rem 1.2rem; background:var(--bg-paper); border:1px solid var(--border-subtle); border-left:3px solid var(--accent-red);">
+              <h4 style="font-size:0.92rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-red); margin-bottom:0.6rem;">Drei Zitate aus dem Buch</h4>
+              <p style="margin-bottom:0.55rem;"><em>„Fast fertig ist eine höfliche Art zu sagen: nicht fertig.“</em> <span style="color:var(--text-muted); font-size:0.86rem;">(Claire, Kapitel 10)</span></p>
+              <p style="margin-bottom:0.55rem;"><em>„Ein Schiff wartet nicht. Es legt nach Fahrplan ab, mit oder ohne Ersatzteil.“</em> <span style="color:var(--text-muted); font-size:0.86rem;">(Kapitel 1: Thirty-Eight)</span></p>
+              <p style="margin-bottom:0.55rem;"><em>„Sie hängt dort, weil sie wahr ist. Am Montag stand dort 38. Ich stelle mich nicht mit einem guten Abendessen vor euch und verstecke diese Zahl.“</em> <span style="color:var(--text-muted); font-size:0.86rem;">(Janet, Kapitel 11)</span></p>
+              <p style="margin:0.6rem 0 0; font-size:0.88rem;"><a href="/sample/">Kapitel 1 &amp; weitere Original-Zitate auf Englisch lesen</a></p>
+            </div>
           </div>
         </div>
       </div>
